@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Cat Universe</string>
+
+    //Cat Keys
+    <string name="cat_gray">gray</string>
+    <string name="cat_orange">orange</string>
+    <string name="cat_green_alien">greenAlien</string>
+    <string name="cat_shadow">shadow</string>
+    <string name="main_coon">mainCoon</string>
+
+    //InventoryItems
+    <string name="Asteroid">asteroid</string>
+    <string name="BlueKey">bluekey</string>
+    <string name="YellowKey">yellowkey</string>
+
+    //MenuView
+    <string name="cat_universe">Cat Universe</string>
+    <string name="play_time_game">Play Time Levels</string>
+    <string name="play_maths">Play Mathematics</string>
+    <string name="play_strategy">Play Strategy</string>
+
+    // Strategy
+    <string name="next_wave_in">Next wave in: </string>
+    <string name="wave">Wave </string>
+    <string name="left_to_defeat">Left to defeat: </string>
+    <string name="money">Money: </string>
+    <string name="price">Price: </string>
+    <string name="delay">Delay: </string>
+    <string name="power">Power: </string>
+    <string name="health">Health: </string>
+    <string name="strategy">strategy</string>
+    <string name="strategy_caps">Strategy</string>
+
+
+    // Time
+    <string name="inventory">Inventory</string>
+    <string name="time_is_up">Time is up!</string>
+    <string name="time">time</string>
+    <string name="time_caps">Time</string>
+
+    //Maths
+    <string name="left">Left: </string>
+    <string name="maths">maths</string>
+    <string name="maths_caps">Maths</string>
+
+
+    //Rooms
+    <string name="rooms">Rooms</string>
+    <string name="go_to_the_room">Go to the room</string>
+    <string name="current_room">Current room: </string>
+    <string name="add">Add</string>
+    <string name="choose_cat">Choose</string>
+
+    <string name="space_base">Space base</string>
+    <string name="laboratory">Laboratory</string>
+    <string name="moon">Moon</string>
+
+
+    //Base
+    <string name="level">Level </string>
+    <string name="choose">Choose level</string>
+    <string name="you_completed_level">You completed level </string>
+    <string name="you_lost">You lost!</string>
+    <string name="play_again">Play again</string>
+    <string name="back">Back </string>
+    <string name="continue_game">Continue </string>
+    <string name="lives">Lives: </string>
+    <string name="reward">Reward: </string>
+    <string name="congrats_u_win">Congratulations! You won!</string>
+    <string name="claim">Claim</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="finish">Finish</string>
+    <string name="available">Available</string>
+    <string name="cats">Cats</string>
+    <string name="in_dev">In the development</string>
+    <string name="credits">Credits</string>
+
+    //About
+    <string name="maths_description">In the maths type of levels you need to catch correct answers on the questions you can see at the moving player. You lose live catching wrong answer. Player moves to the side where your finger is hold. </string>
+    <string name="strategy_description">In the strategy type of levels you need to rationally use your money for buying new characters and power upping existing ones. To defeat all enemies and try not to lose lives. You can click on character you want to buy in the store and put it into the dot in the left side. You can click on the cat to change its specifications. You earn money by defeating enemies. </string>
+    <string name="time_description">In the time type of levels you need to get to finish in time and also complete some tasks. You can move left and right if you hold your finger on the appropriate side of the screen. To jump you need to swipe your finger up on the screen</string>
+    <string name="cats_description">You can earn new cats by completing levels and use them as players in time levels or strategy levels. Before using cat you need to add it into room. When cat is added you need to choose it.</string>
+    <string name="rooms_description">Rooms are needed for using cats you won. Each room has 3 free places. In upcoming game update you will be able to win new rooms for new characters. At the moment there are rooms: Space Base, Laboratory and Moon</string>
+
+
+</resources>
