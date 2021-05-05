@@ -7,6 +7,7 @@ import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
 
 //В РАЗРАБОТКЕ
 public class Level7 extends TimeLevel {
+
     protected Level7(int twoStars, int threeStars, double totalTime, Bitmap background, Bitmap ground, int lives, Media.Music music) {
         super(twoStars, threeStars, totalTime, background, ground, lives, music);
     }

@@ -44,6 +44,8 @@ public class MathsAnswer extends GameItem {
                 expression = derivative[(int) (Math.random() * (questionEnd - questionStart) + questionStart)];
                 step = 7;
                 break;
+            case "antiderivative":
+                break;
         }
         plus = (int) (Math.random() * (10 - 5) + 5);
 

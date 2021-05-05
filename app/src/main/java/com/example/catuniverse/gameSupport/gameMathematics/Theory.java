@@ -32,7 +32,7 @@ public class Theory {
         expressions.add("sin2α = 2 * sinα * cosα");//14
 
         //производные
-        expressions.add("c' = 0"); //15
+        expressions.add("с' = 0"); //15
         expressions.add("x' = 1");
         expressions.add("x²' = 2x");
         expressions.add("√x' = 1/2√x");
@@ -107,10 +107,12 @@ public class Theory {
             result = expr.replace("x", answer);
         else result = expr.replace("?", answer); //иначе - заменить вопрос
 
+        System.out.println("Result is " + result);
         //Если полученное выражение совпало с одним из теории
         for (int i = 0; i < expressions.size(); i++)
-            if (result.equals(expressions.get(i)))
+            if (result.equals(expressions.get(i))) {
                 return true;
+            }
         return false;
     }
 
@@ -118,7 +120,7 @@ public class Theory {
         return expressions;
     }
 
-     ArrayList<String> getQuestions() {
+    ArrayList<String> getQuestions() {
         return questions;
     }
 }

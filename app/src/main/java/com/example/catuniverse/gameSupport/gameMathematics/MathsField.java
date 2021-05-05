@@ -31,7 +31,6 @@ public class MathsField implements Loopable {
     private Theory theory;
     private Random random;
     private int step;
-  //  private BasicButton exit;
     private int total;
     private int lives, requestedLives;
     private boolean gameOver, won;
@@ -109,13 +108,6 @@ public class MathsField implements Loopable {
         //Проверка победы и поражения
         winOrLose(total, lives);
 
-        //Выйти из уровня в основное меню
-//        if (exit.isClicked()) {
-//            mainRunActivity.setView(new ChooseView(mainRunActivity, mainRunActivity.getString(R.string.maths)));
-//            exit.notClicked();
-//        }
-
-
         for (int i = 0; i < mathsAnswers.size(); i++)
             //Проверка столкновения игрока и ответа
             if (CollisionDetectors.checkTwoItemCollision(mathsPlayer, mathsAnswers.get(i))) {
@@ -175,9 +167,7 @@ public class MathsField implements Loopable {
     }
 
     @Override
-    public void repaint(double speed, double jumSpeed) {
-
-    }
+    public void repaint(double speed, double jumSpeed) { }
 
     public int getRequestedLives() {
         return requestedLives;
@@ -191,26 +181,3 @@ public class MathsField implements Loopable {
         return music;
     }
 }
-
-//        int b = 0;
-//        while (b == a) b = (int) (Math.random() * (theoryEnd - theoryStart) + theoryStart);
-//
-//        a = b;
-//        System.out.println("RANDOM A " + a);
-//
-//        String str = theory.getExpressions().get(a);
-//
-//        String[] values = str.split(" ");
-//
-//        int c = random.nextInt(values.length - 1);
-//        while (values[c].equals("²")||values[c].equals("=")){
-//            c = random.nextInt(values.length - 1);
-//        }
-//
-//         values[c] = "x";
-//
-//        str = "";
-//        for (int i = 0; i < values.length; i++) {
-//            System.out.println("VALUES = "  + values[i]);
-//            str += values[i] + " ";
-//        }

@@ -130,7 +130,7 @@ public abstract class TimeLevel implements Loopable {
                 false);
 
 
-        ///System.out.println("Bad Items size is... " + itemsB.size() + " Goodd Items = " + itemsG.size());
+        ///System.out.println("Bad Items size is... " + itemsB.size() + " Good Items = " + itemsG.size());
 
         if (itemsB.size() >= 1 && itemsB.size() < 20 && itemsB.get(itemsB.size() - 1).getX() <= 750)
             itemsB.add(bad);
