@@ -67,7 +67,7 @@ public class Level2 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(205, 305, timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
         passingDoor.repaint();
     }
 

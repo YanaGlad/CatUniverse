@@ -128,7 +128,7 @@ public class Level5 extends TimeLevel {
             for (TimeTallPlatform tb : timeTallPlatformArrayList)
                 tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
 
-            CollisionDetectors.tallPlatformCollision(205, 305, timeTallPlatformArrayList);
+            CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
         } else
             super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
 

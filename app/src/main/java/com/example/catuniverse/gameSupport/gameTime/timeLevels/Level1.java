@@ -113,7 +113,7 @@ public class Level1 extends TimeLevel {
 
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(205, 305, timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
 
         if (appearButton.isClicked()) ladder2Disappear = false;
         if (timeTallPlatformArrayList.get(0).getX() < timePlayer.getX() && timePlayer.getY() >= TimePlayer.getMaximumY() && !appearButton.isClicked())

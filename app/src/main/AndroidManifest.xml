@@ -18,6 +18,8 @@
 
         <activity
             android:name="com.example.catuniverse.gameSupport.aboutGame.GameDescriptionActivity"
+
+
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -112,7 +112,7 @@ public abstract class TimeLevel implements Loopable {
         TimeInventoryItem good;
         TimeInventoryItem bad;
 
-        good = new TimeInventoryItem(1000,
+        good = new TimeInventoryItem(960,
                 possesGood[random.nextInt(3)],
                 goodItems.get(rndA).getBitmap(),
                 goodItems.get(rndA).isRocket(),

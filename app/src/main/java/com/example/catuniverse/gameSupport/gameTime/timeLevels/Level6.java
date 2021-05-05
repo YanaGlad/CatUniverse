@@ -102,7 +102,7 @@ public class Level6 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(205, 305, timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
 
         for (int i = 0; i < asteroids.size(); i++) {
             if (asteroids.get(i).isPicked() && asteroids.size() > 0) {

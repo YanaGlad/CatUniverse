@@ -115,7 +115,7 @@ public class Level3 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(205, 305, timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
 
         if (timeInventoryItems.get(0).isPicked() && !firstCount) {
             collectedCount++;
