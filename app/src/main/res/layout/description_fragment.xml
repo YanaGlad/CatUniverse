@@ -19,7 +19,6 @@
             android:layout_weight="1"
             android:background="#1C003C"
             android:text="@string/cats"
-            android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="13sp" />
 
@@ -30,7 +29,6 @@
             android:layout_weight="1"
             android:background="#320060"
             android:text="@string/rooms"
-            android:textAlignment="center"
             android:textColor="#D8DAFF"
             android:textSize="13sp" />
 
@@ -42,7 +40,6 @@
             android:layout_weight="1"
             android:background="#470187"
             android:text="@string/time_caps"
-            android:textAlignment="center"
             android:textColor="#C7CAFD"
             android:textSize="13sp" />
 
@@ -54,7 +51,6 @@
             android:layout_weight="1"
             android:background="#5802A6"
             android:text="@string/strategy_caps"
-            android:textAlignment="center"
             android:textColor="#B5B9FB"
             android:textSize="11sp" />
 
@@ -66,7 +62,6 @@
             android:layout_weight="1"
             android:background="#6701C3"
             android:text="@string/maths_caps"
-            android:textAlignment="center"
             android:textColor="#A7ACFD"
             android:textSize="13sp" />
 
@@ -78,7 +73,6 @@
             android:layout_weight="1"
             android:background="#7403DA"
             android:text="@string/credits"
-            android:textAlignment="center"
             android:textColor="#A7ACFD"
             android:textSize="13sp" />
 
@@ -91,7 +85,6 @@
             android:background="#941EFF"
             android:onClick="goBack"
             android:text="@string/back"
-            android:textAlignment="center"
             android:textColor="#A7ACFD"
             android:textSize="13sp" />
 
@@ -102,8 +95,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="708dp"
-            android:layout_height="490dp"
+            android:layout_width="681dp"
+            android:layout_height="488dp"
             android:contentDescription="TODO"
             android:scaleType="fitCenter"
             android:src="@drawable/space" />
