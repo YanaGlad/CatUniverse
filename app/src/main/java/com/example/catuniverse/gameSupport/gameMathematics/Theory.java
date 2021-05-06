@@ -29,7 +29,7 @@ public class Theory {
         expressions.add("cos2α = 2cos²α - 1");
         expressions.add("cos2α = 1 - 2sin²α");
         expressions.add("cos2α = cos²α - sin²α");
-        expressions.add("sin2α = 2 * sinα * cosα");//14
+        expressions.add("sin2α = 2*sinα*cosα");//14
 
         //производные
         expressions.add("с' = 0"); //15
@@ -72,7 +72,7 @@ public class Theory {
         questions.add("tgα * x = 1");
         questions.add("x + sin²α = 1");
         questions.add("cos²α + x = 1");
-        questions.add("x = 2 * sinα * cosα");
+        questions.add("x = 2*sinα*cosα");
         questions.add("cos2α = x - sin²α");//29
 
         questions.add("с' = ?"); //30
@@ -111,6 +111,7 @@ public class Theory {
         //Если полученное выражение совпало с одним из теории
         for (int i = 0; i < expressions.size(); i++)
             if (result.equals(expressions.get(i))) {
+                System.out.println("Comparing to " + expressions.get(i));
                 return true;
             }
         return false;

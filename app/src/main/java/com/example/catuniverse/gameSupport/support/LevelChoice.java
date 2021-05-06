@@ -57,6 +57,9 @@ public class LevelChoice implements Loopable {
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 2));
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 3));
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 4));
+                mathsLevels.add(new MathsLevelsView(mainRunActivity, 5));
+                mathsLevels.add(new MathsLevelsView(mainRunActivity, 6));
+
                 mathsLevels.add(new InDevelopmentView(mainRunActivity, key));
                 break;
         }
