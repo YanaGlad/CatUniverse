@@ -43,7 +43,7 @@ public class CollisionDetectors {
 
     //Коллизия высокой платформы. (Возможность работы коллизии для сразу нескольких платформ.  Это необходимо т.к. для них создан особенный способ обработки коллизий
     public static void tallPlatformCollision(  ArrayList<TimeTallPlatform> gameItems) {
-        int maxX = 145, minX = 325;
+        int maxX = 190, minX = 315;
         ///Попробовать рекурсией
         int count = 0;
         for (TimeTallPlatform tb : gameItems) {

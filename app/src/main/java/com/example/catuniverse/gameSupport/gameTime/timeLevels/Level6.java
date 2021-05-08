@@ -111,6 +111,7 @@ public class Level6 extends TimeLevel {
             if (asteroids.get(i).isPicked() && asteroids.size() > 0) {
                 lives--;
                 asteroids.remove(i);
+                continue;
             }
             if (asteroids.get(i).getX() < 0) asteroids.remove(i);
         }
