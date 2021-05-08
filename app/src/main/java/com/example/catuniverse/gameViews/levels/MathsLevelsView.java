@@ -46,7 +46,7 @@ public class MathsLevelsView extends GameView {
         a = (int) (Math.random() * (22 - 18) + 18);
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 18, 22, "trigonometry", 20, 22, 0, 16, null, stayInsideMusic));
 
-        a = (int) (Math.random() * (22 - 18) + 18);
+        a = (int) (Math.random() * (29 - 23) + 23);
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, "trigonometry", 20, 20, 0, 16, null, stayInsideMusic));
 
 
