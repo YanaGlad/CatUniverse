@@ -25,6 +25,7 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
+import static com.example.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.purplePlatform;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
@@ -36,11 +37,12 @@ public class Level6 extends TimeLevel {
     private SpriteAnimation asteroid;
     private EasyTimer easyTimer;
     private ArrayList<TimePlatform> changingPurplePlatforms;
+    private MainRunActivity mainRunActivity;
 
     public Level6(MainRunActivity mainRunActivity) {
-        super(70, 50, 200, movingSpaceBackground, blueGround, 5, electrodynamixMusic);
+        super(70, 50, 200, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
+        this.mainRunActivity = mainRunActivity;
 
-        rebase:
         gameOver = false;
 
 
@@ -51,7 +53,6 @@ public class Level6 extends TimeLevel {
 
         timeTallPlatformArrayList.add(new TimeTallPlatform(2050, GameView.screenHeight - 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2050, GameView.screenHeight - 900));
-
         timeTallPlatformArrayList.add(new TimeTallPlatform(4050, GameView.screenHeight - 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(4050, GameView.screenHeight - 900));
 
@@ -59,10 +60,10 @@ public class Level6 extends TimeLevel {
 
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-        int xX = 500, yY = 550;
+        int xX = 700, yY = 550;
         for (int i = 0; i < 20; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
-            xX += 70;
+            xX += 100;
             yY -= 70;
         }
 
@@ -93,7 +94,7 @@ public class Level6 extends TimeLevel {
         for (TimePlatform tp : changingPurplePlatforms) tp.run(gamePaint);
 
         passingDoor.repaint();
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint, mainRunActivity);
     }
 
     @Override

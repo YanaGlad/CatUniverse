@@ -31,9 +31,11 @@ public class Level3 extends TimeLevel {
     private ArrayList<TimeInventoryItem> timeInventoryItems;
     private int collectedCount = 0;
     private boolean firstCount = false, secondCount = false;
+    private MainRunActivity mainRunActivity;
 
     public Level3(MainRunActivity mainRunActivity) {
-        super(18, 23, 30,  movingSpaceBackground, blueGround,1, xStepMusic);
+        super(18, 23, 30, movingSpaceBackground, blueGround, 1, xStepMusic);
+        this.mainRunActivity = mainRunActivity;
         timeInventoryItems = new ArrayList<>();
         gameItems = new ArrayList<>();
         changingObstacles = new ArrayList<>();
@@ -48,7 +50,6 @@ public class Level3 extends TimeLevel {
         timeTallPlatformArrayList.add(new TimeTallPlatform(1700, GameView.screenHeight - 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2000, GameView.screenHeight - 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2300, GameView.screenHeight - 520));
-
 
 
         int oY = 490;
@@ -106,7 +107,7 @@ public class Level3 extends TimeLevel {
         gamePaint.write(collectedCount + "/2", 550, 50, Color.WHITE, 30);
         gamePaint.setVisibleBitmap(keyBlue, 610, 25);
         passingDoor.repaint();
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint, mainRunActivity);
     }
 
     @Override
@@ -115,7 +116,7 @@ public class Level3 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
 
         if (timeInventoryItems.get(0).isPicked() && !firstCount) {
             collectedCount++;

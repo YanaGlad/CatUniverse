@@ -1,5 +1,7 @@
 package com.example.catuniverse.gameSupport.databaseHelpers;
 
+import androidx.annotation.NonNull;
+
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.graphics.CatIcon;
 import com.example.catuniverse.gameSupport.graphics.ImageSet;
@@ -10,10 +12,10 @@ public class Cat { // помогает получить кота из базы �
     private int id, speed, chosen, unlocked; //Значения полей таблицы cats - id, скоростьЮ выбран  и доступен ли кот
     private String name, key; //имя кота, ключ
     private ImageSet imageSet; //Набор спрайтовых анимаций персонажа
-    private CatIcon catIcon;
     private int room, price, health; // комната, цена и здоровье(для стратегии)
     private double power, delay; //сила и задержка ( для стратегии )
 
+    @NonNull
     @Override
     public String toString() {
         return "Cat{" +
@@ -29,9 +31,8 @@ public class Cat { // помогает получить кота из базы �
                 '}';
     }
 
-    public Cat(int id, String name, String key, double power, int speed, double delay, int chosen, int unlocked, int room, int price,int health) {
+    public Cat(int id, String name, String key, double power, int speed, double delay, int chosen, int unlocked, int room, int price, int health) {
         this.imageSet = BasicGameSupport.checkKey(key);
-        this.catIcon = checkIconKey(key);
         this.id = id;
         this.power = power;
         this.speed = speed;

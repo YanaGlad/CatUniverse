@@ -22,7 +22,6 @@ import static com.example.catuniverse.MainActivity.listOfCats;
 
 //Игровое поле стратегических уровней. Собирает все компоненты в одну сущность
 public class StrategyField implements Loopable {
-    //   private BasicButton exit;
     private Media.Music music;
     private ArrayList<StrategyEnemy> strategyEnemies;
     private ArrayList<BasicButton> playerButtons;
@@ -81,7 +80,6 @@ public class StrategyField implements Loopable {
             y += 100;
         }
 
-        //  exit = new BasicButton(mainRunActivity, 730, 10, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
     }
 
     @Override
@@ -119,8 +117,6 @@ public class StrategyField implements Loopable {
                 gamePaint.createLine(x, 0, x, 650, Color.BLACK);
                 x += 100;
             }
-            //Запустить кнопку выхода
-            //exit.run(gamePaint);
 
             //Отобразить остаток денег, жизней, кол-ва врагов, необходимых для победы
             gamePaint.setVisibleBitmap(BitmapLoader.pricePanel, -20, 500);
@@ -213,7 +209,6 @@ public class StrategyField implements Loopable {
         for (BasicButton btn : playerButtons)
             if (btn.isClicked()) darker = true;
 
-        System.out.println("darker is... " + darker);
         if (darker) {
             for (int i = 0; i < players.size(); i++)
                 if (players.get(i).getImage() == null)

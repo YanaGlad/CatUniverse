@@ -32,12 +32,12 @@ public class Level1 extends TimeLevel {
     private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> ladderDisapearLvl0, bigObstaclesDisappearLvl0;
     private BasicButton appearButton;
-
+    private MainRunActivity mainRunActivity;
     private int collectedCount = 0;
 
     public Level1(MainRunActivity mainRunActivity) {
         super(20, 25, 30, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
-
+        this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
         timeInventoryItem = new TimeInventoryItem(700, 240, keyBlue);
@@ -103,7 +103,7 @@ public class Level1 extends TimeLevel {
 
         gamePaint.write(collectedCount + "/1", 550, 50, Color.WHITE, 30);
         gamePaint.setVisibleBitmap(keyBlue, 610, 25);
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint, mainRunActivity);
     }
 
     @Override

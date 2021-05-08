@@ -5,11 +5,13 @@ import android.graphics.Color;
 
 import androidx.annotation.NonNull;
 
+import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.Loopable;
+import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.Media;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameViews.general.ChooseView;
@@ -54,14 +56,15 @@ public abstract class TimeLevel implements Loopable {
         passingDoor.repaint();
     }
 
-    protected void endingRun(GamePaint gamePaint) {
+    protected void endingRun(GamePaint gamePaint, MainRunActivity mainRunActivity) {
         //Конечная отрисовка (над всеми игровыми элементами)
         if (lives <= 0) gameOver = true;
         endTime = System.nanoTime() / BasicGameSupport.SECOND - nowTime;
         gamePaint.write(String.valueOf((int) (totalTime - Math.ceil(endTime))), 345, 140, Color.WHITE, 55);
         writeTimeReqired(gamePaint, twoStars, threeStars);
 
-        gamePaint.write("Lives: ", 350, 35, Color.WHITE, 30);
+        gamePaint.write(mainRunActivity.getString(R.string.lives), 350, 35, Color.WHITE, 30);
+
         int hX = 430;
         for (int i = 0; i < lives; i++) {
             gamePaint.setVisibleBitmap(BitmapLoader.heart, hX, 10);

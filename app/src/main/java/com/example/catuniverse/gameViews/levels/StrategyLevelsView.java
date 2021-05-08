@@ -59,7 +59,7 @@ public class StrategyLevelsView extends GameView {
             returnToMenu();
             BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.strategy));
         }
-        
+
         if (level.isGameOver()) {
             returnToMenu();
             super.getMainRunActivity().setView(new GameOverView(super.getMainRunActivity(), new StrategyLevelsView(super.getMainRunActivity(), id), super.getMainRunActivity().getString(R.string.strategy)));

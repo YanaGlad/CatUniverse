@@ -321,7 +321,8 @@ public class BasicGameSupport {
         if (i < high)
             quickSort(array, i, high);
 
-    }
+
+}
 
     //Инициализация анимаций всех котов в качестве статических переменных
     public static SpriteAnimation

@@ -25,9 +25,11 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 //Второй уровень на время.
 public class Level2 extends TimeLevel {
     private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
+    private MainRunActivity mainRunActivity;
 
     public Level2(MainRunActivity mainRunActivity) {
         super(10, 15, 20, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
+        this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
         gameItems = new ArrayList<>();
@@ -58,7 +60,7 @@ public class Level2 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         passingDoor.repaint();
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint ,mainRunActivity);
     }
 
     @Override

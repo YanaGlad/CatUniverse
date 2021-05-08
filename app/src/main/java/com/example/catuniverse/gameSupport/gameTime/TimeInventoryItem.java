@@ -45,7 +45,7 @@ public class TimeInventoryItem extends GameItem {
         this.key = key;
     }
 
-    //Конструктор для анимированных объектов в мини-игре стратегических уровней "Ракета"
+    //Конструктор для анимированных объектов в мини-игре "Ракета"
     public TimeInventoryItem(int x, int y, SpriteAnimation spriteAnimation, boolean rocket, boolean good, String key, boolean animateRocketMode) {
         this.x = x;
         this.y = y;

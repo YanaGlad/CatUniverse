@@ -32,7 +32,7 @@ public class MenuView extends GameView {
         maths = new BasicButton(mainRunActivity, 200, 320, mainRunActivity.getString(R.string.play_maths), Color.BLACK, 40, BitmapLoader.mainMenuButton, BitmapLoader.mainMenuButtonClicked, 50, 50);
         strategy = new BasicButton(mainRunActivity, 200, 420, mainRunActivity.getString(R.string.play_strategy), Color.BLACK, 40, BitmapLoader.mainMenuButton, BitmapLoader.mainMenuButtonClicked, 50, 50);
 
-        about = new BasicButton(mainRunActivity, 200, 520, "About", Color.BLACK, 30, BitmapLoader.baseBlueButton, BitmapLoader.baseBlueButtonClicked, 40, 35);
+        about = new BasicButton(mainRunActivity, 200, 520, mainRunActivity.getString(R.string.about), Color.BLACK, 30, BitmapLoader.baseBlueButton, BitmapLoader.baseBlueButtonClicked, 40, 35);
 
 
     }

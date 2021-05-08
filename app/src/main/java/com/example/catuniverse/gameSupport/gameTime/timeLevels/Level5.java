@@ -26,6 +26,7 @@ public class Level5 extends TimeLevel {
     private ArrayList<TimePlatform> smartObstacles;
     private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
     private ArrayList<TimeInventoryItem> goodItems, badItems;
+    private MainRunActivity mainRunActivity;
 
     private int[] requestedCount = {20};
     private int[] collectedCount = {0};
@@ -34,7 +35,8 @@ public class Level5 extends TimeLevel {
     private boolean oneTime = false, oneTime2 = false;
 
     public Level5(MainRunActivity mainRunActivity) {
-        super(50, 70, 100, movingBlueSpaceBackground, purpleGround, 3, phobosMusic);
+        super(40, 30, 50, movingBlueSpaceBackground, purpleGround, 3, phobosMusic);
+        this.mainRunActivity = mainRunActivity;
         gameOver = false;
         gameItems = new ArrayList<>();
         smartObstacles = new ArrayList<>();
@@ -117,7 +119,7 @@ public class Level5 extends TimeLevel {
         gamePaint.write(collectedCount[0] + "/" + requestedCount[0], 550, 50, Color.WHITE, 35);
         gamePaint.setVisibleBitmap(yellowKey, 645, 15);
 
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint, mainRunActivity);
     }
 
     @Override

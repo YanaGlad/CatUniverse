@@ -22,11 +22,12 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.xStepMusic;
 public class Level4 extends TimeLevel {
     private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> changingObstacles;
-
+    private MainRunActivity mainRunActivity;
     private boolean done;
 
     public Level4(MainRunActivity mainRunActivity) {
-        super(20, 15, 30,  movingSpaceBackground, blueGround, 1, xStepMusic);
+        super(20, 15, 30, movingSpaceBackground, blueGround, 1, xStepMusic);
+        this.mainRunActivity = mainRunActivity;
         done = false;
         gameItems = new ArrayList<>();
         timeTallPlatformArrayList = new ArrayList<>();
@@ -92,7 +93,7 @@ public class Level4 extends TimeLevel {
 
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         passingDoor.repaint();
-        super.endingRun(gamePaint);
+        super.endingRun(gamePaint, mainRunActivity);
 
     }
 
@@ -103,7 +104,7 @@ public class Level4 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
         passingDoor.repaint();
 
     }

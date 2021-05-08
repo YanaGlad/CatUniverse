@@ -151,7 +151,6 @@ public class Room implements Loopable {
 
     //Проверить, есть ли уже кот в комнате. Если нет, то переданный кот будет занесен в свободный слот
     private void checkCatPet(CatPet catPet) {
-        //  System.out.println("ID " + catPet.getId() + " Room " + catPet.getRoom());
         if (catPet.getRoom() == number) {
             if (catPet.getId() != catPet1.getId() && catPet.getId() != catPet2.getId() && catPet.getId() != catPet3.getId())
                 if (catPet1.getCat() == null) {

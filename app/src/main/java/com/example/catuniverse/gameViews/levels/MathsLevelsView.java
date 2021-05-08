@@ -34,22 +34,22 @@ public class MathsLevelsView extends GameView {
         int a;
 
         a = random.nextInt(9);
-        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 0, 8, "square", 30, 32, 0, 12, null, stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 0, 8, mainRunActivity.getString(R.string.square), 30, 32, 0, 12, null, stayInsideMusic));
 
         a = (int) (Math.random() * (17 - 9) + 9);
-        mathsLevels.add(new MathsField(mainRunActivity, 7, 5, a, 9, 17, "square", 30, 32, 13, 24, null, stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 7, 5, a, 9, 17, mainRunActivity.getString(R.string.square), 30, 32, 13, 24, null, stayInsideMusic));
 
         a = (int) (Math.random() * (37 - 30) + 30);
-        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 30, 37, "derivative", 27, 30, 0, 14, "5", stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 30, 37, mainRunActivity.getString(R.string.derivative), 27, 30, 0, 14, "5", stayInsideMusic));
 
         a = (int) (Math.random() * (45 - 38) + 38);
-        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 38, 45, "derivative", 27, 28, 10, 20, null, stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 5, 5, a, 38, 45, mainRunActivity.getString(R.string.derivative), 27, 28, 10, 20, null, stayInsideMusic));
 
         a = (int) (Math.random() * (22 - 18) + 18);
-        mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 18, 22, "trigonometry", 20, 22, 0, 16, null, stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 18, 22, mainRunActivity.getString(R.string.trigonometry), 20, 22, 0, 16, null, stayInsideMusic));
 
         a = (int) (Math.random() * (29 - 23) + 23);
-        mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, "trigonometry", 20, 20, 0, 16, null, stayInsideMusic));
+        mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, mainRunActivity.getString(R.string.trigonometry), 20, 20, 0, 16, null, stayInsideMusic));
 
 
         //System.out.println("Auto increment is " + autoIncrement);

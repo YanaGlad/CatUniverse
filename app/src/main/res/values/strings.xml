@@ -42,6 +42,9 @@
     <string name="left">Left: </string>
     <string name="maths">maths</string>
     <string name="maths_caps">Maths</string>
+    <string name="square">square</string>
+    <string name="derivative">derivative</string>
+    <string name="trigonometry">trigonometry</string>
 
 
     //Rooms
@@ -74,6 +77,7 @@
     <string name="cats">Cats</string>
     <string name="in_dev">In the development</string>
     <string name="credits">Credits</string>
+    <string name="about">About</string>
 
     //About
     <string name="maths_description">In the maths type of levels you need to catch correct answers on the questions you can see at the moving player. You lose live catching wrong answer. Player moves to the side where your finger is hold. </string>
