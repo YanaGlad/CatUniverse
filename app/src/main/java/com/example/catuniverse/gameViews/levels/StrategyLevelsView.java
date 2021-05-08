@@ -27,7 +27,7 @@ public class StrategyLevelsView extends GameView {
         this.id = id;
         ArrayList<StrategyField> strategyLevels = new ArrayList<>();
         int[] enemyIds = {3}; //индексы котов-врагов. В данном случае только кот зеленый пришелец
-        int[] enemyIds2 = {5, 4, 3, 2, 1}; //индексы кото-врагов. В данном случае это все персонажи с индексами от 1 до 5.
+        int[] enemyIds2 = {5, 4, 3, 2, 1}; //индексы котов-врагов. В данном случае это все персонажи с индексами от 1 до 5.
 
         strategyLevels.add(new StrategyField(mainRunActivity, 20, 70, 0.5, 10, 5, 3, 7, enemyIds, 1, null, theoryMusic));
         strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 4, 7, enemyIds, 1, null, theoryMusic));
@@ -51,38 +51,28 @@ public class StrategyLevelsView extends GameView {
     public void repaint() {
         if (exit.isClicked()) { //Выйти из уровня в основное меню при нажатии на кнопку
             super.getMainRunActivity().setView(new ChooseView(super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.strategy)));
-
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            returnToMenu();
             exit.notClicked();
         }
 
         if (level.isWon()) {
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            returnToMenu();
             BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.strategy));
         }
-
+        
         if (level.isGameOver()) {
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            returnToMenu();
             super.getMainRunActivity().setView(new GameOverView(super.getMainRunActivity(), new StrategyLevelsView(super.getMainRunActivity(), id), super.getMainRunActivity().getString(R.string.strategy)));
+        }
+    }
+
+    private void returnToMenu() {
+        levelRunning = false;
+        level.getMusic().stop();
+        try {
+            menuMusic.run();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

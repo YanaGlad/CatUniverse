@@ -22,10 +22,12 @@ public class MathsLevelsView extends GameView {
     private MathsField level;
     public static boolean levelRunning = false;
     private BasicButton exit;
+    //private static int autoIncrement = 0;
 
     public MathsLevelsView(MainRunActivity mainRunActivity, int id) {
         super(mainRunActivity);
         this.id = id;
+
         ArrayList<MathsField> mathsLevels = new ArrayList<>();
 
         Random random = new Random();
@@ -50,8 +52,9 @@ public class MathsLevelsView extends GameView {
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, "trigonometry", 20, 20, 0, 16, null, stayInsideMusic));
 
 
-        level = mathsLevels.get(id - 1);
-
+        //System.out.println("Auto increment is " + autoIncrement);
+        level = mathsLevels.get(id - 1);//autoIncrement
+        //autoIncrement++;
         exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
     }
 
@@ -69,36 +72,29 @@ public class MathsLevelsView extends GameView {
         exit.repaint();
         if (exit.isClicked()) {
             super.getMainRunActivity().setView(new ChooseView(super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths)));
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            returnToMenu();
             exit.notClicked();
         }
 
         if (level.isWon()) {
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            returnToMenu();
             BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths));
         }
+
         if (level.isGameOver()) {
-            levelRunning = false;
-            level.getMusic().stop();
-            try {
-                menuMusic.run();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            returnToMenu();
             super.getMainRunActivity().setView(new GameOverView(super.getMainRunActivity(), new MathsLevelsView(super.getMainRunActivity(), id), super.getMainRunActivity().getString(R.string.maths)));
         }
         exit.repaint();
+    }
+
+    private void returnToMenu() {
+        levelRunning = false;
+        level.getMusic().stop();
+        try {
+            menuMusic.run();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
