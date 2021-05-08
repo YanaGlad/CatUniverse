@@ -38,6 +38,7 @@ public class Level6 extends TimeLevel {
     private EasyTimer easyTimer;
     private ArrayList<TimePlatform> changingPurplePlatforms;
     private MainRunActivity mainRunActivity;
+    private int xX;
 
     public Level6(MainRunActivity mainRunActivity) {
         super(70, 50, 200, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
@@ -60,7 +61,8 @@ public class Level6 extends TimeLevel {
 
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-        int xX = 700, yY = 550;
+        int yY = 550;
+        xX = 700;
         for (int i = 0; i < 20; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
             xX += 100;
@@ -103,13 +105,14 @@ public class Level6 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
 
         for (int i = 0; i < asteroids.size(); i++) {
             if (asteroids.get(i).isPicked() && asteroids.size() > 0) {
                 lives--;
                 asteroids.remove(i);
             }
+            if (asteroids.get(i).getX() < 0) asteroids.remove(i);
         }
 
         for (int i = 0; i < changingPurplePlatforms.size(); i++) {
@@ -118,7 +121,7 @@ public class Level6 extends TimeLevel {
 
         Random random = new Random();
 
-        if (asteroids.size() < 29) {
+        if (asteroids.size() < 5) {
             if (easyTimer.timerDelay(2)) {
                 asteroids.add(new TimeInventoryItem(900, random.nextInt(500), asteroid, true, false, "asteroid", true));
                 easyTimer.startTimer();

@@ -52,7 +52,7 @@ public class TimeInventoryItem extends GameItem {
         this.spriteAnimation = spriteAnimation;
         picked = false;
         controlY = y;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.keyBlue, 5.4);
+        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.keyBlue, 5.4)/2;
         this.rocket = rocket;
         this.good = good;
         this.key = key;
