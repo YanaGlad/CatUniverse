@@ -137,7 +137,6 @@ public class Room implements Loopable {
                     } else choose.notClicked();
                 } else catStorage.get(i).notClicked();
             }
-
         }
     }
 
@@ -166,7 +165,7 @@ public class Room implements Loopable {
                             places++;
                         }
                     }
-                }
+            }
         }
     }
 

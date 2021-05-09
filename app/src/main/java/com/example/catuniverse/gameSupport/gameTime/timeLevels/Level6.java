@@ -38,7 +38,7 @@ public class Level6 extends TimeLevel {
     private EasyTimer easyTimer;
     private ArrayList<TimePlatform> changingPurplePlatforms;
     private MainRunActivity mainRunActivity;
-    private int xX;
+
 
     public Level6(MainRunActivity mainRunActivity) {
         super(70, 50, 200, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
@@ -62,7 +62,7 @@ public class Level6 extends TimeLevel {
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
         int yY = 550;
-        xX = 700;
+        int xX = 700;
         for (int i = 0; i < 20; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
             xX += 100;
@@ -77,7 +77,6 @@ public class Level6 extends TimeLevel {
         }
 
         passingDoor = new BasicButton(mainRunActivity, 4050, yY, blueDoor, blueDoorOpened, true);
-
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
