@@ -79,7 +79,7 @@ public class BasicGameSupport {
     //Количество котов
     public static int catsCount = 5;
 
-    public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
+    public static int stepTallObsStart = 520, stepHeight;
 
     //Обновляет экран по оси ординат относительно текущего положения игрока
     public static int updateMovesY(GameItem gameItem, double jumSpeed, int y) {

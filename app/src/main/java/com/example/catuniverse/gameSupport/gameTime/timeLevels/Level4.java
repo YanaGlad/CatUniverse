@@ -35,16 +35,16 @@ public class Level4 extends TimeLevel {
 
         gameOver = false;
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, GameView.screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(600, GameView.screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, GameView.screenHeight - 900));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, GameView.screenHeight - 1280));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(600, GameView.screenHeight - 900));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(600, GameView.screenHeight - 1280));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(600, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, 900));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(-100, 1280));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(600, 900));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(600, 1280));
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, GameView.screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, GameView.screenHeight - 900));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, GameView.screenHeight - 1280));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 900));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 1280));
 
         gameItems.add(new TimePlatform(190, 500));
         gameItems.add(new TimePlatform(350, 400));

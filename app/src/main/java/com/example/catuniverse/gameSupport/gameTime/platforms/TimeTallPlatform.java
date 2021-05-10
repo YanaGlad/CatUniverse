@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.GameItem;
+import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.graphics.PlayerManager;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 
@@ -16,7 +17,7 @@ public class TimeTallPlatform extends GameItem {
     public TimeTallPlatform(int x, int y) {
         this.bitmap = BitmapLoader.tallWall; //временно. Позже будет возможность добавлять универсальное изображение.
         this.x = x;
-        this.y = y;
+        this.y = GameView.screenHeight - y;
         controlY = y;
         speed = 3;
         collisionSupportElement = new CollisionSupportElement(x - 50 + BitmapLoader.tallWallSkeleton.getWidth() + 20, y);

@@ -47,9 +47,9 @@ public class Level3 extends TimeLevel {
 
         timeTallPlatformArrayList = new ArrayList<>();
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(1700, GameView.screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2000, GameView.screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2300, GameView.screenHeight - 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1700,  520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2000,  520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2300,  520));
 
 
         int oY = 490;
