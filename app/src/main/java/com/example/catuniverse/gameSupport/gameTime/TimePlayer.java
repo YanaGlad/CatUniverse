@@ -29,7 +29,7 @@ public class TimePlayer extends GameItem {
     private boolean falling, oneTimeJump;
     private EasyTimer jumpingTimer, jumpingChecker;
     public static int start;
-
+    private final int GROUND = GameView.screenHeight - walkRightGray.get(0).getHeight();
 
     public TimePlayer(MainRunActivity mainRunActivity, Cat cat) {
         this.cat = cat;
@@ -61,6 +61,7 @@ public class TimePlayer extends GameItem {
 
     @Override //Задает анимацию движения при ходьбе, прыжках и т.д.
     public void run(GamePaint gamePaint) {
+        System.out.println("Y is = " + y + " and ground is " + ground);
         if (!rocketMode) { //Если не в режиме мини-игры "Ракета"
             if (movingRight || movingLeft && y == ground) {
                 oneTimeJump = false;

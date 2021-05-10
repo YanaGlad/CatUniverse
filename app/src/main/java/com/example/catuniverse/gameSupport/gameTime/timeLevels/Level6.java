@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
 import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.EasyTimer;
@@ -81,6 +82,7 @@ public class Level6 extends TimeLevel {
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
         gameItems.add(passingDoor);
+        gameItems.add(new TimeDecoration(2120,500, BitmapLoader.sharps, false));
 
     }
 
