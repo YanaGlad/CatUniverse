@@ -18,7 +18,7 @@ public class TimeTallPlatform extends GameItem {
         this.bitmap = BitmapLoader.tallWall; //временно. Позже будет возможность добавлять универсальное изображение.
         this.x = x;
         this.y = GameView.screenHeight - y;
-        controlY = y;
+        controlY = GameView.screenHeight - y;
         speed = 3;
         collisionSupportElement = new CollisionSupportElement(x - 50 + BitmapLoader.tallWallSkeleton.getWidth() + 20, y);
     }

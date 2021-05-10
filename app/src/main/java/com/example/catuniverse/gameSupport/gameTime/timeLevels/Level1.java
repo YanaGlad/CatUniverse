@@ -81,8 +81,8 @@ public class Level1 extends TimeLevel {
             ladderY += 70;
         }
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2000, screenHeight - 520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(3200, screenHeight - 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2000,  520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(3200,  520));
 
     }
 

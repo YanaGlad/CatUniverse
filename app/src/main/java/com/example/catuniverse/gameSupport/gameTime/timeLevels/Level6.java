@@ -46,6 +46,7 @@ public class Level6 extends TimeLevel {
 
         gameOver = false;
 
+
         changingPurplePlatforms = new ArrayList<>();
         gameItems = new ArrayList<>();
         asteroids = new ArrayList<>();
