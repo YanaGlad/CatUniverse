@@ -47,9 +47,9 @@ public class Level3 extends TimeLevel {
 
         timeTallPlatformArrayList = new ArrayList<>();
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(1700,  520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2000,  520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2300,  520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1700, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2300, 520));
 
 
         int oY = 490;
@@ -101,8 +101,10 @@ public class Level3 extends TimeLevel {
                 changingObstacles.get(i).changing(delay);
         }
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
+
         for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
             timeInventoryItems.run(gamePaint);
+
         passingDoor.run(gamePaint);
         gamePaint.write(collectedCount + "/2", 550, 50, Color.WHITE, 30);
         gamePaint.setVisibleBitmap(keyBlue, 610, 25);
@@ -155,11 +157,9 @@ public class Level3 extends TimeLevel {
 
     @Override
     public boolean isRequirementsCollected() {
-        int n = 0;
         for (int i = 0; i < getTimeInventoryItems().size(); i++)
-            if (!getTimeInventoryItems().get(i).isPicked()) n = 1;
-
-        return n != 1;
+            if (!getTimeInventoryItems().get(i).isPicked()) return false;
+        return true;
 
     }
 

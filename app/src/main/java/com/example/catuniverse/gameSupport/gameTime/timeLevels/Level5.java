@@ -28,6 +28,7 @@ public class Level5 extends TimeLevel {
     private ArrayList<TimeInventoryItem> goodItems, badItems;
     private MainRunActivity mainRunActivity;
 
+    //в массивах т.к. дальше будут уровни, где требуется собрать несколько видов предметов
     private int[] requestedCount = {20};
     private int[] collectedCount = {0};
     private String[] keyRequested = {"yellowkey"};

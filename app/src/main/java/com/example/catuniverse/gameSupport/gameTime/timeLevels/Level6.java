@@ -30,8 +30,8 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBa
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.purplePlatform;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
-
-//Шестой уровень на время. В РАЗРАБОТКЕ
+//!!!! Нужна функция для подсчета собранных ключей
+//Шестой уровень на время.
 public class Level6 extends TimeLevel {
     private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimeInventoryItem> asteroids;
@@ -39,6 +39,7 @@ public class Level6 extends TimeLevel {
     private EasyTimer easyTimer;
     private ArrayList<TimePlatform> changingPurplePlatforms;
     private MainRunActivity mainRunActivity;
+    private ArrayList<TimeInventoryItem> timeInventoryItems;
 
 
     public Level6(MainRunActivity mainRunActivity) {
@@ -50,6 +51,7 @@ public class Level6 extends TimeLevel {
         changingPurplePlatforms = new ArrayList<>();
         gameItems = new ArrayList<>();
         asteroids = new ArrayList<>();
+        timeInventoryItems = new ArrayList<>();
         timeTallPlatformArrayList = new ArrayList<>();
 
         timeTallPlatformArrayList.add(new TimeTallPlatform(2050, 520));
@@ -60,6 +62,7 @@ public class Level6 extends TimeLevel {
         asteroid = new SpriteAnimation(asteroidSprite);
 
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
+
 
         int yY = 550;
         int xX = 700;
@@ -74,9 +77,14 @@ public class Level6 extends TimeLevel {
         for (int i = 0; i < 14; i++) {
             changingPurplePlatforms.add(new TimePlatform(xX, yY, purplePlatform));
             xX += 135;
+
+            if (i % 2 == 0)
+                timeInventoryItems.add(new TimeInventoryItem(xX + 70, yY - 20, BitmapLoader.keyBlue));
+
         }
 
         passingDoor = new BasicButton(mainRunActivity, 4070, yY - 200, blueDoor, blueDoorOpened, true);
+
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
@@ -94,6 +102,9 @@ public class Level6 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         for (TimePlatform tp : changingPurplePlatforms) tp.run(gamePaint);
+
+        for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
+            timeInventoryItems.run(gamePaint);
 
         passingDoor.repaint();
         super.endingRun(gamePaint, mainRunActivity);
@@ -129,7 +140,7 @@ public class Level6 extends TimeLevel {
             }
         }
 
-        if (timeTallPlatformArrayList.get(0).getX() <= 305 && timePlayer.getFakeY() >= 480)
+        if (timeTallPlatformArrayList.get(0).getX() <= 305 && timePlayer.getFakeY() >= 310)
             super.setGameOver();
 
         passingDoor.repaint();
@@ -154,8 +165,14 @@ public class Level6 extends TimeLevel {
         return super.isGameOver();
     }
 
+    private ArrayList<TimeInventoryItem> getTimeInventoryItems() {
+        return timeInventoryItems;
+    }
+
     @Override
     public boolean isRequirementsCollected() {
+        for (int i = 0; i < getTimeInventoryItems().size(); i++)
+            if (!getTimeInventoryItems().get(i).isPicked()) return false;
         return true;
     }
 
