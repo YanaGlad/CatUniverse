@@ -45,8 +45,8 @@ public class LevelChoice implements Loopable {
                 timeLevels.add(new TimeLevelsView(mainRunActivity, 5));
                 timeLevels.add(new TimeLevelsView(mainRunActivity, 6));
                 timeLevels.add(new InDevelopmentView(mainRunActivity, key));
-
                 break;
+
             case "strategy":
                 strategyLevels.add(new StrategyLevelsView(mainRunActivity, 1));
                 strategyLevels.add(new StrategyLevelsView(mainRunActivity, 2));
@@ -54,6 +54,7 @@ public class LevelChoice implements Loopable {
                 strategyLevels.add(new StrategyLevelsView(mainRunActivity, 4));
                 strategyLevels.add(new InDevelopmentView(mainRunActivity, key));
                 break;
+
             case "maths":
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 1));
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 2));
@@ -61,7 +62,6 @@ public class LevelChoice implements Loopable {
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 4));
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 5));
                 mathsLevels.add(new MathsLevelsView(mainRunActivity, 6));
-
                 mathsLevels.add(new InDevelopmentView(mainRunActivity, key));
                 break;
         }
