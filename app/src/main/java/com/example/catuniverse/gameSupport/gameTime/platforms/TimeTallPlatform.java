@@ -20,7 +20,7 @@ public class TimeTallPlatform extends GameItem {
         this.y = GameView.screenHeight - y;
         controlY = GameView.screenHeight - y;
         speed = 3;
-        collisionSupportElement = new CollisionSupportElement(x - 50 + BitmapLoader.tallWallSkeleton.getWidth() + 20, y);
+        collisionSupportElement = new CollisionSupportElement(x - 50 + BitmapLoader.tallWallSkeleton.getWidth() + 20, GameView.screenHeight - y);
     }
 
     @Override
