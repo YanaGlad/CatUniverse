@@ -9,6 +9,7 @@ import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.CollisionSupportElement;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightGray;
 import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
 
@@ -30,6 +31,7 @@ public class TimePlayer extends GameItem {
     private EasyTimer jumpingTimer, jumpingChecker;
     public static int start;
     private final int GROUND = GameView.screenHeight - walkRightGray.get(0).getHeight();
+    private int fakeY;
 
     public TimePlayer(MainRunActivity mainRunActivity, Cat cat) {
         this.cat = cat;
@@ -56,14 +58,15 @@ public class TimePlayer extends GameItem {
         ground = GameView.screenHeight - walkRightGray.get(0).getHeight();
         collLength = 32;
         this.y = ground;
+        fakeY = y;
     }
 
 
     @Override //Задает анимацию движения при ходьбе, прыжках и т.д.
     public void run(GamePaint gamePaint) {
-        System.out.println("Y is = " + y + " and ground is " + ground);
+
         if (!rocketMode) { //Если не в режиме мини-игры "Ракета"
-            if (movingRight || movingLeft && y == ground) {
+            if ((movingRight || movingLeft) && y == ground && !((fakeY < ground && ground == GROUND && !jumping && !readyToJum))) {
                 oneTimeJump = false;
                 if (movingRight && !jumAnim)
                     cat.getImageSet().getMoveRight().run(gamePaint, x, y, 3);
@@ -73,32 +76,42 @@ public class TimePlayer extends GameItem {
 
             } else {
                 if (mainRunActivity.getTouchListener().getTouchX() < maxX && mainRunActivity.getTouchListener().getTouchX() > maxX / 2) {
-                    if (jumping || readyToJum || y < ground) {
+                    if (jumping || readyToJum || (fakeY < ground && ground == GROUND) || y < ground) {
                         if (y < (ground) && !falling && !readyToJum)
                             gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite1(), x, y);
                         else {
                             if (readyToJum)
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite2(), x, y);
-                            else
+                            else if (y < ground) {
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite3(), x, y);
+                            } else {
+                                gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite3(), x, y);
+
+                            }
                         }
                     } else {
+                        System.out.println("Doing it. ");
                         cat.getImageSet().getStandRight().run(gamePaint, x, y, 2.5);
                         oneTimeJump = false;
                     }
 
                 }
                 if (mainRunActivity.getTouchListener().getTouchX() < maxX / 2) {
-                    if (jumping || readyToJum || y < ground) {
+                    if (jumping || readyToJum || (fakeY < ground && ground == GROUND) || y < ground) {
                         if (y < (ground) && !falling && !readyToJum)
                             gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite3(), x, y);
                         else {
                             if (readyToJum)
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite2(), x, y);
-                            else
+                            else if (y < ground) {
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite1(), x, y);
+                            } else {
+                                gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite1(), x, y);
+
+                            }
                         }
                     } else {
+                        System.out.println("Doing it (left)");
                         oneTimeJump = false;
                         cat.getImageSet().getStandLeft().run(gamePaint, x, y, 2.5);
                     }
@@ -146,7 +159,7 @@ public class TimePlayer extends GameItem {
             } else if (mainRunActivity.getTouchListener().up(0, maximumY, maxX, maximumY)) { //При отпускании игрок останавливается
                 stopMoving();
                 if (mainRunActivity.getTouchListener().isSwipe() && !oneTimeJump) { // При свайпе вверх, игрок прыгает
-                   if(!jumping && !falling && !(y < ground))  jumping = true;
+                    if (!jumping && !falling && !(y < ground)) jumping = true;
                     oneTimeJump = true;
                     jumpingChecker.startTimer();
                 } else jumping = false;
@@ -166,8 +179,12 @@ public class TimePlayer extends GameItem {
                     falling = false;
                     oneTimeJump = true;
                     y -= jumpingSpeed;
+                    fakeY -= jumpingSpeed;
                 }
+            } else if (jumping) {
+                fakeY -= jumpingSpeed;
             }
+
             if (jumping) //Прыгает и зависает в воздухе на 0.3 секунды
                 if (jumpingChecker.timerDelay(0.3)) {
                     jumping = false;
@@ -179,8 +196,11 @@ public class TimePlayer extends GameItem {
 
             if (y > ground) y = ground;
 
+
+
             if (y < ground && !jumping && !readyToJum) { //Падает, пока не коснется земли
                 y += jumpingSpeed;
+                fakeY += jumpingSpeed;
                 falling = true;
             } else falling = false;
 
@@ -192,6 +212,10 @@ public class TimePlayer extends GameItem {
             }
 
             if (falling || jumping || readyToJum) oneTimeJump = true;
+
+            if (fakeY < ground && ground == GROUND && !( y < ground) && !jumping && !readyToJum) {
+                fakeY += jumpingSpeed;
+            }
 
             collisionRect = createBaseSizeRect(x, y);
         } else {
