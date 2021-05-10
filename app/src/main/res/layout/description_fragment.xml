@@ -52,7 +52,8 @@
             android:background="#5802A6"
             android:text="@string/strategy_caps"
             android:textColor="#B5B9FB"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/mathsButton"
@@ -151,24 +152,27 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="#673AB7"
-                            android:text="Sort by attack"
-                            android:textSize="10sp" />
+                            android:text="@string/sortAttack"
+                            android:textSize="10sp"
+                            tools:ignore="ButtonStyle,SmallSp" />
 
                         <Button
                             android:id="@+id/sortDelay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="#7451B1"
-                            android:text="Sort by delay"
-                            android:textSize="10sp" />
+                            android:text="@string/sortDelay"
+                            android:textSize="10sp"
+                            tools:ignore="ButtonStyle,SmallSp" />
 
                         <Button
                             android:id="@+id/sortPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="#8261BC"
-                            android:text="Sort by price"
-                            android:textSize="10sp" />
+                            android:text="@string/sortPrice"
+                            android:textSize="10sp"
+                            tools:ignore="ButtonStyle,SmallSp" />
                     </LinearLayout>
 
                     <ImageView

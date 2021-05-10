@@ -85,6 +85,9 @@
     <string name="time_description">In the time type of levels you need to get to finish in time and also complete some tasks. You can move left and right if you hold your finger on the appropriate side of the screen. To jump you need to swipe your finger up on the screen</string>
     <string name="cats_description">You can earn new cats by completing levels and use them as players in time levels or strategy levels. Before using cat you need to add it into room. When cat is added you need to choose it.</string>
     <string name="rooms_description">Rooms are needed for using cats you won. Each room has 3 free places. In upcoming game update you will be able to win new rooms for new characters. At the moment there are rooms: Space Base, Laboratory and Moon</string>
+    <string name="sortAttack">Sort by attack</string>
+    <string name="sortPrice">Sort by price</string>
+    <string name="sortDelay">Sort by delay</string>
 
 
 </resources>
