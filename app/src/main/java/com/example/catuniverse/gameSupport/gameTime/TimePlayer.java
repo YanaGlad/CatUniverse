@@ -31,7 +31,7 @@ public class TimePlayer extends GameItem {
     private EasyTimer jumpingTimer, jumpingChecker;
     public static int start;
     private final int GROUND = GameView.screenHeight - walkRightGray.get(0).getHeight();
-    private int fakeY;
+    private int fakeY; //y относительно игрового пространства, в то время как у - у относительно границ экрана телефона
 
     public TimePlayer(MainRunActivity mainRunActivity, Cat cat) {
         this.cat = cat;
@@ -349,6 +349,10 @@ public class TimePlayer extends GameItem {
     @Override
     public int getY() {
         return super.getY();
+    }
+
+    public int getFakeY() {
+        return fakeY;
     }
 
     @Override

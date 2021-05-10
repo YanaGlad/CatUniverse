@@ -47,7 +47,6 @@ public class Level6 extends TimeLevel {
 
         gameOver = false;
 
-
         changingPurplePlatforms = new ArrayList<>();
         gameItems = new ArrayList<>();
         asteroids = new ArrayList<>();
@@ -82,7 +81,7 @@ public class Level6 extends TimeLevel {
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
         gameItems.add(passingDoor);
-        gameItems.add(new TimeDecoration(2120,500, BitmapLoader.sharps, false));
+        gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
 
     }
 
@@ -123,14 +122,16 @@ public class Level6 extends TimeLevel {
 
         Random random = new Random();
 
-        System.out.println("Player x is " + timeTallPlatformArrayList.get(0).getX());
-
         if (asteroids.size() < 5 && !(timeTallPlatformArrayList.get(0).getX() <= 305)) {
             if (easyTimer.timerDelay(2)) {
                 asteroids.add(new TimeInventoryItem(900, random.nextInt(500), asteroid, true, false, "asteroid", true));
                 easyTimer.startTimer();
             }
         }
+
+        if (timeTallPlatformArrayList.get(0).getX() <= 305 && timePlayer.getFakeY() >= 480)
+            super.setGameOver();
+
         passingDoor.repaint();
     }
 

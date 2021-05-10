@@ -178,6 +178,7 @@ public abstract class TimeLevel implements Loopable {
         gamePaint.write(twoStars + " seconds = 2 stars", 20, 40, Color.WHITE, 25);
         gamePaint.write(threeStars + " seconds = 3 stars", 20, 70, Color.WHITE, 25);
     }
+
     public abstract String getRewardId();
 
     @Override
@@ -199,6 +200,10 @@ public abstract class TimeLevel implements Loopable {
 
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public void setGameOver() {
+        this.gameOver = true;
     }
 
     protected double getNowTime() {
