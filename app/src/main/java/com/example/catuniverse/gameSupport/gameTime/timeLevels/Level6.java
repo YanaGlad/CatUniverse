@@ -71,12 +71,12 @@ public class Level6 extends TimeLevel {
 
         xX = 2100;
         yY += 600;
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 14; i++) {
             changingPurplePlatforms.add(new TimePlatform(xX, yY, purplePlatform));
-            xX += 150;
+            xX += 135;
         }
 
-        passingDoor = new BasicButton(mainRunActivity, 4050, yY, blueDoor, blueDoorOpened, true);
+        passingDoor = new BasicButton(mainRunActivity, 4070, yY - 200, blueDoor, blueDoorOpened, true);
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
@@ -121,12 +121,13 @@ public class Level6 extends TimeLevel {
 
         Random random = new Random();
 
-        if (asteroids.size() < 5) {
+        System.out.println("Player x is " + timeTallPlatformArrayList.get(0).getX());
+
+        if (asteroids.size() < 5 && !(timeTallPlatformArrayList.get(0).getX() <=305)) {
             if (easyTimer.timerDelay(2)) {
                 asteroids.add(new TimeInventoryItem(900, random.nextInt(500), asteroid, true, false, "asteroid", true));
                 easyTimer.startTimer();
             }
-
         }
         passingDoor.repaint();
     }

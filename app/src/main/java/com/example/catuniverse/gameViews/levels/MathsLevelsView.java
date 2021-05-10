@@ -52,8 +52,8 @@ public class MathsLevelsView extends GameView {
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, mainRunActivity.getString(R.string.trigonometry), 20, 20, 0, 16, null, stayInsideMusic));
 
 
-      //  System.out.println("Auto increment is " + autoIncrement);
-        level = mathsLevels.get(id-1);//autoIncrement
+        //System.out.println("Auto increment is " + autoIncrement);
+        level = mathsLevels.get(id - 1);//autoIncrement
         autoIncrement++;
         exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
     }
