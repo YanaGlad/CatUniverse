@@ -30,6 +30,7 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBa
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.purplePlatform;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
+
 //!!!! Нужна функция для подсчета собранных ключей
 //Шестой уровень на время.
 public class Level6 extends TimeLevel {
@@ -171,9 +172,7 @@ public class Level6 extends TimeLevel {
 
     @Override
     public boolean isRequirementsCollected() {
-        for (int i = 0; i < getTimeInventoryItems().size(); i++)
-            if (!getTimeInventoryItems().get(i).isPicked()) return false;
-        return true;
+        return super.inventoryItemsLeft(getTimeInventoryItems());
     }
 
     @Override

@@ -179,8 +179,10 @@ public abstract class TimeLevel implements Loopable {
         gamePaint.write(threeStars + " seconds = 3 stars", 20, 70, Color.WHITE, 25);
     }
 
-    protected void inventoryItemsLeft(ArrayList<TimeInventoryItem> timeInventoryItems) {
-
+    protected boolean inventoryItemsLeft(ArrayList<TimeInventoryItem> timeInventoryItems) {
+        for (int i = 0; i < timeInventoryItems.size(); i++)
+            if (!timeInventoryItems.get(i).isPicked()) return false;
+        return true;
     }
 
     public abstract String getRewardId();

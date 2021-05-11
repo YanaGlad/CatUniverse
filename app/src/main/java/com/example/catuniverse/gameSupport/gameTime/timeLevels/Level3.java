@@ -157,10 +157,7 @@ public class Level3 extends TimeLevel {
 
     @Override
     public boolean isRequirementsCollected() {
-        for (int i = 0; i < getTimeInventoryItems().size(); i++)
-            if (!getTimeInventoryItems().get(i).isPicked()) return false;
-        return true;
-
+        return super.inventoryItemsLeft(getTimeInventoryItems());
     }
 
     @Override
