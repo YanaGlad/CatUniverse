@@ -31,7 +31,6 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackgr
 import static com.example.catuniverse.gameSupport.BitmapLoader.purplePlatform;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
-//!!!! Нужна функция для подсчета собранных ключей
 //Шестой уровень на время.
 public class Level6 extends TimeLevel {
     private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
@@ -44,7 +43,7 @@ public class Level6 extends TimeLevel {
 
 
     public Level6(MainRunActivity mainRunActivity) {
-        super(70, 50, 200, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
+        super(35, 45, 60, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
 
         gameOver = false;
@@ -100,7 +99,9 @@ public class Level6 extends TimeLevel {
         repaint();
         for (GameItem b : gameItems) b.run(gamePaint);
         for (TimeInventoryItem as : asteroids) as.run(gamePaint);
+
         passingDoor.repaint();
+
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         for (TimePlatform tp : changingPurplePlatforms) tp.run(gamePaint);
 

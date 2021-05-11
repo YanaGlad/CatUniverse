@@ -41,7 +41,6 @@ public class Level4 extends TimeLevel {
         timeTallPlatformArrayList.add(new TimeTallPlatform(-100, 1280));
         timeTallPlatformArrayList.add(new TimeTallPlatform(600, 900));
         timeTallPlatformArrayList.add(new TimeTallPlatform(600, 1280));
-
         timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 900));
         timeTallPlatformArrayList.add(new TimeTallPlatform(1250, 1280));
