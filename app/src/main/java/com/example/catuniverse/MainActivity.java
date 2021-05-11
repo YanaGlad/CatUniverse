@@ -69,6 +69,7 @@ public class MainActivity extends MainRunActivity {
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (3, 'Alien', 'greenAlien', 50 , 5, 4, 0, 0, -1, 50, 70)");
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (4, 'Shadow', 'shadow', 40 , 5, 3, 0, 0, -1, 45, 40)");
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (5, 'MainCoon', 'mainCoon', 60 , 5, 2, 0, 0, -1, 60, 100)");
+        catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (6, 'Bobtail', 'bobtail', 70 , 5, 4, 0, 0, -1, 60, 50)");
 
 
         listOfCats = new ArrayList<>();

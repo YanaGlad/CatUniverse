@@ -33,36 +33,43 @@ import static com.example.catuniverse.MainActivity.strategyLevels;
 import static com.example.catuniverse.MainActivity.timeDB;
 import static com.example.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
 import static com.example.catuniverse.gameSupport.BitmapLoader.imageSets;
+import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpLeftShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.jumpRightShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.rocketBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standLeftShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.standRightBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standRightGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standRightGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standRightMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standRightOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.standRightShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftMainCoon;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftOrange;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkLeftShadow;
+import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightBobtail;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightGray;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightGreenAlien;
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightMainCoon;
@@ -77,7 +84,7 @@ public class BasicGameSupport {
     //Количество уровней
     public static int levelsCount = 9;
     //Количество котов
-    public static int catsCount = 5;
+    public static int catsCount = 6;
 
     public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
 
@@ -366,5 +373,13 @@ public class BasicGameSupport {
             mainCoonWalkLeft = new SpriteAnimation(walkLeftMainCoon),
             mainCoonJumpRight = new SpriteAnimation(jumpRightMainCoon),
             mainCoonJumpLeft = new SpriteAnimation(jumpLeftMainCoon),
-            mainCoonRocket = new SpriteAnimation(rocketMainCoon);
+            mainCoonRocket = new SpriteAnimation(rocketMainCoon),
+
+    bobtailStandRight = new SpriteAnimation(standRightBobtail),
+            bobtailStandLeft = new SpriteAnimation(standLeftBobtail),
+            bobtailWalkRight = new SpriteAnimation(walkRightBobtail),
+            bobtailWalkLeft = new SpriteAnimation(walkLeftBobtail),
+            bobtailJumpRight = new SpriteAnimation(jumpRightBobtail),
+            bobtailJumpLeft = new SpriteAnimation(jumpLeftBobtail),
+            bobtailRocket = new SpriteAnimation(rocketBobtail);
 }

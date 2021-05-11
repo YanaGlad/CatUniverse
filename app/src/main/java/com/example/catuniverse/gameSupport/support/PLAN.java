@@ -1,6 +1,6 @@
 package com.example.catuniverse.gameSupport.support;
 
-public class PLAN {
+public enum  PLAN {
 //PLAN FOR 08.05.2021 - 10.05.2021
 //Fix timePlayer stand while falling DONE
 //Complete 6 time level. Put keys on all of the disappearing platforms DONE

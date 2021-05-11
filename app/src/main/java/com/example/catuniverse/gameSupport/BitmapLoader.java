@@ -20,7 +20,8 @@ public class BitmapLoader {
 
     //коты
     private static Bitmap grayCat, grayCatReversed, orangeCat, orangeCatReversed, shadowCat,
-            shadowCatReversed, greenAlienCat, greenAlienCatReversed, mainCoonCat, mainCoonCatReversed;
+            shadowCatReversed, greenAlienCat, greenAlienCatReversed, mainCoonCat, mainCoonCatReversed,
+            bobtailCat, bobtailCatReversed;
     //Иконки котов
     public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon;
 
@@ -37,6 +38,8 @@ public class BitmapLoader {
     public static ArrayList<Bitmap> jumpRightShadow, walkRightShadow, jumpLeftShadow;
     public static ArrayList<Bitmap> walkLeftMainCoon, standRightMainCoon, standLeftMainCoon, rocketMainCoon;
     public static ArrayList<Bitmap> jumpRightMainCoon, walkRightMainCoon, jumpLeftMainCoon;
+    public static ArrayList<Bitmap> walkLeftBobtail, standRightBobtail, standLeftBobtail, rocketBobtail;
+    public static ArrayList<Bitmap> jumpRightBobtail, walkRightBobtail, jumpLeftBobtail;
 
     //Кнопки
     public static Bitmap blueLevelButtonClicked, blueLevelButton, baseBlueButton, baseBlueButtonClicked, baseRedButton, baseRedButtonClicked, attackButton, nextButton, nextButtonReversed, redLevelButton, redLevelButtonClicked;
@@ -65,9 +68,9 @@ public class BitmapLoader {
         electrodynamixMusic = mainRunActivity.getMedia().setMusic("music.mp3");
         phobosMusic = mainRunActivity.getMedia().setMusic("phobos.mp3");
         menuMusic = mainRunActivity.getMedia().setMusic("Robot.mp3");
-        theoryMusic =  mainRunActivity.getMedia().setMusic("Theory.mp3");
-        xStepMusic =  mainRunActivity.getMedia().setMusic("xStep.mp3");
-        stayInsideMusic =  mainRunActivity.getMedia().setMusic("stayInside.mp3");
+        theoryMusic = mainRunActivity.getMedia().setMusic("Theory.mp3");
+        xStepMusic = mainRunActivity.getMedia().setMusic("xStep.mp3");
+        stayInsideMusic = mainRunActivity.getMedia().setMusic("stayInside.mp3");
 
         //Инициализация наборов анимаций
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_gray), BasicGameSupport.grayStandRight, BasicGameSupport.grayStandLeft, BasicGameSupport.grayWalkRight, BasicGameSupport.grayWalkLeft, BasicGameSupport.grayJumpRight, BasicGameSupport.grayJumpLeft, BasicGameSupport.grayRocket));
@@ -75,6 +78,7 @@ public class BitmapLoader {
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_green_alien), BasicGameSupport.greenAlienStandRight, BasicGameSupport.greenAlienStandLeft, BasicGameSupport.greenAlienWalkRight, BasicGameSupport.greenAlienWalkLeft, BasicGameSupport.greenAlienJumpRight, BasicGameSupport.greenAlienJumpLeft, BasicGameSupport.greenAlienRocket));
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_shadow), BasicGameSupport.shadowStandRight, BasicGameSupport.shadowStandLeft, BasicGameSupport.shadowWalkRight, BasicGameSupport.shadowWalkLeft, BasicGameSupport.shadowJumpRight, BasicGameSupport.shadowJumpLeft, BasicGameSupport.shadowCatRocket));
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.main_coon), BasicGameSupport.mainCoonStandRight, BasicGameSupport.mainCoonStandLeft, BasicGameSupport.mainCoonWalkRight, BasicGameSupport.mainCoonWalkLeft, BasicGameSupport.mainCoonJumpRight, BasicGameSupport.mainCoonJumpLeft, BasicGameSupport.mainCoonRocket));
+        imageSets.add(new ImageSet(mainRunActivity.getString(R.string.bob_tail), BasicGameSupport.bobtailStandRight, BasicGameSupport.bobtailStandLeft, BasicGameSupport.bobtailWalkRight, BasicGameSupport.bobtailWalkLeft, BasicGameSupport.bobtailJumpRight, BasicGameSupport.bobtailJumpLeft, BasicGameSupport.bobtailRocket));
 
     }
 
@@ -107,6 +111,11 @@ public class BitmapLoader {
         createSpiteStandList(standLeftMainCoon, standRightMainCoon, mainCoonCatReversed, mainCoonCat);
         createSpriteWalkList(walkLeftMainCoon, walkRightMainCoon, mainCoonCatReversed, mainCoonCat);
         createRocketList(rocketMainCoon, mainCoonCat);
+
+        createSpriteJumpingList(jumpLeftBobtail, jumpRightBobtail, bobtailCatReversed, bobtailCat);
+        createSpiteStandList(standLeftBobtail, standRightBobtail, bobtailCatReversed, bobtailCat);
+        createSpriteWalkList(walkLeftBobtail, walkRightBobtail, bobtailCatReversed, bobtailCat);
+        createRocketList(rocketBobtail, bobtailCat);
         ///
     }
 
@@ -155,6 +164,14 @@ public class BitmapLoader {
         standLeftMainCoon = new ArrayList<>();
         rocketMainCoon = new ArrayList<>();
 
+        walkLeftBobtail = new ArrayList<>();
+        walkRightBobtail = new ArrayList<>();
+        jumpLeftBobtail = new ArrayList<>();
+        jumpRightBobtail = new ArrayList<>();
+        standRightBobtail = new ArrayList<>();
+        standLeftBobtail = new ArrayList<>();
+        rocketBobtail = new ArrayList<>();
+
         //Загрузка спрайтов котов
         grayCatReversed = gamePaint.createNewGraphicsBitmap("grayCatReversed.png");
         grayCat = gamePaint.createNewGraphicsBitmap("grayCat.png");
@@ -166,6 +183,8 @@ public class BitmapLoader {
         shadowCatReversed = gamePaint.createNewGraphicsBitmap("shadowCatReversed.png");
         mainCoonCat = gamePaint.createNewGraphicsBitmap("mainCoonCat.png");
         mainCoonCatReversed = gamePaint.createNewGraphicsBitmap("mainCoonCatReversed.png");
+        bobtailCat = gamePaint.createNewGraphicsBitmap("bobtailCat.png");
+        bobtailCatReversed = gamePaint.createNewGraphicsBitmap("bobtailCatReversed.png");
 
         //Загрузка иконок котов
         questionCat = gamePaint.createNewGraphicsBitmap("questionCat.png");
@@ -252,8 +271,8 @@ public class BitmapLoader {
         longBlueRect = gamePaint.createNewGraphicsBitmap("shortBlueRect.png");
         shortBlueRect = gamePaint.createNewGraphicsBitmap("longBlueRect.png");
         longRedRect = gamePaint.createNewGraphicsBitmap("longRedRect.png");
-        darkerDot  = gamePaint.createNewGraphicsBitmap("darkerDot.png");
-        sharps  = gamePaint.createNewGraphicsBitmap("shipi.png");
+        darkerDot = gamePaint.createNewGraphicsBitmap("darkerDot.png");
+        sharps = gamePaint.createNewGraphicsBitmap("shipi.png");
 
     }
 
