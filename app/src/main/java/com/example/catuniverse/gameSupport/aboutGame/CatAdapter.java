@@ -32,6 +32,7 @@ public class CatAdapter extends RecyclerView.Adapter {
         icons.add(BitmapLoader.greenAlienCatIcon);
         icons.add(BitmapLoader.shadowCatIcon);
         icons.add(BitmapLoader.mainCoonCatIcon);
+        icons.add(BitmapLoader.grayIcon);
 
         this.context = context;
     }

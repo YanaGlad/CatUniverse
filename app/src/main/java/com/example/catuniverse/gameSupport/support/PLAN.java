@@ -38,4 +38,6 @@ public enum  PLAN {
 //IDEEA!!! It is singleton cause you can't add same items two times to the levels.  (All of em are created in the beginning to static arr list) (not sure)
 //If you add item with id = 1 to lvl1 and to lvl2 or 2 times to lvl1, you must be banned
 // Fix useless parent in xml description
+
+    //Need some class to simplify adding new cats
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
 
 import java.util.ArrayList;
@@ -81,6 +82,30 @@ public class GameDescriptionFragment extends Fragment {
             recyclerView.setAdapter(new CatAdapter(listOfCats, context));
             //btn.setVisible
             imageView.setImageResource(R.drawable.room);
+
+            sortAttack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    int[] array = new int[listOfCats.size()];
+                    for (int i = 0; i < listOfCats.size(); i++) {
+                        array[i] = (int) listOfCats.get(i).getCharacteristics(2);
+                    }
+                    BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
+
+                    ArrayList<Cat> cats = new ArrayList<>();
+
+                    for (int i = 0; i < listOfCats.size(); i++) {
+                        for (int j = 0; j < array.length; j++) {
+                            if (array[i] == listOfCats.get(j).getPower()) {
+                                cats.add(listOfCats.get(j));
+                            }
+                        }
+                    }
+
+                    recyclerView.setAdapter(new CatAdapter(cats, context));
+                }
+            });
         });
 
 

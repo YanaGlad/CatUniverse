@@ -6,6 +6,8 @@ import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.graphics.CatIcon;
 import com.example.catuniverse.gameSupport.graphics.ImageSet;
 
+import java.util.ArrayList;
+
 import static com.example.catuniverse.gameViews.general.MenuView.checkIconKey;
 
 public class Cat { // помогает получить кота из базы данных и преобразовать его в объект Cat
@@ -14,6 +16,74 @@ public class Cat { // помогает получить кота из базы �
     private ImageSet imageSet; //Набор спрайтовых анимаций персонажа
     private int room, price, health; // комната, цена и здоровье(для стратегии)
     private double power, delay; //сила и задержка ( для стратегии )
+
+    private double[] characteristics = new double[3];
+
+    public Cat(int id, String name, String key, double power, int speed, double delay, int chosen, int unlocked, int room, int price, int health) {
+        this.imageSet = BasicGameSupport.checkKey(key);
+        this.id = id;
+        this.power = power;
+        this.speed = speed;
+        this.delay = delay;
+        this.chosen = chosen;
+        this.unlocked = unlocked;
+        this.name = name;
+        this.key = key;
+        this.room = room;
+        this.price = price;
+        this.health = health;
+
+        characteristics[0] = price;
+        characteristics[1] = power;
+        characteristics[2] = delay;
+    }
+
+    public double getCharacteristics(int id) {
+        return characteristics[id - 1];
+    }
+    public void setCharacteristics(int data, int id) {
+        characteristics[id - 1] = data;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setChosen(int chosen) {
+        this.chosen = chosen;
+    }
+
+    public void setUnlocked(int unlocked) {
+        this.unlocked = unlocked;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setImageSet(ImageSet imageSet) {
+        this.imageSet = imageSet;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     @NonNull
     @Override
@@ -31,20 +101,7 @@ public class Cat { // помогает получить кота из базы �
                 '}';
     }
 
-    public Cat(int id, String name, String key, double power, int speed, double delay, int chosen, int unlocked, int room, int price, int health) {
-        this.imageSet = BasicGameSupport.checkKey(key);
-        this.id = id;
-        this.power = power;
-        this.speed = speed;
-        this.delay = delay;
-        this.chosen = chosen;
-        this.unlocked = unlocked;
-        this.name = name;
-        this.key = key;
-        this.room = room;
-        this.price = price;
-        this.health = health;
-    }
+
 
     public int getId() {
         return id;

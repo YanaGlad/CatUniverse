@@ -17,6 +17,7 @@ import com.example.catuniverse.gameViews.general.GameOverView;
 import com.example.catuniverse.gameViews.levels.TimeLevelsView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static com.example.catuniverse.MainActivity.catCursor;
 import static com.example.catuniverse.MainActivity.catsDB;
@@ -304,7 +305,9 @@ public class BasicGameSupport {
         }
     }
 
-    public static void quickSort(int[] array, int low, int high) {
+
+    public static void quickSort2(int[] array, int low, int high) {
+
         int i = low;
         int j = high;
         int pivot = array[(i + j) / 2];
@@ -324,10 +327,9 @@ public class BasicGameSupport {
             }
         }
         if (j > low)
-            quickSort(array, low, j);
+            quickSort2(array, low, j);
         if (i < high)
-            quickSort(array, i, high);
-
+            quickSort2(array, i, high);
 
     }
 
