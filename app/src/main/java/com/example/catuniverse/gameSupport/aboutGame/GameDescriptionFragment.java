@@ -83,28 +83,24 @@ public class GameDescriptionFragment extends Fragment {
             //btn.setVisible
             imageView.setImageResource(R.drawable.room);
 
-            sortAttack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            sortAttack.setOnClickListener(view1 -> {
 
-                    int[] array = new int[listOfCats.size()];
-                    for (int i = 0; i < listOfCats.size(); i++) {
-                        array[i] = (int) listOfCats.get(i).getCharacteristics(2);
-                    }
-                    BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
+                int[] array = new int[listOfCats.size()];
+                for (int i = 0; i < listOfCats.size(); i++) {
+                    array[i] = (int) listOfCats.get(i).getCharacteristics(2);
+                }
+                BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
 
-                    ArrayList<Cat> cats = new ArrayList<>();
+                ArrayList<Cat> cats = new ArrayList<>();
 
-                    for (int i = 0; i < listOfCats.size(); i++) {
-                        for (int j = 0; j < array.length; j++) {
-                            if (array[i] == listOfCats.get(j).getPower()) {
-                                cats.add(listOfCats.get(j));
-                            }
+                for (int i = 0; i < listOfCats.size(); i++) {
+                    for (int j = 0; j < array.length; j++) {
+                        if (array[i] == listOfCats.get(j).getPower()) {
+                            cats.add(listOfCats.get(j));
                         }
                     }
-
-                    recyclerView.setAdapter(new CatAdapter(cats, context));
                 }
+                recyclerView.setAdapter(new CatAdapter(cats, context));
             });
         });
 
