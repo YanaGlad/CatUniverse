@@ -45,6 +45,7 @@ public class Cat { // помогает получить кота из базы �
         characteristics[id - 1] = data;
     }
 
+
     public void setId(int id) {
         this.id = id;
     }

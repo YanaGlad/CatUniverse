@@ -1,7 +1,6 @@
 package com.example.catuniverse.gameSupport.aboutGame;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
+import com.example.catuniverse.gameSupport.graphics.CatIcon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +20,32 @@ import java.util.List;
 public class CatAdapter extends RecyclerView.Adapter {
 
     private List<Cat> catList;
-    private List<Bitmap> icons;
+    private List<CatIcon> icons;
     private Context context;
+
+    public CatIcon connect(Cat cat, List<CatIcon> icons) {
+        for (int i = 0; i < icons.size(); i++) {
+            for (int j = 0; j < icons.size(); j++) {
+                if (cat.getKey().equals(icons.get(j).getKey()))
+                    return icons.get(j);
+            }
+        }
+
+
+        return null;
+    }
 
     CatAdapter(List<Cat> catList, Context context) {
         this.catList = catList;
 
         icons = new ArrayList<>();
 
-        icons.add(BitmapLoader.grayIcon);
-        icons.add(BitmapLoader.orangeIcon);
-        icons.add(BitmapLoader.greenAlienCatIcon);
-        icons.add(BitmapLoader.shadowCatIcon);
-        icons.add(BitmapLoader.mainCoonCatIcon);
-        icons.add(BitmapLoader.grayIcon);
+        icons.add(new CatIcon("gray", BitmapLoader.grayIcon));
+        icons.add(new CatIcon("orange", BitmapLoader.orangeIcon));
+        icons.add(new CatIcon("greenAlien", BitmapLoader.greenAlienCatIcon));
+        icons.add(new CatIcon("shadow", BitmapLoader.shadowCatIcon));
+        icons.add(new CatIcon("mainCoon", BitmapLoader.mainCoonCatIcon));
+        icons.add(new CatIcon("bobtail", BitmapLoader.grayIcon));
 
         this.context = context;
     }
@@ -60,7 +72,7 @@ public class CatAdapter extends RecyclerView.Adapter {
             );
 
             Glide.with(holder.catIcon)
-                    .load(icons.get(position))
+                    .load(connect(catList.get(position), icons).getIcon())
                     .into(holder.catIcon);
         }
     }
