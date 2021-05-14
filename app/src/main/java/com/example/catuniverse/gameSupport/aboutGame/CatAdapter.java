@@ -27,6 +27,7 @@ public class CatAdapter extends RecyclerView.Adapter {
         this.catList = catList;
 
         icons = new ArrayList<>();
+
         icons.add(BitmapLoader.grayIcon);
         icons.add(BitmapLoader.orangeIcon);
         icons.add(BitmapLoader.greenAlienCatIcon);
@@ -48,18 +49,20 @@ public class CatAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         CatViewHolder holder = (CatViewHolder) viewHolder;
-        holder.setCatNameText(catList.get(position).getName());
-        holder.setCatDescription(
-                context,
-                String.valueOf(catList.get(position).getPower()),
-                String.valueOf(catList.get(position).getDelay()),
-                String.valueOf(catList.get(position).getHealth()),
-                String.valueOf(catList.get(position).getPrice())
-        );
+        if (position < icons.size()) {
+            holder.setCatNameText(catList.get(position).getName());
+            holder.setCatDescription(
+                    context,
+                    String.valueOf(catList.get(position).getPower()),
+                    String.valueOf(catList.get(position).getDelay()),
+                    String.valueOf(catList.get(position).getHealth()),
+                    String.valueOf(catList.get(position).getPrice())
+            );
 
-        Glide.with(holder.catIcon)
-                .load(icons.get(position))
-                .into(holder.catIcon);
+            Glide.with(holder.catIcon)
+                    .load(icons.get(position))
+                    .into(holder.catIcon);
+        }
     }
 
     @Override

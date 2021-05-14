@@ -86,7 +86,7 @@ public class GameDescriptionFragment extends Fragment {
             sortPrice.setOnClickListener(view1 -> {
                 recyclerView.setAdapter(new CatAdapter(sortCharacteristic(1), context));
             });
-            
+
             sortAttack.setOnClickListener(view1 -> {
                 recyclerView.setAdapter(new CatAdapter(sortCharacteristic(2), context));
             });
@@ -151,7 +151,7 @@ public class GameDescriptionFragment extends Fragment {
         return view;
     }
 
-    public  ArrayList<Cat>  sortCharacteristic(int id) {
+    public ArrayList<Cat> sortCharacteristic(int id) {
         int[] array = new int[listOfCats.size()];
 
         for (int i = 0; i < listOfCats.size(); i++) {
@@ -164,7 +164,12 @@ public class GameDescriptionFragment extends Fragment {
         for (int i = 0; i < listOfCats.size(); i++) {
             for (int j = 0; j < array.length; j++) {
                 if (array[i] == listOfCats.get(j).getCharacteristics(id)) {
-                    cats.add(listOfCats.get(j));
+                    boolean no = false;
+                    for (int k = 0; k < cats.size(); k++) {
+                        if (cats.get(k) == listOfCats.get(j)) no = true;
+                    }
+                    if (!no)
+                        cats.add(listOfCats.get(j));
                 }
             }
         }
