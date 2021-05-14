@@ -83,24 +83,16 @@ public class GameDescriptionFragment extends Fragment {
             //btn.setVisible
             imageView.setImageResource(R.drawable.room);
 
+            sortPrice.setOnClickListener(view1 -> {
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(1), context));
+            });
+            
             sortAttack.setOnClickListener(view1 -> {
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(2), context));
+            });
 
-                int[] array = new int[listOfCats.size()];
-                for (int i = 0; i < listOfCats.size(); i++) {
-                    array[i] = (int) listOfCats.get(i).getCharacteristics(2);
-                }
-                BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
-
-                ArrayList<Cat> cats = new ArrayList<>();
-
-                for (int i = 0; i < listOfCats.size(); i++) {
-                    for (int j = 0; j < array.length; j++) {
-                        if (array[i] == listOfCats.get(j).getPower()) {
-                            cats.add(listOfCats.get(j));
-                        }
-                    }
-                }
-                recyclerView.setAdapter(new CatAdapter(cats, context));
+            sortDelay.setOnClickListener(view1 -> {
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(3), context));
             });
         });
 
@@ -152,11 +144,31 @@ public class GameDescriptionFragment extends Fragment {
 
             recyclerView.setAdapter(new CatAdapter(nothing, context));
             title.setText(credits.getText());
-            description.setText("Game Developer : Yana Gladkikh \n" + "Supported by Samsung IT School \n");
+            description.setText("Game Developer : Yana Gladkikh \n" + "Supported by Samsung IT School and Anton Smirnov\n");
             imageView.setImageResource(R.drawable.samsungitschool);
         });
 
         return view;
+    }
+
+    public  ArrayList<Cat>  sortCharacteristic(int id) {
+        int[] array = new int[listOfCats.size()];
+
+        for (int i = 0; i < listOfCats.size(); i++) {
+            array[i] = (int) listOfCats.get(i).getCharacteristics(id);
+        }
+        BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
+
+        ArrayList<Cat> cats = new ArrayList<>();
+
+        for (int i = 0; i < listOfCats.size(); i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] == listOfCats.get(j).getCharacteristics(id)) {
+                    cats.add(listOfCats.get(j));
+                }
+            }
+        }
+        return cats;
     }
 }
 
