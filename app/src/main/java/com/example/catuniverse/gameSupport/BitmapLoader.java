@@ -23,7 +23,7 @@ public class BitmapLoader {
             shadowCatReversed, greenAlienCat, greenAlienCatReversed, mainCoonCat, mainCoonCatReversed,
             bobtailCat, bobtailCatReversed;
     //Иконки котов
-    public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon;
+    public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon, bobtailCatIcon;
 
     //Анимации котов
     public static ArrayList<Bitmap> asteroidSprite;
@@ -193,6 +193,7 @@ public class BitmapLoader {
         greenAlienCatIcon = gamePaint.createNewGraphicsBitmap("greenAlienIcon.png");
         shadowCatIcon = gamePaint.createNewGraphicsBitmap("shadowIcon.png");
         mainCoonCatIcon = gamePaint.createNewGraphicsBitmap("mainCoonIcon.png");
+        bobtailCatIcon = gamePaint.createNewGraphicsBitmap("bobtailIcon.png");
 
         //Загрузка изображений кнопок
         blueLevelButton = gamePaint.createNewGraphicsBitmap("levelButton.png");

@@ -30,8 +30,6 @@ public class CatAdapter extends RecyclerView.Adapter {
                     return icons.get(j);
             }
         }
-
-
         return null;
     }
 
@@ -45,7 +43,7 @@ public class CatAdapter extends RecyclerView.Adapter {
         icons.add(new CatIcon("greenAlien", BitmapLoader.greenAlienCatIcon));
         icons.add(new CatIcon("shadow", BitmapLoader.shadowCatIcon));
         icons.add(new CatIcon("mainCoon", BitmapLoader.mainCoonCatIcon));
-        icons.add(new CatIcon("bobtail", BitmapLoader.grayIcon));
+        icons.add(new CatIcon("bobtail", BitmapLoader.bobtailCatIcon));
 
         this.context = context;
     }

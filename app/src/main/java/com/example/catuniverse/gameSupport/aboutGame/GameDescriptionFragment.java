@@ -80,7 +80,7 @@ public class GameDescriptionFragment extends Fragment {
             title.setText(cats.getText());
             description.setText(R.string.cats_description); //"There you can see cats you already have." +
             recyclerView.setAdapter(new CatAdapter(listOfCats, context));
-            //btn.setVisible
+
             imageView.setImageResource(R.drawable.room);
 
             sortPrice.setOnClickListener(view1 -> {
