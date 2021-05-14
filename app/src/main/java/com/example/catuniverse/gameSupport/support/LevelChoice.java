@@ -44,6 +44,8 @@ public class LevelChoice implements Loopable {
                 timeLevels.add(new TimeLevelsView(mainRunActivity, 4));
                 timeLevels.add(new TimeLevelsView(mainRunActivity, 5));
                 timeLevels.add(new TimeLevelsView(mainRunActivity, 6));
+                timeLevels.add(new TimeLevelsView(mainRunActivity, 7));
+
                 timeLevels.add(new InDevelopmentView(mainRunActivity, key));
                 break;
 

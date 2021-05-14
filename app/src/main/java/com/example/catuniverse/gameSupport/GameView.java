@@ -8,7 +8,6 @@ public abstract class GameView {
 
     private MainRunActivity mainRunActivity;
     private GamePaint gamePaint;
-
     public static int screenWidth;
     public static int screenHeight;
     protected int stars;

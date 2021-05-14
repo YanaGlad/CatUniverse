@@ -12,6 +12,7 @@ import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level3;
 import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level4;
 import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level5;
 import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level6;
+import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level7;
 import com.example.catuniverse.gameViews.general.ChooseView;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class TimeLevelsView extends GameView {
         timeLevels.add(new Level4(mainRunActivity));
         timeLevels.add(new Level5(mainRunActivity));
         timeLevels.add(new Level6(mainRunActivity));
+        timeLevels.add(new Level7(mainRunActivity));
 
         level = timeLevels.get(id - 1);
 
