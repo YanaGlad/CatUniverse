@@ -79,6 +79,8 @@
     <string name="in_dev">In the development</string>
     <string name="credits">Credits</string>
     <string name="about">About</string>
+    <string name="gold_part">goldPart</string>
+
 
     //About
     <string name="maths_description">In the maths type of levels you need to catch correct answers on the questions you can see at the moving player. You lose live catching wrong answer. Player moves to the side where your finger is hold. </string>

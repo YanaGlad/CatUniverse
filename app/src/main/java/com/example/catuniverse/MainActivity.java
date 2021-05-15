@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends MainRunActivity {
-    public static SQLiteDatabase timeDB, catsDB, strategyDB, mathsDB;
-    public static Cursor cursor, catCursor, strategyCursor, mathsCursor;
-    public static String DB_PATH1, DB_PATH2, DB_PATH3;
+    public static SQLiteDatabase timeDB, catsDB, strategyDB, mathsDB, achievementDB;
+    public static Cursor cursor, catCursor, strategyCursor, mathsCursor, achievementCursor;
+    public static String DB_PATH_TIME, DB_PATH_CATS, DB_PATH_STRATEGY, DB_PATH_MATHS, DB_PATH_ACHIVE;
     public static ArrayList<Level> timeLevels, strategyLevels, mathsLevels;
     public static ArrayList<Cat> listOfCats;
     public static ArrayList<CatPet> listOfPets;
@@ -39,9 +39,9 @@ public class MainActivity extends MainRunActivity {
     protected void onResume() {
         super.onResume();
         timeLevels = new ArrayList<>();
-        DB_PATH1 = this.getFilesDir().getPath() + "time.db";
+        DB_PATH_TIME = this.getFilesDir().getPath() + "time.db";
         timeDB = getBaseContext().openOrCreateDatabase("time.db", MODE_PRIVATE, null);
-   //     timeDB.execSQL("DROP TABLE IF EXISTS time");
+        //     timeDB.execSQL("DROP TABLE IF EXISTS time");
         timeDB.execSQL("CREATE TABLE IF NOT EXISTS time (_id INTEGER, stars INTEGER)");
         timeDB.execSQL("INSERT into time (_id, stars) VALUES (1,0)");
         timeDB.execSQL("INSERT into time (_id, stars) VALUES (2,0)");
@@ -60,9 +60,9 @@ public class MainActivity extends MainRunActivity {
             }
         }
 
-        DB_PATH2 = this.getFilesDir().getPath() + "cats.db";
+        DB_PATH_CATS = this.getFilesDir().getPath() + "cats.db";
         catsDB = getBaseContext().openOrCreateDatabase("cats.db", MODE_PRIVATE, null);
-      //  catsDB.execSQL("DROP TABLE IF EXISTS cats");
+        //  catsDB.execSQL("DROP TABLE IF EXISTS cats");
         catsDB.execSQL("CREATE TABLE IF NOT EXISTS cats (_id INTEGER, name TEXT, imageSet TEXT, power INTEGER, speed INTEGER, delay INTEGER,  chosen INTEGER, unlocked INTEGER, room INTEGER, price INTEGER, health INTEGER)"); ///PRICE
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (1, 'Gray', 'gray', 25, 5, 3, 1, 1, 1, 25, 30)");
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (2, 'Oragne', 'orange', 35 , 5, 3, 0, 0, -1, 30, 35)");
@@ -88,9 +88,9 @@ public class MainActivity extends MainRunActivity {
 
         strategyLevels = new ArrayList<>();
 
-        DB_PATH3 = this.getFilesDir().getPath() + "strategy.db";
+        DB_PATH_STRATEGY = this.getFilesDir().getPath() + "strategy.db";
         strategyDB = getBaseContext().openOrCreateDatabase("strategy.db", MODE_PRIVATE, null);
-       // strategyDB.execSQL("DROP TABLE IF EXISTS strategy");
+        // strategyDB.execSQL("DROP TABLE IF EXISTS strategy");
         strategyDB.execSQL("CREATE TABLE IF NOT EXISTS strategy (_id INTEGER, stars INTEGER)");
         strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (1,0)");
         strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (2,0)");
@@ -112,7 +112,7 @@ public class MainActivity extends MainRunActivity {
 
         mathsLevels = new ArrayList<>();
 
-        DB_PATH3 = this.getFilesDir().getPath() + "maths.db";
+        DB_PATH_MATHS = this.getFilesDir().getPath() + "maths.db";
         mathsDB = getBaseContext().openOrCreateDatabase("maths.db", MODE_PRIVATE, null);
         // mathsDB.execSQL("DROP TABLE IF EXISTS maths");
         mathsDB.execSQL("CREATE TABLE IF NOT EXISTS maths (_id INTEGER, stars INTEGER)");
@@ -127,6 +127,24 @@ public class MainActivity extends MainRunActivity {
         mathsDB.execSQL("INSERT into maths (_id, stars) VALUES (9,0)");
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             mathsCursor = mathsDB.rawQuery("SELECT * from maths WHERE _id = " + (i + 1), null);
+            if (mathsCursor != null && mathsCursor.moveToFirst()) {
+                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1)));
+            }
+        }
+
+
+        mathsLevels = new ArrayList<>();
+
+        DB_PATH_ACHIVE = this.getFilesDir().getPath() + "achievement.db";
+        achievementDB = getBaseContext().openOrCreateDatabase("achievement.db", MODE_PRIVATE, null);
+        // mathsDB.execSQL("DROP TABLE IF EXISTS maths");
+        achievementDB.execSQL("CREATE TABLE IF NOT EXISTS achievement (_id INTEGER, unlocked INTEGER, prize TEXT)");
+        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (1 ,0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (2 ,0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (3 ,0, 'goldPart')");
+
+        for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
+            mathsCursor = mathsDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
             if (mathsCursor != null && mathsCursor.moveToFirst()) {
                 mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1)));
             }
