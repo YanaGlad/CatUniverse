@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
+import com.example.catuniverse.gameSupport.gameTime.Clickable;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
@@ -80,6 +81,11 @@ public class BasicButton extends GameItem {
 
     public boolean isClicked() {
         return clicked;
+    }
+
+    @Override
+    public boolean requirements() {
+        return false;
     }
 
     public void notClicked() {
