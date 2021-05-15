@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class BitmapLoader {
 
     static ArrayList<ImageSet> imageSets = new ArrayList<>();
+
     //Музыка
     public static Media.Music electrodynamixMusic, phobosMusic, theoryMusic, xStepMusic, menuMusic, stayInsideMusic;
 
@@ -24,6 +25,9 @@ public class BitmapLoader {
             bobtailCat, bobtailCatReversed;
     //Иконки котов
     public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon, bobtailCatIcon;
+
+    //Иконки достижений
+    public static Bitmap strengthAch;
 
     //Анимации котов
     public static ArrayList<Bitmap> asteroidSprite;
@@ -194,6 +198,9 @@ public class BitmapLoader {
         shadowCatIcon = gamePaint.createNewGraphicsBitmap("shadowIcon.png");
         mainCoonCatIcon = gamePaint.createNewGraphicsBitmap("mainCoonIcon.png");
         bobtailCatIcon = gamePaint.createNewGraphicsBitmap("bobtailIcon.png");
+
+        //Загрузка иконок достижений
+        strengthAch = gamePaint.createNewGraphicsBitmap("strengthAch.png");
 
         //Загрузка изображений кнопок
         blueLevelButton = gamePaint.createNewGraphicsBitmap("levelButton.png");

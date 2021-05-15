@@ -1,5 +1,6 @@
 package com.example.catuniverse.gameViews.general;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import com.example.catuniverse.R;
@@ -14,23 +15,24 @@ import java.util.ArrayList;
 public class AchiveMenuView extends GameView {
 
     private ArrayList<BasicButton> basicButtons;
+    private ArrayList<Bitmap>achievementIcons;
 
     public AchiveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
 
         basicButtons = new ArrayList<>();
+        achievementIcons = new ArrayList<>();
 
         int x = 0, y = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 3; j++) {
-                basicButtons.add(new BasicButton(getMainRunActivity(), x, y, "No", Color.BLACK, 30, BitmapLoader.grayIcon, BitmapLoader.grayIcon, 50, 40));
+                basicButtons.add(new BasicButton(getMainRunActivity(), x, y, BitmapLoader.grayIcon, BitmapLoader.grayIcon, false));
                 x += 100;
             }
             x = 0;
             y += 100;
         }
     }
-
 
     @Override
     public void run() {
