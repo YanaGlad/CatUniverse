@@ -13,7 +13,7 @@ public enum  PLAN {
 //Optimizing levels additions including autoIncrement NOT DONE!
 //Reduce asteroid count to 4 or 5 DONE
 
-//PLAN FOR 11.05.2021 - 13.05.2021
+//PLAN FOR 11.05.2021 - 16.05.2021
 
 //!!!! add abstract secretsLvl class!!!!! or abstract method in TimeLevel
 //Class SecretItem
