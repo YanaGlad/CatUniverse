@@ -77,6 +77,7 @@ public class MainActivity extends MainRunActivity {
 
         listOfCats = new ArrayList<>();
         listOfPets = new ArrayList<>();
+        listOfAchievements = new ArrayList<>();
 
         for (int i = 0; i < BasicGameSupport.catsCount; i++) {
             catCursor = catsDB.rawQuery("SELECT * from cats WHERE _id = " + (i + 1), null);

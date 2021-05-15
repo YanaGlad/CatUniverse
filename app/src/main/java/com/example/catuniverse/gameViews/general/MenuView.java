@@ -12,10 +12,13 @@ import com.example.catuniverse.gameSupport.graphics.CatIcon;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static com.example.catuniverse.gameSupport.BitmapLoader.addCatButton;
+import static com.example.catuniverse.gameSupport.BitmapLoader.addCatButtonClicked;
+
 //Меню игры, которое предоставляет возможность перейти в комнаты или выбрать тип уровней для игры
 public class MenuView extends GameView {
     public static ArrayList<CatIcon> catIcons = new ArrayList<>();
-    private BasicButton time, room, maths, strategy, about;
+    private BasicButton time, room, maths, strategy, about, achiveBtn;
 
     public MenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
@@ -34,7 +37,7 @@ public class MenuView extends GameView {
         strategy = new BasicButton(mainRunActivity, 200, 420, mainRunActivity.getString(R.string.play_strategy), Color.BLACK, 40, BitmapLoader.mainMenuButton, BitmapLoader.mainMenuButtonClicked, 50, 50);
 
         about = new BasicButton(mainRunActivity, 200, 520, mainRunActivity.getString(R.string.about), Color.BLACK, 30, BitmapLoader.baseBlueButton, BitmapLoader.baseBlueButtonClicked, 40, 35);
-
+        achiveBtn = new BasicButton(mainRunActivity, 20, 20, addCatButton, addCatButtonClicked, false);
 
     }
 
@@ -49,6 +52,7 @@ public class MenuView extends GameView {
         maths.run(super.getGamePaint());
         strategy.run(super.getGamePaint());
         about.run(super.getGamePaint());
+        achiveBtn.run(super.getGamePaint());
 
         // gamePaint.write("(c)MonsterGlad ", 570, 590, Color.WHITE, 15);
     }
@@ -87,6 +91,14 @@ public class MenuView extends GameView {
         if (about.isClicked()) {
             super.getMainRunActivity().aboutGame();
             about.notClicked();
+        }
+
+        AchiveMenuView achiveMenuView;
+
+        if (achiveBtn.isClicked()) {
+            achiveMenuView = new AchiveMenuView(super.getMainRunActivity());
+            super.getMainRunActivity().setView(achiveMenuView);
+            achiveBtn.notClicked();
         }
     }
 

@@ -99,9 +99,9 @@ public class StrategyPlayer extends GameItem {
         //Нажатие на клетку
         if (mainRunActivity.getTouchListener().up(x, y + BasicGameSupport.grayStandRight.getSprite1().getHeight(),
                 BasicGameSupport.grayStandRight.getSprite1().getWidth(),
-                BasicGameSupport.grayStandRight.getSprite1().getHeight())) {
+                BasicGameSupport.grayStandRight.getSprite1().getHeight()))
             clicked = !clicked;
-        }
+
         changeDelay.setText(mainRunActivity.getString(R.string.delay) + " " + delay);
         changePower.setText(mainRunActivity.getString(R.string.power) + " " + (int) power);
 
