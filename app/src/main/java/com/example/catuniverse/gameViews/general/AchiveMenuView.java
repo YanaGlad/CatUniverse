@@ -3,6 +3,7 @@ package com.example.catuniverse.gameViews.general;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import com.example.catuniverse.MainActivity;
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
@@ -15,41 +16,47 @@ import java.util.ArrayList;
 public class AchiveMenuView extends GameView {
 
     private ArrayList<BasicButton> basicButtons;
-    private ArrayList<Bitmap> achievementIcons;
+    private BasicButton exit;
 
     public AchiveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
 
         basicButtons = new ArrayList<>();
-        achievementIcons = new ArrayList<>();
+        ArrayList<Bitmap> achievementIcons = new ArrayList<>();
         achievementIcons.add(BitmapLoader.strengthAch);
 
         int x = 0, y = 100;
         for (int i = 0; i < achievementIcons.size(); i++) {
-            //for (int j = 0; j < achievementIcons.size(); j++) {
             basicButtons.add(new BasicButton(getMainRunActivity(), x, y, achievementIcons.get(i), achievementIcons.get(i), false));
             x += 100;
-            //  }
-            //  x = 0;
-            //   y += 100;
         }
+
+        exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
     }
 
     @Override
     public void run() {
         repaint();
-        BasicGameSupport.drawGrid(getGamePaint());
-        getGamePaint().setVisibleBitmap(BitmapLoader.longBlueRect, -20, -198);
-        super.getGamePaint().write(super.getMainRunActivity().getString(R.string.achievements), 230, 50, Color.WHITE, 45);
+        BasicGameSupport.drawGrid(getGamePaint(), BitmapLoader.spaceTestBackground);
+        getGamePaint().setVisibleBitmap(BitmapLoader.longPurpleRect, -20, -198);
+        super.getGamePaint().write(super.getMainRunActivity().getString(R.string.achievements), 233, 70, Color.WHITE, 55);
 
-        for (BasicButton btn : basicButtons) {
-            btn.run(getGamePaint());
+        for (int i = 0; i < basicButtons.size(); i++) {
+            if (MainActivity.listOfAchievements.get(i).isUnlocked() == 1)
+                basicButtons.get(i).run(getGamePaint());
         }
+
+        exit.run(super.getGamePaint());
+
 
     }
 
     @Override
     public void repaint() {
+        if (exit.isClicked()) {
+            super.getMainRunActivity().setView(new ChooseView(super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths)));
+            exit.notClicked();
+        }
 
     }
 }

@@ -108,7 +108,7 @@ public class StrategyField implements Loopable {
             repaint();
 
             //Задать фон, начертить линии, отделяющие клетки
-            BasicGameSupport.drawGrid(gamePaint);
+            BasicGameSupport.drawGrid(gamePaint, BitmapLoader.strategyBackground);
 
             //Отобразить остаток денег, жизней, кол-ва врагов, необходимых для победы
             gamePaint.setVisibleBitmap(BitmapLoader.pricePanel, -20, 500);

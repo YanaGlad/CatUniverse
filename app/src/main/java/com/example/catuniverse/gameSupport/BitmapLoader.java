@@ -52,14 +52,15 @@ public class BitmapLoader {
 
     //Фоны
     public static Bitmap spaceBackground, spaceBase, laboratoryBackground, technoBackground, redTechnoBackground, mathsBackground, mathsGameFinishBackground, strategyCatCount,
-            movingSpaceBackground, movingBlueSpaceBackground, strategyBackground, blueGround, purpleGround, movingMathsBackground, moonBackground;
+            movingSpaceBackground, movingBlueSpaceBackground, strategyBackground, blueGround, purpleGround, movingMathsBackground, moonBackground,
+            spaceTestBackground;
 
     //Двери
     public static Bitmap redDoor, blueDoor, blueDoorOpened, purpleDoor, purpleDoorOpened;
     //Объекты
     public static Bitmap asteroid, mathsPlayerSkeleton, bluePlatformSkeleton, star, redStar, mathsAnswerBig, closedLevel, pricePanel, bullet,
             bluePlatform, purplePlatform, tallWallSkeleton, tallWall, mathAnswerSkeleton, mathsAnswer, mathPlayer, heart, keyBlue, collTallRect,
-            yellowKey, rocketStation, blueDecorStation, purpleDecorStation, longBlueRect, shortBlueRect, longRedRect, darkerDot, sharps;
+            yellowKey, rocketStation, blueDecorStation, purpleDecorStation, longBlueRect, shortBlueRect, longRedRect, darkerDot, sharps, longPurpleRect;
 
     public BitmapLoader(MainRunActivity mainRunActivity, GamePaint gamePaint) throws IOException {
 
@@ -244,6 +245,7 @@ public class BitmapLoader {
         laboratoryBackground = gamePaint.createNewGraphicsBitmap("LaboratoryBackground.png");
         purpleGround = gamePaint.createNewGraphicsBitmap("purpleGround.png");
         moonBackground = gamePaint.createNewGraphicsBitmap("Moon.png");
+        spaceTestBackground = gamePaint.createNewGraphicsBitmap("spaceTest.png");
 
         //Загрузка изображений дверей
         redDoor = gamePaint.createNewGraphicsBitmap("redDoor.png");
@@ -279,6 +281,7 @@ public class BitmapLoader {
         longBlueRect = gamePaint.createNewGraphicsBitmap("shortBlueRect.png");
         shortBlueRect = gamePaint.createNewGraphicsBitmap("longBlueRect.png");
         longRedRect = gamePaint.createNewGraphicsBitmap("longRedRect.png");
+        longPurpleRect = gamePaint.createNewGraphicsBitmap("longPurpleRect.png");
         darkerDot = gamePaint.createNewGraphicsBitmap("darkerDot.png");
         sharps = gamePaint.createNewGraphicsBitmap("shipi.png");
 

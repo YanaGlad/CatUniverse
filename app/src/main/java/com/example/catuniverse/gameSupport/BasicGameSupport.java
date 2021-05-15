@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport;
 
 import android.content.ContentValues;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import androidx.annotation.Nullable;
@@ -338,8 +339,8 @@ public class BasicGameSupport {
 
     }
 
-    public static void drawGrid(GamePaint gamePaint){
-        gamePaint.setVisibleBitmap(BitmapLoader.strategyBackground, 0, 0);
+    public static void drawGrid(GamePaint gamePaint, Bitmap background){
+        gamePaint.setVisibleBitmap(background, 0, 0);
 
         int y = 100;
         for (int i = 0; i < 10; i++) {
