@@ -31,7 +31,7 @@ public class AchiveMenuView extends GameView {
             x += 100;
         }
 
-        exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
+        exit = new BasicButton(mainRunActivity, 730, 17, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AchiveMenuView extends GameView {
     @Override
     public void repaint() {
         if (exit.isClicked()) {
-            super.getMainRunActivity().setView(new ChooseView(super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths)));
+            super.getMainRunActivity().setView(new MenuView(super.getMainRunActivity()));
             exit.notClicked();
         }
 
