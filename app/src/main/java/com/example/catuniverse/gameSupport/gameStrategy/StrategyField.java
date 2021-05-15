@@ -5,6 +5,7 @@ import android.graphics.Color;
 import androidx.annotation.Nullable;
 
 import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
@@ -105,19 +106,9 @@ public class StrategyField implements Loopable {
                 oneTime = true;
             }
             repaint();
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
             //Задать фон, начертить линии, отделяющие клетки
-            gamePaint.setVisibleBitmap(BitmapLoader.strategyBackground, 0, 0);
-            int y = 100;
-            for (int i = 0; i < 10; i++) {
-                gamePaint.createLine(0, y, 950, y, Color.BLACK);
-                y += 100;
-            }
-            int x = 100;
-            for (int i = 0; i < 10; i++) {
-                gamePaint.createLine(x, 0, x, 650, Color.BLACK);
-                x += 100;
-            }
+            BasicGameSupport.drawGrid(gamePaint);
 
             //Отобразить остаток денег, жизней, кол-ва врагов, необходимых для победы
             gamePaint.setVisibleBitmap(BitmapLoader.pricePanel, -20, 500);
@@ -126,7 +117,8 @@ public class StrategyField implements Loopable {
 
             gamePaint.write(mainRunActivity.getString(R.string.lives), 540, 35, Color.BLACK, 30);
             gamePaint.write(mainRunActivity.getString(R.string.left_to_defeat) + " " + leftToDefeat, 300, 35, Color.BLACK, 30);
-            x = 620;
+
+            int x = 620;
             for (int i = 0; i < lives; i++) {
                 gamePaint.setVisibleBitmap(BitmapLoader.heart, x, 10);
                 x += 20;

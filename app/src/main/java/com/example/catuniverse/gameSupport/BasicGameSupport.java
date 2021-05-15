@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport;
 
 import android.content.ContentValues;
+import android.graphics.Color;
 
 import androidx.annotation.Nullable;
 
@@ -10,6 +11,7 @@ import com.example.catuniverse.gameSupport.databaseHelpers.CatPet;
 import com.example.catuniverse.gameSupport.databaseHelpers.Level;
 import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.example.catuniverse.gameSupport.gameTime.TimePlayer;
+import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameSupport.graphics.ImageSet;
 import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
 import com.example.catuniverse.gameViews.general.CongratsView;
@@ -334,6 +336,21 @@ public class BasicGameSupport {
         if (i < high)
             quickSort2(array, i, high);
 
+    }
+
+    public static void drawGrid(GamePaint gamePaint){
+        gamePaint.setVisibleBitmap(BitmapLoader.strategyBackground, 0, 0);
+
+        int y = 100;
+        for (int i = 0; i < 10; i++) {
+            gamePaint.createLine(0, y, 950, y, Color.BLACK);
+            y += 100;
+        }
+        int x = 100;
+        for (int i = 0; i < 10; i++) {
+            gamePaint.createLine(x, 0, x, 650, Color.BLACK);
+            x += 100;
+        }
     }
 
     //Инициализация анимаций всех котов в качестве статических переменных

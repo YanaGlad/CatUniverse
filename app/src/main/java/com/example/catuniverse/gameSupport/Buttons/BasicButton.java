@@ -83,11 +83,6 @@ public class BasicButton extends GameItem {
         return clicked;
     }
 
-    @Override
-    public boolean requirements() {
-        return false;
-    }
-
     public void notClicked() {
         this.clicked = false;
     }

@@ -2,32 +2,42 @@ package com.example.catuniverse.gameViews.general;
 
 import android.graphics.Color;
 
+import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
+import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 
+import java.util.ArrayList;
+
 public class AchiveMenuView extends GameView {
+
+    private ArrayList<BasicButton> basicButtons;
 
     public AchiveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
+
+        basicButtons = new ArrayList<>();
+
+        int x = 0, y = 0;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 3; j++) {
+                basicButtons.add(new BasicButton(getMainRunActivity(), x, y, "No", Color.BLACK, 30, BitmapLoader.grayIcon, BitmapLoader.grayIcon, 50, 40));
+                x += 100;
+            }
+            x = 0;
+            y += 100;
+        }
     }
+
 
     @Override
     public void run() {
         repaint();
-
-        //Change it to support methods
-        //Задать фон, начертить линии, отделяющие клетки
-        super.getGamePaint().setVisibleBitmap(BitmapLoader.strategyBackground, 0, 0);
-        int y = 100;
-        for (int i = 0; i < 10; i++) {
-            super.getGamePaint().createLine(0, y, 950, y, Color.BLACK);
-            y += 100;
-        }
-        int x = 100;
-        for (int i = 0; i < 10; i++) {
-            super.getGamePaint().createLine(x, 0, x, 650, Color.BLACK);
-            x += 100;
+        BasicGameSupport.drawGrid(getGamePaint());
+        for (BasicButton btn : basicButtons) {
+            btn.run(getGamePaint());
         }
 
     }
