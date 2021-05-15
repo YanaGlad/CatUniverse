@@ -105,6 +105,7 @@ public class StrategyField implements Loopable {
                 oneTime = true;
             }
             repaint();
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //Задать фон, начертить линии, отделяющие клетки
             gamePaint.setVisibleBitmap(BitmapLoader.strategyBackground, 0, 0);
             int y = 100;

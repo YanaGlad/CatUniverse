@@ -7,12 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.MainRunActivity;
+import com.example.catuniverse.gameSupport.databaseHelpers.Achievement;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.example.catuniverse.gameSupport.databaseHelpers.CatPet;
 import com.example.catuniverse.gameSupport.databaseHelpers.Level;
 import com.example.catuniverse.gameViews.general.MenuView;
 
 import java.io.IOException;
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends MainRunActivity {
@@ -22,6 +24,7 @@ public class MainActivity extends MainRunActivity {
     public static ArrayList<Level> timeLevels, strategyLevels, mathsLevels;
     public static ArrayList<Cat> listOfCats;
     public static ArrayList<CatPet> listOfPets;
+    public static ArrayList<Achievement> listOfAchievements;
 
     Context context;
 
@@ -143,10 +146,10 @@ public class MainActivity extends MainRunActivity {
         achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (2 ,0, 'goldPart')");
         achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (3 ,0, 'goldPart')");
 
-        for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
-            mathsCursor = mathsDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
-            if (mathsCursor != null && mathsCursor.moveToFirst()) {
-                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1)));
+        for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
+            achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
+            if (achievementCursor != null && achievementCursor.moveToFirst()) {
+                listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getInt(1), achievementCursor.getString(2)));
             }
         }
     }
