@@ -92,7 +92,7 @@ public class BasicGameSupport {
     //Количество котов
     public static int catsCount = 6;
     //Количесвто достижений
-    public static int achievementCount = 3;
+    public static int achievementCount = 2;
 
 
     public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();

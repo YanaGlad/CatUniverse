@@ -23,7 +23,8 @@ public class AchieveMenuView extends GameView {
 
         basicButtons = new ArrayList<>();
         ArrayList<Bitmap> achievementIcons = new ArrayList<>();
-        achievementIcons.add(BitmapLoader.strengthAch);
+        achievementIcons.add(BitmapLoader.dexterityAch);
+        achievementIcons.add(BitmapLoader.starCollectorAch);
 
         int x = 0, y = 100;
         for (int i = 0; i < achievementIcons.size(); i++) {

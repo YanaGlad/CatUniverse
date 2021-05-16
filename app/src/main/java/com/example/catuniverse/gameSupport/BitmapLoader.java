@@ -27,7 +27,7 @@ public class BitmapLoader {
     public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon, bobtailCatIcon;
 
     //Иконки достижений
-    public static Bitmap strengthAch;
+    public static Bitmap dexterityAch, starCollectorAch;
 
     //Анимации котов
     public static ArrayList<Bitmap> asteroidSprite;
@@ -201,7 +201,8 @@ public class BitmapLoader {
         bobtailCatIcon = gamePaint.createNewGraphicsBitmap("bobtailIcon.png");
 
         //Загрузка иконок достижений
-        strengthAch = gamePaint.createNewGraphicsBitmap("strengthAch.png");
+        dexterityAch = gamePaint.createNewGraphicsBitmap("strengthAch.png");
+        starCollectorAch = gamePaint.createNewGraphicsBitmap("starCollector.png");
 
         //Загрузка изображений кнопок
         blueLevelButton = gamePaint.createNewGraphicsBitmap("levelButton.png");
