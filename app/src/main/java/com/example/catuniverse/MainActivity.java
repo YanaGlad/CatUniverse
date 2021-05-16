@@ -77,7 +77,6 @@ public class MainActivity extends MainRunActivity {
 
         listOfCats = new ArrayList<>();
         listOfPets = new ArrayList<>();
-        listOfAchievements = new ArrayList<>();
 
         for (int i = 0; i < BasicGameSupport.catsCount; i++) {
             catCursor = catsDB.rawQuery("SELECT * from cats WHERE _id = " + (i + 1), null);
@@ -136,16 +135,15 @@ public class MainActivity extends MainRunActivity {
             }
         }
 
-
-        mathsLevels = new ArrayList<>();
+        listOfAchievements = new ArrayList<>();
 
         DB_PATH_ACHIVE = this.getFilesDir().getPath() + "achievement.db";
         achievementDB = getBaseContext().openOrCreateDatabase("achievement.db", MODE_PRIVATE, null);
-        // mathsDB.execSQL("DROP TABLE IF EXISTS maths");
+      //  achievementDB.execSQL("DROP TABLE IF EXISTS achievement");
         achievementDB.execSQL("CREATE TABLE IF NOT EXISTS achievement (_id INTEGER, name TEXT, unlocked INTEGER, prize TEXT)");
-        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (1, 'Dexterity', 0, 'goldPart')");
-        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (2 , 'Star Collector', 0, 'goldPart')");
-        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (3 , 'Strategist', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (1, 'Dexterity', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (2 , 'Star Collector', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (3 , 'Strategist', 0, 'goldPart')");
 
         for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
             achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);

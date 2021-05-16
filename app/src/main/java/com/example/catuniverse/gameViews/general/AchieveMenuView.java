@@ -13,12 +13,12 @@ import com.example.catuniverse.gameSupport.MainRunActivity;
 
 import java.util.ArrayList;
 
-public class AchiveMenuView extends GameView {
+public class AchieveMenuView extends GameView {
 
     private ArrayList<BasicButton> basicButtons;
     private BasicButton exit;
 
-    public AchiveMenuView(MainRunActivity mainRunActivity) {
+    public AchieveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
 
         basicButtons = new ArrayList<>();
@@ -32,6 +32,7 @@ public class AchiveMenuView extends GameView {
         }
 
         exit = new BasicButton(mainRunActivity, 730, 17, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
+      //  BasicGameSupport.updateAchieveDBHelpers();
     }
 
     @Override

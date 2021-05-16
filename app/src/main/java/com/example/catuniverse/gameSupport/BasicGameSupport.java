@@ -256,7 +256,7 @@ public class BasicGameSupport {
     }
 
     //Обновить списки с информацией о достижениях
-    private static void updateAchieveDBHelpers() {
+    public static void updateAchieveDBHelpers() {
         listOfAchievements.clear();
         for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
             achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
@@ -264,6 +264,14 @@ public class BasicGameSupport {
                 listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getString(1), achievementCursor.getInt(2), achievementCursor.getString(3)));
             }
         }
+    }
+
+    //открыть достижение
+    public static void unlockAchievement(int whereClause) {
+        ContentValues cv = new ContentValues();
+        cv.put("unlocked", 1);
+        catsDB.update("achievement", cv, "_id = " + whereClause, null);
+        updateAchieveDBHelpers();
     }
 
     //Выбрать игрока

@@ -93,11 +93,11 @@ public class MenuView extends GameView {
             about.notClicked();
         }
 
-        AchiveMenuView achiveMenuView;
+        AchieveMenuView achieveMenuView;
 
         if (achiveBtn.isClicked()) {
-            achiveMenuView = new AchiveMenuView(super.getMainRunActivity());
-            super.getMainRunActivity().setView(achiveMenuView);
+            achieveMenuView = new AchieveMenuView(super.getMainRunActivity());
+            super.getMainRunActivity().setView(achieveMenuView);
             achiveBtn.notClicked();
         }
     }
