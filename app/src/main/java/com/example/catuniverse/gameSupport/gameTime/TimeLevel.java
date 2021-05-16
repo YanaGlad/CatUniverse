@@ -93,6 +93,8 @@ public abstract class TimeLevel implements Loopable {
     }
 
     public abstract boolean isRequirementsCollected();
+    public abstract boolean unlockAchievement();
+    public abstract int getAchievementId();
 
     protected void drawThreeRoadLines(GamePaint gamePaint) {
         gamePaint.createLine(-1, 490, 840, 490, Color.CYAN);

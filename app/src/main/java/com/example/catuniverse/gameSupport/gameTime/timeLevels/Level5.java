@@ -64,7 +64,7 @@ public class Level5 extends TimeLevel {
         gameItems.add(new TimePlatform(1350, 240, purplePlatform));
         smartObstacles.add(new TimePlatform(1230, 160, rocketStation));
 
-        gameItems.add(new TimeDecoration(2100, -130, purpleDecorStation,true)); //сделать фиолетовым + добавить синюю в один из уровней
+        gameItems.add(new TimeDecoration(2100, -130, purpleDecorStation, true)); //сделать фиолетовым + добавить синюю в один из уровней
 
         gameItems.add(new TimePlatform(3350, 240, purplePlatform));
         gameItems.add(new TimePlatform(3500, 360, purplePlatform));
@@ -131,7 +131,7 @@ public class Level5 extends TimeLevel {
             for (TimeTallPlatform tb : timeTallPlatformArrayList)
                 tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
 
-            CollisionDetectors.tallPlatformCollision( timeTallPlatformArrayList);
+            CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
         } else
             super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
 
@@ -161,6 +161,16 @@ public class Level5 extends TimeLevel {
     @Override
     public boolean isRequirementsCollected() {
         return requestedCount[0] == collectedCount[0];
+    }
+
+    @Override
+    public boolean unlockAchievement() {
+        return lives == 3;
+    }
+
+    @Override
+    public int getAchievementId() {
+        return 1;
     }
 
     @Override

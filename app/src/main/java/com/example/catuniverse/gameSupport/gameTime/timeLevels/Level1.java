@@ -163,6 +163,16 @@ public class Level1 extends TimeLevel {
     }
 
     @Override
+    public boolean unlockAchievement() {
+        return false;
+    }
+
+    @Override
+    public int getAchievementId() {
+        return -1;
+    }
+
+    @Override
     public String getRewardId() {
         return "2";
     }

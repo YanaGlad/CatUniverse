@@ -68,7 +68,7 @@ public class TimeLevelsView extends GameView {
             }
             exit.notClicked();
         }
-        timeLevelFinish(level, this, level.isRequirementsCollected(), id, level.getRewardId(), new TimeLevelsView(super.getMainRunActivity(), id), level.getMusic());
+        timeLevelFinish(level, this, id, level.getRewardId(), new TimeLevelsView(super.getMainRunActivity(), id), level.getMusic());
         exit.repaint();
     }
 }

@@ -270,7 +270,7 @@ public class BasicGameSupport {
     public static void unlockAchievement(int whereClause) {
         ContentValues cv = new ContentValues();
         cv.put("unlocked", 1);
-        catsDB.update("achievement", cv, "_id = " + whereClause, null);
+        achievementDB.update("achievement", cv, "_id = " + whereClause, null);
         updateAchieveDBHelpers();
     }
 
@@ -305,9 +305,14 @@ public class BasicGameSupport {
     //Проверяет пройден или проигран уровень (уровни на время), принимает уровень, текущий GameView,
     //булевую переменну, с помощью которой проверяет выполнены ли требования к прохождению уровня, номер уровня,
     //id персонжа, GsmeView уровеня, который нужно перезапустить при поражении, GsmeView, музыку текущего уровня
-    public static void timeLevelFinish(TimeLevel timeLevel, GameView gameView, boolean requirements,
+    public static void timeLevelFinish(TimeLevel timeLevel, GameView gameView,
                                        int levelNum, @Nullable String rewardId, GameView restart, Media.Music music) {
-        if (timeLevel.getPassingDoor().isClicked() && requirements) {
+
+        if (timeLevel.getPassingDoor().isClicked() && timeLevel.isRequirementsCollected()) {
+
+            if (timeLevel.unlockAchievement() && timeLevel.getAchievementId() != -1)
+                unlockAchievement(timeLevel.getAchievementId());
+
             BasicGameSupport.updateTimeStars(timeLevel.getEndTime(), timeLevel.getThreeStars(), timeLevel.getTwoStars(), gameView.getStars(), levelNum, rewardId, gameView.getMainRunActivity());
             TimeLevelsView.levelRunning = false;
             music.stop();
@@ -318,6 +323,7 @@ public class BasicGameSupport {
             }
             timeLevel.getPassingDoor().notClicked();
         }
+
         if (timeLevel.isGameOver()) {
             TimeLevelsView.levelRunning = false;
             music.stop();
