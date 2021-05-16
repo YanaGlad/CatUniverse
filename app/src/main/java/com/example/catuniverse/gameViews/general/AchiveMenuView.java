@@ -37,7 +37,7 @@ public class AchiveMenuView extends GameView {
     @Override
     public void run() {
         repaint();
-        BasicGameSupport.drawGrid(getGamePaint(), BitmapLoader.spaceTestBackground);
+        BasicGameSupport.drawGrid(getGamePaint(), BitmapLoader.spaceTestBackground, Color.WHITE);
         getGamePaint().setVisibleBitmap(BitmapLoader.longPurpleRect, -20, -198);
         super.getGamePaint().write(super.getMainRunActivity().getString(R.string.achievements), 233, 70, Color.WHITE, 55);
 

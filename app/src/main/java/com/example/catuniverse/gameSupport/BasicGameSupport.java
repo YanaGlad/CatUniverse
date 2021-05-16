@@ -2,11 +2,11 @@ package com.example.catuniverse.gameSupport;
 
 import android.content.ContentValues;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 
 import androidx.annotation.Nullable;
 
 import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.databaseHelpers.Achievement;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.example.catuniverse.gameSupport.databaseHelpers.CatPet;
 import com.example.catuniverse.gameSupport.databaseHelpers.Level;
@@ -20,11 +20,13 @@ import com.example.catuniverse.gameViews.general.GameOverView;
 import com.example.catuniverse.gameViews.levels.TimeLevelsView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import static com.example.catuniverse.MainActivity.achievementCursor;
+import static com.example.catuniverse.MainActivity.achievementDB;
 import static com.example.catuniverse.MainActivity.catCursor;
 import static com.example.catuniverse.MainActivity.catsDB;
 import static com.example.catuniverse.MainActivity.cursor;
+import static com.example.catuniverse.MainActivity.listOfAchievements;
 import static com.example.catuniverse.MainActivity.timeLevels;
 import static com.example.catuniverse.MainActivity.listOfCats;
 import static com.example.catuniverse.MainActivity.listOfPets;
@@ -253,6 +255,17 @@ public class BasicGameSupport {
         }
     }
 
+    //Обновить списки с информацией о достижениях
+    private static void updateAchieveDBHelpers() {
+        listOfAchievements.clear();
+        for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
+            achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
+            if (achievementCursor != null && achievementCursor.moveToFirst()) {
+                listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getString(1), achievementCursor.getInt(2), achievementCursor.getString(3)));
+            }
+        }
+    }
+
     //Выбрать игрока
     public static void choosePlayer(int whereClause) {
         ContentValues cv = new ContentValues();
@@ -312,7 +325,7 @@ public class BasicGameSupport {
     }
 
 
-    public static void quickSort2(int[] array, int low, int high) {
+    public static void quickSort(int[] array, int low, int high) {
 
         int i = low;
         int j = high;
@@ -333,23 +346,23 @@ public class BasicGameSupport {
             }
         }
         if (j > low)
-            quickSort2(array, low, j);
+            quickSort(array, low, j);
         if (i < high)
-            quickSort2(array, i, high);
+            quickSort(array, i, high);
 
     }
 
-    public static void drawGrid(GamePaint gamePaint, Bitmap background){
+    public static void drawGrid(GamePaint gamePaint, Bitmap background, int color) {
         gamePaint.setVisibleBitmap(background, 0, 0);
 
         int y = 100;
         for (int i = 0; i < 10; i++) {
-            gamePaint.createLine(0, y, 950, y, Color.BLACK);
+            gamePaint.createLine(0, y, 950, y, color);
             y += 100;
         }
         int x = 100;
         for (int i = 0; i < 10; i++) {
-            gamePaint.createLine(x, 0, x, 650, Color.BLACK);
+            gamePaint.createLine(x, 0, x, 650, color);
             x += 100;
         }
     }

@@ -157,7 +157,7 @@ public class GameDescriptionFragment extends Fragment {
         for (int i = 0; i < listOfCats.size(); i++) {
             array[i] = (int) listOfCats.get(i).getCharacteristics(id);
         }
-        BasicGameSupport.quickSort2(array, 0, listOfCats.size() - 1);
+        BasicGameSupport.quickSort(array, 0, listOfCats.size() - 1);
 
         ArrayList<Cat> cats = new ArrayList<>();
 

@@ -142,15 +142,15 @@ public class MainActivity extends MainRunActivity {
         DB_PATH_ACHIVE = this.getFilesDir().getPath() + "achievement.db";
         achievementDB = getBaseContext().openOrCreateDatabase("achievement.db", MODE_PRIVATE, null);
         // mathsDB.execSQL("DROP TABLE IF EXISTS maths");
-        achievementDB.execSQL("CREATE TABLE IF NOT EXISTS achievement (_id INTEGER, unlocked INTEGER, prize TEXT)");
-        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (1 ,0, 'goldPart')");
-        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (2 ,0, 'goldPart')");
-        achievementDB.execSQL("INSERT into achievement (_id, unlocked,prize) VALUES (3 ,0, 'goldPart')");
+        achievementDB.execSQL("CREATE TABLE IF NOT EXISTS achievement (_id INTEGER, name TEXT, unlocked INTEGER, prize TEXT)");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (1, 'Dexterity', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (2 , 'Star Collector', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked,prize) VALUES (3 , 'Strategist', 0, 'goldPart')");
 
         for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
             achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
             if (achievementCursor != null && achievementCursor.moveToFirst()) {
-                listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getInt(1), achievementCursor.getString(2)));
+                listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getString(1), achievementCursor.getInt(2), achievementCursor.getString(3)));
             }
         }
     }

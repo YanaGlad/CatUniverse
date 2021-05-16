@@ -3,9 +3,11 @@ package com.example.catuniverse.gameSupport.databaseHelpers;
 public class Achievement {
     private int _id, unlocked;
     private String prize;
+    private String name;
 
-    public Achievement(int _id, int unlocked, String prize) {
+    public Achievement(int _id, String name, int unlocked, String prize) {
         this._id = _id;
+        this.name = name;
         this.unlocked = unlocked;
         this.prize = prize;
     }
