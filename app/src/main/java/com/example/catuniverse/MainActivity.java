@@ -135,14 +135,14 @@ public class MainActivity extends MainRunActivity {
             }
         }
 
-        listOfAchievements = new ArrayList<>();
+       listOfAchievements = new ArrayList<>();
 
         DB_PATH_ACHIVE = this.getFilesDir().getPath() + "achievement.db";
         achievementDB = getBaseContext().openOrCreateDatabase("achievement.db", MODE_PRIVATE, null);
-      //  achievementDB.execSQL("DROP TABLE IF EXISTS achievement");
+        achievementDB.execSQL("DROP TABLE IF EXISTS achievement");
         achievementDB.execSQL("CREATE TABLE IF NOT EXISTS achievement (_id INTEGER, name TEXT, unlocked INTEGER, prize TEXT)");
         achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (1, 'Dexterity', 0, 'goldPart')");
-        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (2 , 'Star Collector', 0, 'goldPart')");
+        achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (2, 'Star Collector', 0, 'goldPart')");
      // achievementDB.execSQL("INSERT into achievement (_id, name, unlocked, prize) VALUES (3 , 'Strategist', 0, 'goldPart')");
 
         for (int i = 0; i < BasicGameSupport.achievementCount; i++) {

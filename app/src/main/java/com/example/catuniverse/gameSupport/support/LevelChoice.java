@@ -36,37 +36,6 @@ public class LevelChoice implements Loopable {
         int x = 70;
         int y = 50;
 
-        switch (key) {
-            case "time":
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 1));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 2));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 3));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 4));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 5));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 6));
-                timeLevels.add(new TimeLevelsView(mainRunActivity, 7));
-
-                timeLevels.add(new InDevelopmentView(mainRunActivity, key));
-                break;
-
-            case "strategy":
-                strategyLevels.add(new StrategyLevelsView(mainRunActivity, 1));
-                strategyLevels.add(new StrategyLevelsView(mainRunActivity, 2));
-                strategyLevels.add(new StrategyLevelsView(mainRunActivity, 3));
-                strategyLevels.add(new StrategyLevelsView(mainRunActivity, 4));
-                strategyLevels.add(new InDevelopmentView(mainRunActivity, key));
-                break;
-
-            case "maths":
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 1));
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 2));
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 3));
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 4));
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 5));
-                mathsLevels.add(new MathsLevelsView(mainRunActivity, 6));
-                mathsLevels.add(new InDevelopmentView(mainRunActivity, key));
-                break;
-        }
 
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             levelButtons.add(new LevelButton(mainRunActivity, x, y, notClicked, clicked, key));
@@ -110,15 +79,15 @@ public class LevelChoice implements Loopable {
                     BitmapLoader.menuMusic.stop();
                     switch (key) {
                         case "time":
-                            gameView.getMainRunActivity().setView(timeLevels.get(i));
+                            gameView.getMainRunActivity().setView(new TimeLevelsView(gameView.getMainRunActivity(), i+1));
                             TimeLevelsView.levelRunning = true;
                             break;
                         case "strategy":
-                            gameView.getMainRunActivity().setView(strategyLevels.get(i));
+                            gameView.getMainRunActivity().setView(new StrategyLevelsView(gameView.getMainRunActivity(), i+1));
                             StrategyLevelsView.levelRunning = true;
                             break;
                         case "maths":
-                            gameView.getMainRunActivity().setView(mathsLevels.get(i));
+                            gameView.getMainRunActivity().setView(new MathsLevelsView(gameView.getMainRunActivity(), i+1));
                             MathsLevelsView.levelRunning = true;
                             break;
                     }
