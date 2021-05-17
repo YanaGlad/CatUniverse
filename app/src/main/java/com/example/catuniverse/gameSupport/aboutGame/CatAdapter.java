@@ -24,12 +24,11 @@ public class CatAdapter extends RecyclerView.Adapter {
     private Context context;
 
     public CatIcon connect(Cat cat, List<CatIcon> icons) {
-        for (int i = 0; i < icons.size(); i++) {
-            for (int j = 0; j < icons.size(); j++) {
+        for (int i = 0; i < icons.size(); i++)
+            for (int j = 0; j < icons.size(); j++)
                 if (cat.getKey().equals(icons.get(j).getKey()))
                     return icons.get(j);
-            }
-        }
+
         return null;
     }
 

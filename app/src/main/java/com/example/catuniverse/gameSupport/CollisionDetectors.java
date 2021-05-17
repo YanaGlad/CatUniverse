@@ -38,7 +38,6 @@ public class CollisionDetectors {
             timePlayer.hitCallTall(collisionSupportElement);
         else
             timePlayer.notStanding();
-
     }
 
     //Коллизия высокой платформы. (Возможность работы коллизии для сразу нескольких платформ.  Это необходимо т.к. для них создан особенный способ обработки коллизий

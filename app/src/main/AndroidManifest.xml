@@ -9,38 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-     <activity
-         android:name="com.example.catuniverse.gameSupport.MainRunActivity">
-         <intent-filter>
-             <action android:name="android.intent.action.VIEW" />
-         </intent-filter>
-     </activity>
-
+        <activity android:name=".gameSupport.aboutGame.AboutAchievementActivity"></activity>
+        <activity android:name=".gameSupport.MainRunActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name="com.example.catuniverse.gameSupport.aboutGame.GameDescriptionActivity"
-
-
+            android:name=".gameSupport.aboutGame.GameDescriptionActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
-
-
         <activity
-            android:name="com.example.catuniverse.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="landscape">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-     </application>
+    </application>
 
 </manifest>
