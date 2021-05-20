@@ -27,7 +27,7 @@ public class CongratsView extends GameView {
     private Bitmap starBitmap, backgBitmap, longBackg;
     private int color;
 
-    public CongratsView(MainRunActivity mainRunActivity, int level, int stars, @Nullable Cat reward, String key, boolean achievement) {
+    public CongratsView(MainRunActivity mainRunActivity, int level, int stars, @Nullable Cat reward, String key) {
         super(mainRunActivity);
         this.level = level;
         this.stars = stars;

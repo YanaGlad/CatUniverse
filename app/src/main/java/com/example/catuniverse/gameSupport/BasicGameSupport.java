@@ -151,7 +151,7 @@ public class BasicGameSupport {
 
         updateTimeDBHelpers();
         if ((catId != null) && (listOfCats.get(Integer.parseInt(catId) - 1).getUnlocked() != 1))
-            mainRunActivity.setView(new CongratsView(mainRunActivity, timeLevels.get(whereClause - 1).getNumber(), stars, listOfCats.get((Integer.parseInt(catId) - 1)), mainRunActivity.getString(R.string.time), timeLevels.get(whereClause-1)));
+            mainRunActivity.setView(new CongratsView(mainRunActivity, timeLevels.get(whereClause - 1).getNumber(), stars, listOfCats.get((Integer.parseInt(catId) - 1)), mainRunActivity.getString(R.string.time)));
 
         else
             mainRunActivity.setView(new CongratsView(mainRunActivity, timeLevels.get(whereClause - 1).getNumber(), stars, null, mainRunActivity.getString(R.string.time)));
