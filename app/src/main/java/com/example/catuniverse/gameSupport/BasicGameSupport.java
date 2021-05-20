@@ -231,7 +231,7 @@ public class BasicGameSupport {
         for (int i = 0; i < levelsCount; i++) {
             cursor = timeDB.rawQuery("SELECT * from time WHERE _id = " + (i + 1), null);
             if (cursor != null && cursor.moveToFirst())
-                timeLevels.add(new Level(cursor.getInt(0), cursor.getInt(1)));
+                timeLevels.add(new Level(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2)));
         }
     }
 
@@ -241,7 +241,7 @@ public class BasicGameSupport {
         for (int i = 0; i < levelsCount; i++) {
             strategyCursor = strategyDB.rawQuery("SELECT * from strategy WHERE _id = " + (i + 1), null);
             if (strategyCursor != null && strategyCursor.moveToFirst())
-                strategyLevels.add(new Level(strategyCursor.getInt(0), strategyCursor.getInt(1)));
+                strategyLevels.add(new Level(strategyCursor.getInt(0), strategyCursor.getInt(1), cursor.getInt(2)));
         }
     }
 
@@ -251,7 +251,7 @@ public class BasicGameSupport {
         for (int i = 0; i < levelsCount; i++) {
             mathsCursor = mathsDB.rawQuery("SELECT * from maths WHERE _id = " + (i + 1), null);
             if (mathsCursor != null && mathsCursor.moveToFirst())
-                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1)));
+                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1), cursor.getInt(2)));
         }
     }
 

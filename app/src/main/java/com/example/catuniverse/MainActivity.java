@@ -45,21 +45,21 @@ public class MainActivity extends MainRunActivity {
         DB_PATH_TIME = this.getFilesDir().getPath() + "time.db";
         timeDB = getBaseContext().openOrCreateDatabase("time.db", MODE_PRIVATE, null);
         //     timeDB.execSQL("DROP TABLE IF EXISTS time");
-        timeDB.execSQL("CREATE TABLE IF NOT EXISTS time (_id INTEGER, stars INTEGER)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (1,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (2,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (3,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (4,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (5,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (6,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (7,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (8,0)");
-        timeDB.execSQL("INSERT into time (_id, stars) VALUES (9,0)");
+        timeDB.execSQL("CREATE TABLE IF NOT EXISTS time (_id INTEGER, stars INTEGER, ach INTEGER)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (1, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (2, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (3, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (4, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (5, 0, 1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (6, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (7, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (8, 0, -1)");
+        timeDB.execSQL("INSERT into time (_id, stars, ach) VALUES (9, 0, -1)");
 
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             cursor = timeDB.rawQuery("SELECT * from time WHERE _id = " + (i + 1), null);
             if (cursor != null && cursor.moveToFirst()) {
-                timeLevels.add(new Level(cursor.getInt(0), cursor.getInt(1)));
+                timeLevels.add(new Level(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2)));
             }
         }
 
@@ -95,7 +95,7 @@ public class MainActivity extends MainRunActivity {
         strategyDB = getBaseContext().openOrCreateDatabase("strategy.db", MODE_PRIVATE, null);
         // strategyDB.execSQL("DROP TABLE IF EXISTS strategy");
         strategyDB.execSQL("CREATE TABLE IF NOT EXISTS strategy (_id INTEGER, stars INTEGER)");
-        strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (1,0)");
+        strategyDB.execSQL("INSERT into strategy (_id, stars, ach) VALUES (1,0,-1)");
         strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (2,0)");
         strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (3,0)");
         strategyDB.execSQL("INSERT into strategy (_id, stars) VALUES (4,0)");
@@ -109,7 +109,7 @@ public class MainActivity extends MainRunActivity {
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             strategyCursor = strategyDB.rawQuery("SELECT * from strategy WHERE _id = " + (i + 1), null);
             if (strategyCursor != null && strategyCursor.moveToFirst()) {
-                strategyLevels.add(new Level(strategyCursor.getInt(0), strategyCursor.getInt(1)));
+                strategyLevels.add(new Level(strategyCursor.getInt(0), strategyCursor.getInt(1), cursor.getInt(2)));
             }
         }
 
@@ -131,7 +131,7 @@ public class MainActivity extends MainRunActivity {
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             mathsCursor = mathsDB.rawQuery("SELECT * from maths WHERE _id = " + (i + 1), null);
             if (mathsCursor != null && mathsCursor.moveToFirst()) {
-                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1)));
+                mathsLevels.add(new Level(mathsCursor.getInt(0), mathsCursor.getInt(1), cursor.getInt(2)));
             }
         }
 
