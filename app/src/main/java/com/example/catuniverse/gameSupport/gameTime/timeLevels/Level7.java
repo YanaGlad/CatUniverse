@@ -67,7 +67,7 @@ public class Level7 extends TimeLevel {
             }
 
             for (int j = -20; j < 6; j++) {
-                gameItems.add(new TimePlatform(m + n * i, 100 * j, bluePlatform));
+                gameItems.add(new TimePlatform( n * i, 100 * j, bluePlatform));
             }
 
         }
