@@ -90,7 +90,6 @@ public class TimePlayer extends GameItem {
                             }
                         }
                     } else {
-                        System.out.println("Doing it. ");
                         cat.getImageSet().getStandRight().run(gamePaint, x, y, 2.5);
                         oneTimeJump = false;
                     }
@@ -111,7 +110,6 @@ public class TimePlayer extends GameItem {
                             }
                         }
                     } else {
-                        System.out.println("Doing it (left)");
                         oneTimeJump = false;
                         cat.getImageSet().getStandLeft().run(gamePaint, x, y, 2.5);
                     }

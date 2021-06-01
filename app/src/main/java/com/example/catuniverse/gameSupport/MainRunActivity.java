@@ -20,10 +20,13 @@ public class MainRunActivity extends AppCompatActivity {
     private GameView gameView;
     private Media media;
     private GameLoop gameLoop;
+    private float configFPS;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        configFPS = 90;
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         Point point = new Point();

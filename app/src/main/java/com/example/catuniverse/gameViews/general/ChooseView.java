@@ -75,8 +75,8 @@ public class ChooseView extends GameView {
     public void run() {
         repaint();
         super.getGamePaint().setVisibleBitmap(background, 0, 0);
-        goBack.run( super.getGamePaint());
-        levelChoice.run( super.getGamePaint());
+        goBack.run(super.getGamePaint());
+        levelChoice.run(super.getGamePaint());
     }
 
     @Override
@@ -85,11 +85,12 @@ public class ChooseView extends GameView {
             super.getMainRunActivity().setView(new MenuView(super.getMainRunActivity()));
             goBack.notClicked();
         }
-        BasicGameSupport.updateCatDBHelpers(); //Информацию о досиупных персонажах нужно обновлять для всех типов уровней
 
-        if(key.equals("time")){ //Обновлять ифнормацию о выбранном игроке нужно только для уровней на время
+        if (key.equals("time")) { //Обновлять ифнормацию о выбранном игроке нужно только для уровней на время
             for (int i = 0; i < listOfCats.size(); i++)
-                if (listOfCats.get(i).getChosen() == 1) PlayerManager.setChosenCat(listOfCats.get(i));
+                if (listOfCats.get(i).getChosen() == 1) {
+                    PlayerManager.setChosenCat(listOfCats.get(i));
+                }
             playerManager = new PlayerManager(super.getMainRunActivity());
         }
     }

@@ -101,13 +101,14 @@ public class BasicGameSupport {
     public static int updateMovesY(GameItem gameItem, double jumSpeed, int y) {
         if (!timePlayer.isRocketMode()) {
             if (timePlayer.isJumpingLimit()) {
+                System.out.println("LIMIT");
                 if (timePlayer.isJumping()) y += jumSpeed;
                 if (timePlayer.isFalling() && !timePlayer.isJumping()) y -= jumSpeed;
             } else {
                 if (y < gameItem.getControlY()) y += jumSpeed;
                 if (y > gameItem.getControlY()) y -= jumSpeed;
             }
-        }
+         }
         return y;
     }
 
@@ -214,6 +215,7 @@ public class BasicGameSupport {
 
     //Обновить списки котов
     public static void updateCatDBHelpers() {
+        System.out.println("CAT UPDATE");
         listOfCats.clear();
         listOfPets.clear();
         for (int i = 0; i < catsCount; i++) {
@@ -227,6 +229,8 @@ public class BasicGameSupport {
 
     //Обновить списки с информацией об уровнях
     private static void updateTimeDBHelpers() {
+        System.out.println("TIME UPDATE");
+
         timeLevels.clear();
         for (int i = 0; i < levelsCount; i++) {
             cursor = timeDB.rawQuery("SELECT * from time WHERE _id = " + (i + 1), null);
@@ -237,6 +241,8 @@ public class BasicGameSupport {
 
     //Обновить списки с информацией о стратегических уровнях
     private static void updateStrategyDBHelpers() {
+        System.out.println("STRATEGY UPDATE");
+
         strategyLevels.clear();
         for (int i = 0; i < levelsCount; i++) {
             strategyCursor = strategyDB.rawQuery("SELECT * from strategy WHERE _id = " + (i + 1), null);
@@ -247,6 +253,8 @@ public class BasicGameSupport {
 
     //Обновить списки с информацией о математических уровнях
     private static void updateMathsDBHelpers() {
+        System.out.println("MATHS UPDATE");
+
         mathsLevels.clear();
         for (int i = 0; i < levelsCount; i++) {
             mathsCursor = mathsDB.rawQuery("SELECT * from maths WHERE _id = " + (i + 1), null);
@@ -257,6 +265,8 @@ public class BasicGameSupport {
 
     //Обновить списки с информацией о достижениях
     public static void updateAchieveDBHelpers() {
+        System.out.println("ACHIEVE UPDATE");
+
         listOfAchievements.clear();
         for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
             achievementCursor = achievementDB.rawQuery("SELECT * from achievement WHERE _id = " + (i + 1), null);
