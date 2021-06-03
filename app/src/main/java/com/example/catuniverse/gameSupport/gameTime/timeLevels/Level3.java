@@ -26,7 +26,6 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.xStepMusic;
 
 //Третий уровень на время.
 public class Level3 extends TimeLevel {
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> changingObstacles;
     private ArrayList<TimeInventoryItem> timeInventoryItems;
     private int collectedCount = 0;
@@ -37,15 +36,12 @@ public class Level3 extends TimeLevel {
         super(18, 23, 30, movingSpaceBackground, blueGround, 1, xStepMusic);
         this.mainRunActivity = mainRunActivity;
         timeInventoryItems = new ArrayList<>();
-        gameItems = new ArrayList<>();
         changingObstacles = new ArrayList<>();
         gameOver = false;
 
 
         timeInventoryItems.add(new TimeInventoryItem(1120, -85, BitmapLoader.keyBlue));
         timeInventoryItems.add(new TimeInventoryItem(1950, -35, BitmapLoader.keyBlue));
-
-        timeTallPlatformArrayList = new ArrayList<>();
 
         timeTallPlatformArrayList.add(new TimeTallPlatform(1700, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
@@ -116,9 +112,7 @@ public class Level3 extends TimeLevel {
     public void repaint() {
         super.repaint();
         passingDoor.repaint();
-        for (TimeTallPlatform tb : timeTallPlatformArrayList)
-            tb.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+        super.tallPlatformRepaint();
 
         if (timeInventoryItems.get(0).isPicked() && !firstCount) {
             collectedCount++;

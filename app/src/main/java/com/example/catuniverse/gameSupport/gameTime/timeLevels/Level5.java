@@ -22,7 +22,6 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Пятый уровень на время.
 public class Level5 extends TimeLevel {
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> smartObstacles;
     private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
     private ArrayList<TimeInventoryItem> goodItems, badItems;
@@ -39,11 +38,9 @@ public class Level5 extends TimeLevel {
         super(40, 30, 50, movingBlueSpaceBackground, purpleGround, 3, phobosMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
-        gameItems = new ArrayList<>();
         smartObstacles = new ArrayList<>();
         timeInventoryItemsG = new ArrayList<>();
         timeInventoryItemsB = new ArrayList<>();
-        timeTallPlatformArrayList = new ArrayList<>();
         goodItems = new ArrayList<>();
         badItems = new ArrayList<>();
 
@@ -85,7 +82,6 @@ public class Level5 extends TimeLevel {
 
         if (!timePlayer.isRocketMode()) {
             passingDoor.repaint();
-            for (GameItem b : gameItems) b.run(gamePaint);
             for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
             for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
             passingDoor.repaint();
@@ -128,10 +124,7 @@ public class Level5 extends TimeLevel {
         super.repaint();
         if (!timePlayer.isRocketMode()) {
             passingDoor.repaint();
-            for (TimeTallPlatform tb : timeTallPlatformArrayList)
-                tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-
-            CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+            super.tallPlatformRepaint();
         } else
             super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
 

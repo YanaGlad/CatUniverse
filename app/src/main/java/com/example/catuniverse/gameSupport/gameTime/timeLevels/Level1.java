@@ -29,7 +29,6 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 public class Level1 extends TimeLevel {
     private boolean ladder2Disappear;
     private TimeInventoryItem timeInventoryItem;
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> ladderDisapearLvl0, bigObstaclesDisappearLvl0;
     private BasicButton appearButton;
     private MainRunActivity mainRunActivity;
@@ -45,13 +44,11 @@ public class Level1 extends TimeLevel {
         appearButton = new BasicButton(mainRunActivity, 2700, 490, BitmapLoader.appearButton, BitmapLoader.appearButton, true);
         passingDoor = new BasicButton(mainRunActivity, 4000, 430, blueDoor, blueDoorOpened, true);
 
-        gameItems = new ArrayList<>();
         gameItems.add(appearButton);
         gameItems.add(passingDoor);
 
         ladderDisapearLvl0 = new ArrayList<>();
         bigObstaclesDisappearLvl0 = new ArrayList<>();
-        timeTallPlatformArrayList = new ArrayList<>();
         ladder2Disappear = false;
 
         gameItems.add(new TimePlatform(470, 380));
@@ -81,8 +78,8 @@ public class Level1 extends TimeLevel {
             ladderY += 70;
         }
 
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2000,  520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(3200,  520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(3200, 520));
 
     }
 
@@ -111,9 +108,7 @@ public class Level1 extends TimeLevel {
         super.repaint();
         passingDoor.repaint();
 
-        for (TimeTallPlatform tb : timeTallPlatformArrayList)
-            tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+        super.tallPlatformRepaint();
 
         if (appearButton.isClicked()) ladder2Disappear = false;
         if (timeTallPlatformArrayList.get(0).getX() < timePlayer.getX() && timePlayer.getY() >= TimePlayer.getMaximumY() && !appearButton.isClicked())

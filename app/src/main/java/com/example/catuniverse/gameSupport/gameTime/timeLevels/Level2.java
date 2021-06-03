@@ -24,7 +24,6 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Второй уровень на время.
 public class Level2 extends TimeLevel {
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private MainRunActivity mainRunActivity;
 
     public Level2(MainRunActivity mainRunActivity) {
@@ -32,11 +31,8 @@ public class Level2 extends TimeLevel {
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
-        gameItems = new ArrayList<>();
-        timeTallPlatformArrayList = new ArrayList<>();
-
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2050,  520));
-        timeTallPlatformArrayList.add(new TimeTallPlatform(2050,  900));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2050, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(2050, 900));
 
         passingDoor = new BasicButton(mainRunActivity, 2070, -440, blueDoor, blueDoorOpened, true);
 
@@ -60,16 +56,14 @@ public class Level2 extends TimeLevel {
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         passingDoor.repaint();
-        super.endingRun(gamePaint ,mainRunActivity);
+        super.endingRun(gamePaint, mainRunActivity);
     }
 
     @Override
     public void repaint() {
         super.repaint();
         passingDoor.repaint();
-        for (TimeTallPlatform tb : timeTallPlatformArrayList)
-            tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+        super.tallPlatformRepaint();
         passingDoor.repaint();
     }
 

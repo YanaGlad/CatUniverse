@@ -20,7 +20,6 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.xStepMusic;
 
 //Четвертый уровень на время.
 public class Level4 extends TimeLevel {
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimePlatform> changingObstacles;
     private MainRunActivity mainRunActivity;
     private boolean done;
@@ -29,8 +28,6 @@ public class Level4 extends TimeLevel {
         super(20, 15, 30, movingSpaceBackground, blueGround, 1, xStepMusic);
         this.mainRunActivity = mainRunActivity;
         done = false;
-        gameItems = new ArrayList<>();
-        timeTallPlatformArrayList = new ArrayList<>();
         changingObstacles = new ArrayList<>();
 
         gameOver = false;
@@ -99,11 +96,8 @@ public class Level4 extends TimeLevel {
     @Override
     public void repaint() {
         super.repaint();
-
         passingDoor.repaint();
-        for (TimeTallPlatform tb : timeTallPlatformArrayList)
-            tb.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+        super.tallPlatformRepaint();
         passingDoor.repaint();
 
     }

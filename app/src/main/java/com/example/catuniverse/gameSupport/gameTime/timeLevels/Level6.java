@@ -33,7 +33,6 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Шестой уровень на время.
 public class Level6 extends TimeLevel {
-    private ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
     private ArrayList<TimeInventoryItem> asteroids;
     private SpriteAnimation asteroid;
     private EasyTimer easyTimer;
@@ -49,10 +48,8 @@ public class Level6 extends TimeLevel {
         gameOver = false;
 
         changingPurplePlatforms = new ArrayList<>();
-        gameItems = new ArrayList<>();
         asteroids = new ArrayList<>();
         timeInventoryItems = new ArrayList<>();
-        timeTallPlatformArrayList = new ArrayList<>();
 
         timeTallPlatformArrayList.add(new TimeTallPlatform(2050, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2050, 900));
@@ -116,9 +113,7 @@ public class Level6 extends TimeLevel {
     public void repaint() {
         super.repaint();
         passingDoor.repaint();
-        for (TimeTallPlatform tb : timeTallPlatformArrayList)
-            tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+        super.tallPlatformRepaint();
 
         for (int i = 0; i < asteroids.size(); i++) {
             if (asteroids.get(i).isPicked() && asteroids.size() > 0) {

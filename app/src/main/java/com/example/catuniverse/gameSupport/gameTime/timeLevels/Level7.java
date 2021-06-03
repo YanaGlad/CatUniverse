@@ -41,19 +41,18 @@ public class Level7 extends TimeLevel {
     private EasyTimer easyTimer;
     private MainRunActivity mainRunActivity;
     private ArrayList<TimeInventoryItem> timeInventoryItems;
-    private ArrayList<BasicButton>fakeDoors;
+    private ArrayList<Integer> x;
+    private ArrayList<Integer> y;
 
 
     public Level7(MainRunActivity mainRunActivity) {
         super(35, 45, 260, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
-
         gameOver = false;
-
-        gameItems = new ArrayList<>();
         asteroids = new ArrayList<>();
         timeInventoryItems = new ArrayList<>();
-        fakeDoors = new ArrayList<>();
+        x = new ArrayList<>();
+        y = new ArrayList<>();
 
         asteroid = new SpriteAnimation(asteroidSprite);
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
@@ -67,6 +66,8 @@ public class Level7 extends TimeLevel {
             }
 
             for (int j = -5; j < 11; j++) {
+                x.add(n + 250 * j);
+                y.add(110 * i);
                 gameItems.add(new TimePlatform(n + 250 * j, 110 * i, bluePlatform));
             }
         }
@@ -75,6 +76,11 @@ public class Level7 extends TimeLevel {
         easyTimer.startTimer();
 
         passingDoor = new BasicButton(mainRunActivity, 725, 250, purpleDoor, purpleDoorOpened, true);
+
+//        Random random = new Random();
+//        for (int i = 0; i < 20; i++) {
+//            gameItems.add(new BasicButton(mainRunActivity, x.get(random.nextInt(x.size())), y.get(random.nextInt(y.size())), purpleDoor, purpleDoorOpened, true));
+//        }
 
         gameItems.add(passingDoor);
         gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
@@ -90,10 +96,10 @@ public class Level7 extends TimeLevel {
 
         passingDoor.repaint();
 
-        for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
+        for (TimeInventoryItem timeInventoryItems : timeInventoryItems) {
             timeInventoryItems.run(gamePaint);
+        }
 
-        passingDoor.repaint();
         super.endingRun(gamePaint, mainRunActivity);
     }
 

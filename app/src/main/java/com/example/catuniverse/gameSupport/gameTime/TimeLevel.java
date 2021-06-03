@@ -9,10 +9,12 @@ import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
+import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.Loopable;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.Media;
+import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameViews.general.ChooseView;
 
@@ -33,6 +35,7 @@ public abstract class TimeLevel implements Loopable {
     protected BasicButton passingDoor; //Дверь, которую нужно открыть чтобы пройти уровень
     protected ArrayList<GameItem> gameItems; //Список любых игровых объектов
     private Media.Music music;
+    protected ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
 
     protected TimeLevel(int twoStars, int threeStars, double totalTime, Bitmap background, Bitmap ground, int lives, Media.Music music) {
         this.twoStars = twoStars;
@@ -40,6 +43,9 @@ public abstract class TimeLevel implements Loopable {
         this.totalTime = totalTime;
         this.lives = lives;
         this.music = music;
+        this.gameItems = new ArrayList<>();
+        this.timeTallPlatformArrayList = new ArrayList<>();
+
         movingBackground = new MovingBackground(background, 3);
         timeGround = new TimeGround(ground);
         nowTime = System.nanoTime() / BasicGameSupport.SECOND;
@@ -54,6 +60,8 @@ public abstract class TimeLevel implements Loopable {
         movingBackground.run(gamePaint);
         timeGround.run(gamePaint);
         passingDoor.repaint();
+
+
     }
 
     protected void endingRun(GamePaint gamePaint, MainRunActivity mainRunActivity) {
@@ -75,6 +83,12 @@ public abstract class TimeLevel implements Loopable {
         ChooseView.playerManager.run(gamePaint);
     }
 
+    protected void tallPlatformRepaint(){
+        for (TimeTallPlatform tb : timeTallPlatformArrayList)
+            tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
+        CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
+    }
+
     @Override
     public void repaint() {
         //Подсчёт прошедшего с начала игры времени
@@ -93,7 +107,9 @@ public abstract class TimeLevel implements Loopable {
     }
 
     public abstract boolean isRequirementsCollected();
+
     public abstract boolean unlockAchievement();
+
     public abstract int getAchievementId();
 
     protected void drawThreeRoadLines(GamePaint gamePaint) {
