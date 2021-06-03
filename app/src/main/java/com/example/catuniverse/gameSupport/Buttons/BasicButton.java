@@ -50,6 +50,7 @@ public class BasicButton extends GameItem {
 
     @Override
     public void run(GamePaint gamePaint) {
+
         //Если игровой объект - перемещать относительно игрока, иначе - просто проверять нажатие
         if (item) repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
         else repaint();

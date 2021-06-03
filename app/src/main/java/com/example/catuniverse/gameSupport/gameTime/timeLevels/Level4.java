@@ -90,7 +90,6 @@ public class Level4 extends TimeLevel {
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         passingDoor.repaint();
         super.endingRun(gamePaint, mainRunActivity);
-
     }
 
     @Override
@@ -99,7 +98,6 @@ public class Level4 extends TimeLevel {
         passingDoor.repaint();
         super.tallPlatformRepaint();
         passingDoor.repaint();
-
     }
 
     @Override

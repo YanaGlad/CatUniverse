@@ -12,6 +12,10 @@ public class GameItem implements Loopable {
     protected Rect collisionRect;
     protected Bitmap bitmap, bitmapClicked;
 
+    protected boolean isOnScreen() {
+        return x > -200 && x < GameView.screenWidth + 200 && y > -200 && y < 750; //Проверить что объект в пределах экрана
+    }
+
     @Override
     public void run(GamePaint gamePaint) {
     }

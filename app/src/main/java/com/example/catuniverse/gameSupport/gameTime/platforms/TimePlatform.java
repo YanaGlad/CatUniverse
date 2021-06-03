@@ -62,10 +62,12 @@ public class TimePlatform extends GameItem {
     @Override
     public void run(GamePaint gamePaint) {
         repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        if (isVisibile()) { //Отображать платформу, если она видима
-            if (bitmap == null)
-                gamePaint.setVisibleBitmap(bluePlatform, x, y);
-            else gamePaint.setVisibleBitmap(bitmap, x, y);
+        if(isOnScreen()) {
+            if (isVisibile()) { //Отображать платформу, если она видима
+                if (bitmap == null)
+                    gamePaint.setVisibleBitmap(bluePlatform, x, y);
+                else gamePaint.setVisibleBitmap(bitmap, x, y);
+            }
         }
     }
 
@@ -74,10 +76,12 @@ public class TimePlatform extends GameItem {
         x = BasicGameSupport.updateMovesX(speed, x);
         y = BasicGameSupport.updateMovesY(this, jumSpeed, y);
         collisionRect = createCollisionsRect(x, y, bluePlatformSkeleton);
-        if (isVisibile()) CollisionDetectors.checkObsCollision(this);
 
-        //Стоит ли игрок на данной платформе
-        playerOn = timePlayer.getX() > x - 30 && timePlayer.getX() < x + 120 && timePlayer.getY() < y - 31;
+        if(isOnScreen()) {
+            if (isVisibile()) CollisionDetectors.checkObsCollision(this);
+            //Стоит ли игрок на данной платформе
+            playerOn = timePlayer.getX() > x - 30 && timePlayer.getX() < x + 120 && timePlayer.getY() < y - 31;
+        }
     }
 
     //Исчезать на delay секунд

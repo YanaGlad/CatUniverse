@@ -93,13 +93,9 @@ public class Level7 extends TimeLevel {
         repaint();
         for (GameItem b : gameItems) b.run(gamePaint);
         for (TimeInventoryItem as : asteroids) as.run(gamePaint);
-
         passingDoor.repaint();
-
-        for (TimeInventoryItem timeInventoryItems : timeInventoryItems) {
+        for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
             timeInventoryItems.run(gamePaint);
-        }
-
         super.endingRun(gamePaint, mainRunActivity);
     }
 
@@ -125,7 +121,6 @@ public class Level7 extends TimeLevel {
                 easyTimer.startTimer();
             }
         }
-
 
         passingDoor.repaint();
     }

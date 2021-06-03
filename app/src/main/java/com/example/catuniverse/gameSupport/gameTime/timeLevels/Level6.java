@@ -96,12 +96,9 @@ public class Level6 extends TimeLevel {
         repaint();
         for (GameItem b : gameItems) b.run(gamePaint);
         for (TimeInventoryItem as : asteroids) as.run(gamePaint);
-
         passingDoor.repaint();
-
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         for (TimePlatform tp : changingPurplePlatforms) tp.run(gamePaint);
-
         for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
             timeInventoryItems.run(gamePaint);
 

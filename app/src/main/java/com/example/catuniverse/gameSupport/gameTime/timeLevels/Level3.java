@@ -39,7 +39,6 @@ public class Level3 extends TimeLevel {
         changingObstacles = new ArrayList<>();
         gameOver = false;
 
-
         timeInventoryItems.add(new TimeInventoryItem(1120, -85, BitmapLoader.keyBlue));
         timeInventoryItems.add(new TimeInventoryItem(1950, -35, BitmapLoader.keyBlue));
 
@@ -80,7 +79,6 @@ public class Level3 extends TimeLevel {
         }
         gameItems.add(new TimePlatform(1870, -5));
         gameItems.add(new TimePlatform(2170, -5));
-
         passingDoor = new BasicButton(mainRunActivity, 3200, 430, BitmapLoader.blueDoor, BitmapLoader.blueDoorOpened, true);
     }
 
@@ -118,6 +116,7 @@ public class Level3 extends TimeLevel {
             collectedCount++;
             firstCount = true;
         }
+
         if (timeInventoryItems.get(1).isPicked() && !secondCount) {
             collectedCount++;
             secondCount = true;
@@ -127,7 +126,6 @@ public class Level3 extends TimeLevel {
 
     @Override
     public void repaint(double speed, double jumSpeed) {
-
     }
 
     public ArrayList<TimeInventoryItem> getTimeInventoryItems() {

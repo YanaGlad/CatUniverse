@@ -96,19 +96,15 @@ public class Level5 extends TimeLevel {
             if (!oneTime) {
                 timePlayer.setX(30);
                 timePlayer.setY(620);
-
                 oneTime = true;
             }
-
         } else {
             if (isRequirementsCollected() && !oneTime2) {
                 for (GameItem b : gameItems) b.run(gamePaint);
                 for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
                 for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
-
                 oneTime2 = true;
             }
-
             timePlayer.setRocketMode(false);
         }
 
