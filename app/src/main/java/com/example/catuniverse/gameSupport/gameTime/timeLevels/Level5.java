@@ -82,6 +82,7 @@ public class Level5 extends TimeLevel {
 
         if (!timePlayer.isRocketMode()) {
             passingDoor.repaint();
+            for (GameItem b : gameItems) b.run(gamePaint);
             for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
             for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
             passingDoor.repaint();

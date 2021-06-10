@@ -1,6 +1,8 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
 
+import android.util.Log;
+
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.GameItem;
@@ -52,6 +54,7 @@ public class Level2 extends TimeLevel {
     public void run(GamePaint gamePaint) {
         super.run(gamePaint);
         repaint();
+//        System.out.println("DOO");
         for (GameItem b : gameItems) b.run(gamePaint);
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);

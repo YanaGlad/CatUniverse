@@ -107,11 +107,9 @@ public class Theory {
             result = expr.replace("x", answer);
         else result = expr.replace("?", answer); //иначе - заменить вопрос
 
-        System.out.println("Result is " + result);
         //Если полученное выражение совпало с одним из теории
         for (int i = 0; i < expressions.size(); i++)
             if (result.equals(expressions.get(i))) {
-                System.out.println("Comparing to " + expressions.get(i));
                 return true;
             }
         return false;

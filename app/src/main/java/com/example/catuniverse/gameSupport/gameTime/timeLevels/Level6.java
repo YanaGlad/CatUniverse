@@ -1,5 +1,7 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
+import android.util.Log;
+
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
@@ -94,11 +96,14 @@ public class Level6 extends TimeLevel {
     public void run(GamePaint gamePaint) {
         super.run(gamePaint);
         repaint();
+
         for (GameItem b : gameItems) b.run(gamePaint);
         for (TimeInventoryItem as : asteroids) as.run(gamePaint);
         passingDoor.repaint();
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
-        for (TimePlatform tp : changingPurplePlatforms) tp.run(gamePaint);
+        for (TimePlatform tp : changingPurplePlatforms) {
+            tp.run(gamePaint);
+        }
         for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
             timeInventoryItems.run(gamePaint);
 
