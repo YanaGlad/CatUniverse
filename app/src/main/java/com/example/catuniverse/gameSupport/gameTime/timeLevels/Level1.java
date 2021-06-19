@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
@@ -34,10 +35,29 @@ public class Level1 extends TimeLevel {
     private MainRunActivity mainRunActivity;
     private int collectedCount = 0;
 
+    private static Level1 level1 = null;
+
+    public Level1 getInstance() {
+        if (level1 == null) {
+            level1 = new Level1(mainRunActivity);
+        }
+        return level1;
+    }
+
+    public Level1 getInstance(boolean restart) {
+        if (level1 == null || restart) {
+            level1 = new Level1(mainRunActivity);
+        }
+        return level1;
+    }
+
+
     public Level1(MainRunActivity mainRunActivity) {
         super(20, 25, 30, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
+
+        Log.d("Level1", "create");
 
         timeInventoryItem = new TimeInventoryItem(700, 240, keyBlue);
 

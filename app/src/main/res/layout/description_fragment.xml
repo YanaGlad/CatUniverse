@@ -5,7 +5,7 @@
     android:orientation="horizontal">
 
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="80sp"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -89,7 +89,7 @@
             android:textColor="#A7ACFD"
             android:textSize="13sp" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -142,7 +142,7 @@
 
                     </androidx.recyclerview.widget.RecyclerView>
 
-                    <LinearLayout
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -173,7 +173,7 @@
                             android:text="@string/sortPrice"
                             android:textSize="10sp"
                             tools:ignore="ButtonStyle,SmallSp" />
-                    </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <ImageView
                         android:id="@+id/imageDescription"

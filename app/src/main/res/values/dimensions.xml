@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="test_100">100</dimen>
+    <dimen name="test_200">100</dimen>
+    <dimen name="test_50">50</dimen>
+
+
+</resources>
