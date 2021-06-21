@@ -100,6 +100,11 @@ public class MathsPlayer extends GameItem {
     }
 
     @Override
+    public boolean checkDeclineParam() {
+        return false;
+    }
+
+    @Override
     public Owner getOwner() {
         return BasicGameSupport.mathsLevelOwner;
     }
