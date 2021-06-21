@@ -57,8 +57,8 @@ public class Level7 extends TimeLevel {
         asteroid = new SpriteAnimation(asteroidSprite);
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-        int n, m;
-        for (int i = -20; i < 6; i++) {
+        int n, count = 0;
+        for (int i = -20; i < 7; i++) {
             if (i % 2 != 0) {
                 n = 200;
             } else {
@@ -67,20 +67,23 @@ public class Level7 extends TimeLevel {
 
             for (int j = -5; j < 11; j++) {
                 x.add(n + 250 * j);
-                y.add(110 * i);
-                gameItems.add(new TimePlatform(n + 250 * j, 110 * i, bluePlatform));
+                y.add(90 * i - 150);
+                gameItems.add(new TimePlatform(n + 250 * j, 90 * i, bluePlatform));
+                count++;
             }
         }
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
 
-        passingDoor = new BasicButton(mainRunActivity, 725, 250, purpleDoor, purpleDoorOpened, true);
 
-//        Random random = new Random();
-//        for (int i = 0; i < 20; i++) {
-//            gameItems.add(new BasicButton(mainRunActivity, x.get(random.nextInt(x.size())), y.get(random.nextInt(y.size())), purpleDoor, purpleDoorOpened, true));
-//        }
+        Random random = new Random();
+        for (int i = 0; i < x.size(); i++) {
+            gameItems.add(new BasicButton(mainRunActivity, x.get(i), y.get(i), purpleDoor, purpleDoorOpened, true));
+        }
+
+        passingDoor = (BasicButton) gameItems.get((int) (Math.random() * (gameItems.size() - count) + count));
+
 
         gameItems.add(passingDoor);
         gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
