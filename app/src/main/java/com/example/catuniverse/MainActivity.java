@@ -151,6 +151,10 @@ public class MainActivity extends MainRunActivity {
                 listOfAchievements.add(new Achievement(achievementCursor.getInt(0), achievementCursor.getString(1), achievementCursor.getInt(2), achievementCursor.getString(3)));
             }
         }
+
+        for (int i = 0; i < BasicGameSupport.achievementCount; i++) {
+            System.out.println(listOfAchievements.get(i).getName());
+        }
     }
 }
 

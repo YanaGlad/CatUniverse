@@ -59,6 +59,9 @@ public class AchieveMenuView extends GameView {
             super.getMainRunActivity().setView(new MenuView(super.getMainRunActivity()));
             exit.notClicked();
         }
-
+        for (int i = 0; i < basicButtons.size(); i++) {
+            if(basicButtons.get(i).isClicked())
+                System.out.println("Clicked " + i);
+        }
     }
 }

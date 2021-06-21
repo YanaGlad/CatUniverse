@@ -32,6 +32,10 @@ public class Achievement {
         return prize;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setPrize(String prize) {
         this.prize = prize;
     }

@@ -23,7 +23,7 @@ public abstract class GameView {
 
     public abstract void repaint(); //изменяет данные объектов, работает с логикой игры. Как правило, вызывается внутри run()
 
-    int getStars() {
+    public int getStars() {
         return stars;
     }
 

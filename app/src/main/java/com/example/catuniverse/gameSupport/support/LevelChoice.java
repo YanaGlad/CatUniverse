@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport.support;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.example.catuniverse.MainActivity;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
@@ -9,9 +10,7 @@ import com.example.catuniverse.gameSupport.Buttons.LevelButton;
 import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.Loopable;
 import com.example.catuniverse.gameSupport.MainRunActivity;
-import com.example.catuniverse.gameSupport.gameStrategy.StrategyField;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameViews.general.InDevelopmentView;
 import com.example.catuniverse.gameViews.levels.MathsLevelsView;
 import com.example.catuniverse.gameViews.levels.StrategyLevelsView;
 import com.example.catuniverse.gameViews.levels.TimeLevelsView;
@@ -58,16 +57,22 @@ public class LevelChoice implements Loopable {
     @Override
     public void repaint() {
         BitmapLoader.electrodynamixMusic.stop();
+        int starsCount = 0;
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             switch (key) {
                 case "time":
                     levelButtons.get(i).repaint(MainActivity.timeLevels.get(i).getStars(), String.valueOf(MainActivity.timeLevels.get(i).getNumber()));
+                    starsCount += MainActivity.timeLevels.get(i).getStars();
                     break;
                 case "strategy":
                     levelButtons.get(i).repaint(MainActivity.strategyLevels.get(i).getStars(), String.valueOf(MainActivity.strategyLevels.get(i).getNumber()));
+                    starsCount += MainActivity.strategyLevels.get(i).getStars();
+
                     break;
                 case "maths":
                     levelButtons.get(i).repaint(MainActivity.mathsLevels.get(i).getStars(), String.valueOf(MainActivity.mathsLevels.get(i).getNumber()));
+                    starsCount += MainActivity.mathsLevels.get(i).getStars();
+
                     break;
             }
         }
@@ -79,15 +84,15 @@ public class LevelChoice implements Loopable {
                     BitmapLoader.menuMusic.stop();
                     switch (key) {
                         case "time":
-                            gameView.getMainRunActivity().setView(new TimeLevelsView(gameView.getMainRunActivity(), i+1));
+                            gameView.getMainRunActivity().setView(new TimeLevelsView(gameView.getMainRunActivity(), i + 1));
                             TimeLevelsView.levelRunning = true;
                             break;
                         case "strategy":
-                            gameView.getMainRunActivity().setView(new StrategyLevelsView(gameView.getMainRunActivity(), i+1));
+                            gameView.getMainRunActivity().setView(new StrategyLevelsView(gameView.getMainRunActivity(), i + 1));
                             StrategyLevelsView.levelRunning = true;
                             break;
                         case "maths":
-                            gameView.getMainRunActivity().setView(new MathsLevelsView(gameView.getMainRunActivity(), i+1));
+                            gameView.getMainRunActivity().setView(new MathsLevelsView(gameView.getMainRunActivity(), i + 1));
                             MathsLevelsView.levelRunning = true;
                             break;
                     }
@@ -95,6 +100,9 @@ public class LevelChoice implements Loopable {
                 levelButtons.get(i).notClicked();
             }
 
+        }
+        if (starsCount >= 18 && MainActivity.listOfAchievements.get(1).isUnlocked() != 1) {
+            BasicGameSupport.unlockAchievement(2);
         }
     }
 

@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".gameSupport.aboutGame.AboutAchievementActivity">
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.catuniverse.gameSupport.aboutGame.AboutAchievementFragment"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
