@@ -15,9 +15,6 @@ import com.example.catuniverse.gameSupport.gameTime.TimePlayer;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameSupport.graphics.ImageSet;
 import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
-import com.example.catuniverse.gameSupport.helpp.MathsLevelOwner;
-import com.example.catuniverse.gameSupport.helpp.StrategyLevelOwner;
-import com.example.catuniverse.gameSupport.helpp.TimeLevelOwner;
 import com.example.catuniverse.gameViews.general.CongratsView;
 import com.example.catuniverse.gameViews.general.GameOverView;
 import com.example.catuniverse.gameViews.levels.TimeLevelsView;
@@ -122,10 +119,6 @@ public class BasicGameSupport {
     public static boolean movingLeft(MainRunActivity mainRunActivity) {
         return mainRunActivity.getTouchListener().getTouchX() < GameView.screenWidth / 2;
     }
-
-    public static TimeLevelOwner timeLevelOwner = new TimeLevelOwner();
-    public static MathsLevelOwner mathsLevelOwner = new MathsLevelOwner();
-    public static StrategyLevelOwner strategyLevelOwner = new StrategyLevelOwner();
 
     //Обновляет экран по оси абсцисс относительно текущего положения игрока
     public static int updateMovesX(double speedPlayer, int x) {

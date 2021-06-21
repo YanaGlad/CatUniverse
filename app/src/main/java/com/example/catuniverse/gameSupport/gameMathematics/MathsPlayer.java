@@ -7,8 +7,6 @@ import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Owner;
-
 import static com.example.catuniverse.gameSupport.Collisions.collisionDetectLengthViaHeight;
 import static com.example.catuniverse.gameSupport.Collisions.createCollisionsRect;
 
@@ -92,21 +90,6 @@ public class MathsPlayer extends GameItem {
 
     void setExpression(String expr) {
         this.expr = expr;
-    }
-
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.mathsLevelOwner;
     }
 }
 

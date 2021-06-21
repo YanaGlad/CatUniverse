@@ -1,15 +1,11 @@
 package com.example.catuniverse.gameSupport.gameTime.platforms;
 
 import android.graphics.Bitmap;
-
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.EasyTimer;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Checkable;
-import com.example.catuniverse.gameSupport.helpp.Owner;
-
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatformSkeleton;
 import static com.example.catuniverse.gameSupport.Collisions.collisionDetectLengthViaHeight;
@@ -17,10 +13,10 @@ import static com.example.catuniverse.gameSupport.Collisions.createCollisionsRec
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Платформы, на которые игрок может забираться
-public class TimePlatform extends GameItem implements Checkable {
+public class TimePlatform extends GameItem {
     private boolean visibility;
     private EasyTimer easyTimer;
-    public boolean playerOn;
+    public static boolean playerOn;
 
     //По умолчанию цвет платформ - синий
     public TimePlatform(int x, int y) {
@@ -66,7 +62,7 @@ public class TimePlatform extends GameItem implements Checkable {
     @Override
     public void run(GamePaint gamePaint) {
         repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        if (isOnScreen()) {
+        if(isOnScreen()) {
             if (isVisibile()) { //Отображать платформу, если она видима
                 if (bitmap == null)
                     gamePaint.setVisibleBitmap(bluePlatform, x, y);
@@ -81,7 +77,7 @@ public class TimePlatform extends GameItem implements Checkable {
         y = BasicGameSupport.updateMovesY(this, jumSpeed, y);
         collisionRect = createCollisionsRect(x, y, bluePlatformSkeleton);
 
-        if (isOnScreen()) {
+        if(isOnScreen()) {
             if (isVisibile()) CollisionDetectors.checkObsCollision(this);
             //Стоит ли игрок на данной платформе
             playerOn = timePlayer.getX() > x - 30 && timePlayer.getX() < x + 120 && timePlayer.getY() < y - 31;
@@ -137,20 +133,5 @@ public class TimePlatform extends GameItem implements Checkable {
     @Override
     public int getY() {
         return super.getY();
-    }
-
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.timeLevelOwner;
     }
 }

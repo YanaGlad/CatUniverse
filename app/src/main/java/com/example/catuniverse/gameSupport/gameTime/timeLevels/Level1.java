@@ -7,7 +7,6 @@ import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.GameItem;
-import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
@@ -15,8 +14,6 @@ import com.example.catuniverse.gameSupport.gameTime.TimeInventoryItem;
 import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.example.catuniverse.gameSupport.gameTime.TimePlayer;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Checkable;
-import com.example.catuniverse.gameSupport.helpp.Notify;
 
 import java.util.ArrayList;
 
@@ -33,7 +30,7 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 public class Level1 extends TimeLevel {
     private boolean ladder2Disappear;
     private TimeInventoryItem timeInventoryItem;
-    private ArrayList<GameItem> ladderDisapearLvl0, bigObstaclesDisappearLvl0;
+    private ArrayList<TimePlatform> ladderDisapearLvl0, bigObstaclesDisappearLvl0;
     private BasicButton appearButton;
     private MainRunActivity mainRunActivity;
     private int collectedCount = 0;
@@ -104,13 +101,6 @@ public class Level1 extends TimeLevel {
         timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(3200, 520));
 
-        ArrayList<ArrayList<GameItem>> notifications = new ArrayList<>();
-
-        notifications.add(bigObstaclesDisappearLvl0);
-        notifications.add(gameItems);
-        notifications.add(ladderDisapearLvl0);
-
-        notify = new Notify(notifications);
     }
 
 
@@ -120,10 +110,10 @@ public class Level1 extends TimeLevel {
         repaint();
 
         for (GameItem item : gameItems) item.run(gamePaint);
-        for (GameItem obs2 : ladderDisapearLvl0)
+        for (TimePlatform obs2 : ladderDisapearLvl0)
             if (!ladder2Disappear) obs2.run(gamePaint);
             else obs2.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        for (GameItem obs2 : bigObstaclesDisappearLvl0) obs2.run(gamePaint);
+        for (TimePlatform obs2 : bigObstaclesDisappearLvl0) obs2.run(gamePaint);
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         timeInventoryItem.run(gamePaint);
         passingDoor.repaint();
@@ -201,6 +191,5 @@ public class Level1 extends TimeLevel {
     public String getRewardId() {
         return "2";
     }
-
 
 }

@@ -1,13 +1,10 @@
 package com.example.catuniverse.gameSupport.gameMathematics;
 
 import android.graphics.Color;
-
-import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Collisions;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Owner;
 
 //Падающие ответы в математических уровнях.
 //Т.к. у них есть координаты x,y, они должны сталкиваться с игроком (обработка коллизий) ,
@@ -96,20 +93,5 @@ public class MathsAnswer extends GameItem {
 
     String getExpression() {
         return expression;
-    }
-
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.mathsLevelOwner;
     }
 }

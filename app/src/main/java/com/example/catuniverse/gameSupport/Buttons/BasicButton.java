@@ -7,8 +7,6 @@ import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.gameTime.Clickable;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Owner;
-
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Кнопка, а также игровые предметы, поддерживающие обработку касаний (Например, двери)
@@ -123,20 +121,5 @@ public class BasicButton extends GameItem {
     @Override
     public void setBitmapClicked(Bitmap bitmapClicked) {
         super.setBitmapClicked(bitmapClicked);
-    }
-
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.timeLevelOwner;
     }
 }

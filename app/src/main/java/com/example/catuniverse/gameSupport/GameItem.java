@@ -4,10 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Checkable;
 
 //Абстрактный класс, описывающий все объекты для уровней на время
-public abstract class GameItem implements Loopable, Checkable {
+public class GameItem implements Loopable {
     protected int x, y, controlY;
     protected double speed, jumpingSpeed, collLength;
     protected Rect collisionRect;

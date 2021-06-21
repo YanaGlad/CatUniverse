@@ -2,11 +2,9 @@ package com.example.catuniverse.gameSupport.gameStrategy;
 
 import android.graphics.Color;
 
-import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
-import com.example.catuniverse.gameSupport.helpp.Owner;
 
 import static com.example.catuniverse.gameSupport.Collisions.collisionDetectLengthViaWidth;
 import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
@@ -103,21 +101,6 @@ public class StrategyEnemy extends GameItem {
     @Override
     public void setSpeed(double speed) {
         super.setSpeed(speed);
-    }
-
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.strategyLevelOwner;
     }
 }
 

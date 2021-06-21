@@ -40,7 +40,4 @@ public enum  PLAN {
 // Fix useless parent in xml description
 
     //Need some class to simplify adding new cats
-
-
-    //NOTIFY + Dangerous ground!!!!!!
 }

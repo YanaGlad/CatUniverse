@@ -4,8 +4,6 @@ import android.graphics.Bitmap;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
-import com.example.catuniverse.gameSupport.helpp.Owner;
-
 import java.util.ArrayList;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
@@ -39,21 +37,6 @@ public class TimeGround extends GameItem {
             TimePlayer.start += speed;
     }
 
-    @Override
-    public boolean checkAcceptParam() {
-        return false;
-    }
-
-    @Override
-    public boolean checkDeclineParam() {
-        return false;
-    }
-
-    @Override
-    public Owner getOwner() {
-        return BasicGameSupport.timeLevelOwner;
-    }
-
     class Ground extends GameItem {
 
         private Ground(int x, Bitmap bitmap) {
@@ -83,21 +66,6 @@ public class TimeGround extends GameItem {
         @Override
         public int getY() {
             return super.getY();
-        }
-
-        @Override
-        public boolean checkAcceptParam() {
-            return false;
-        }
-
-        @Override
-        public boolean checkDeclineParam() {
-            return false;
-        }
-
-        @Override
-        public Owner getOwner() {
-            return BasicGameSupport.timeLevelOwner;
         }
     }
 
