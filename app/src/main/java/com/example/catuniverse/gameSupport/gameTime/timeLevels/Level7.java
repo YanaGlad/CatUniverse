@@ -41,10 +41,8 @@ public class Level7 extends TimeLevel {
     private EasyTimer easyTimer;
     private MainRunActivity mainRunActivity;
     private ArrayList<TimeInventoryItem> timeInventoryItems;
-    private ArrayList<Integer> x;
-    private ArrayList<Integer> y;
 
-
+    
     public Level7(MainRunActivity mainRunActivity) {
         super(35, 45, 260, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
@@ -66,9 +64,7 @@ public class Level7 extends TimeLevel {
             }
 
             for (int j = -5; j < 11; j++) {
-                x.add(n + 250 * j);
-                y.add(90 * i - 150);
-                gameItems.add(new TimePlatform(n + 250 * j, 90 * i, bluePlatform));
+                 gameItems.add(new TimePlatform(n + 250 * j, 90 * i, bluePlatform));
                 count++;
             }
         }
@@ -76,13 +72,7 @@ public class Level7 extends TimeLevel {
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
 
-
-        Random random = new Random();
-        for (int i = 0; i < x.size(); i++) {
-            gameItems.add(new BasicButton(mainRunActivity, x.get(i), y.get(i), purpleDoor, purpleDoorOpened, true));
-        }
-
-        passingDoor = (BasicButton) gameItems.get((int) (Math.random() * (gameItems.size() - count) + count));
+        passingDoor = new BasicButton(mainRunActivity, 725, 250, purpleDoor, purpleDoorOpened, true);
 
 
         gameItems.add(passingDoor);
