@@ -83,7 +83,7 @@ public abstract class TimeLevel implements Loopable {
         ChooseView.playerManager.run(gamePaint);
     }
 
-    protected void tallPlatformRepaint(){
+    protected void tallPlatformRepaint() {
         for (TimeTallPlatform tb : timeTallPlatformArrayList)
             tb.repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
         CollisionDetectors.tallPlatformCollision(timeTallPlatformArrayList);
@@ -209,6 +209,7 @@ public abstract class TimeLevel implements Loopable {
     public void repaint(double speed, double jumSpeed) {
 
     }
+
 
     public BasicButton getPassingDoor() {
         return passingDoor;
