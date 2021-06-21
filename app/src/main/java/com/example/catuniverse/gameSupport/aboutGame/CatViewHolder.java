@@ -6,13 +6,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.catuniverse.R;
 
  class CatViewHolder extends RecyclerView.ViewHolder {
-    ImageView catIcon;
-    private TextView catName, power, delay, health, price;
+    AppCompatImageView catIcon;
+    private AppCompatTextView catName, power, delay, health, price;
 
     CatViewHolder(@NonNull View itemView) {
         super(itemView);

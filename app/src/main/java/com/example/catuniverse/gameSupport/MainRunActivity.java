@@ -72,6 +72,12 @@ public class MainRunActivity extends AppCompatActivity {
         gameLoop.stopGame();
     }
 
+    public void aboutAchievement(int id) {
+        Intent intent = new Intent(this, GameDescriptionActivity.class);
+        startActivity(intent);
+        gameLoop.stopGame();
+    }
+
     public GameView getCurrentView() {
         return gameView;
     }

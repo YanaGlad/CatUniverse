@@ -95,14 +95,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="681dp"
             android:layout_height="488dp"
             android:contentDescription="TODO"
             android:scaleType="fitCenter"
             android:src="@drawable/space" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             android:textColor="@color/white"
             android:textSize="30sp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -120,12 +120,12 @@
                 android:layout_height="300dp"
                 android:layout_marginTop="45sp">
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -185,11 +185,11 @@
 
 
 
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </ScrollView>
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </FrameLayout>
 

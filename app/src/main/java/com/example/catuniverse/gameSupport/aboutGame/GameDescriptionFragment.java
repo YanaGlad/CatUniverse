@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -24,8 +27,8 @@ import static com.example.catuniverse.MainActivity.listOfCats;
 
 public class GameDescriptionFragment extends Fragment {
 
-    private TextView title, description;
-    private ImageView imageView;
+    private AppCompatTextView title, description;
+    private AppCompatImageView imageView;
     private RecyclerView recyclerView;
     private Button rooms, cats, time, strategy, maths, credits, sortAttack, sortDelay, sortPrice;
     private ArrayList<Cat> nothing;
@@ -144,7 +147,7 @@ public class GameDescriptionFragment extends Fragment {
 
             recyclerView.setAdapter(new CatAdapter(nothing, context));
             title.setText(credits.getText());
-            description.setText("Game Developer : Yana Gladkikh \n" + "Supported by Samsung IT School and Anton Smirnov\n");
+            description.setText("Game Developer : Yana Gladkikh \n" + "Supported by Samsung IT School \n");
             imageView.setImageResource(R.drawable.samsungitschool);
         });
 

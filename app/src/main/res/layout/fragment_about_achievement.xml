@@ -5,23 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".gameSupport.aboutGame.AboutAchievementFragment"
+
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:text="TextView" />
-
-    <ScrollView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/achieve_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        tools:text="Achievement"
+        android:textAlignment="center"
+        android:textSize="40sp" />
 
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
-    </ScrollView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/acheve_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Achievement description"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_achieve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+             />
+</androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
 
