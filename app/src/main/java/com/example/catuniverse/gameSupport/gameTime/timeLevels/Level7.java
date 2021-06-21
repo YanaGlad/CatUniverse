@@ -41,8 +41,8 @@ public class Level7 extends TimeLevel {
     private EasyTimer easyTimer;
     private MainRunActivity mainRunActivity;
     private ArrayList<TimeInventoryItem> timeInventoryItems;
+    private ArrayList<Integer> x, y;
 
-    
     public Level7(MainRunActivity mainRunActivity) {
         super(35, 45, 260, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
@@ -55,7 +55,8 @@ public class Level7 extends TimeLevel {
         asteroid = new SpriteAnimation(asteroidSprite);
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-        int n, count = 0;
+
+        int n;
         for (int i = -20; i < 7; i++) {
             if (i % 2 != 0) {
                 n = 200;
@@ -64,15 +65,18 @@ public class Level7 extends TimeLevel {
             }
 
             for (int j = -5; j < 11; j++) {
-                 gameItems.add(new TimePlatform(n + 250 * j, 90 * i, bluePlatform));
-                count++;
+                gameItems.add(new TimePlatform(n + 250 * j, 90 * i, bluePlatform));
+                x.add(n + 250 * j);
+                y.add(90 * i);
             }
         }
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
 
-        passingDoor = new BasicButton(mainRunActivity, 725, 250, purpleDoor, purpleDoorOpened, true);
+
+        int pos = new Random().nextInt(x.size());
+        passingDoor = new BasicButton(mainRunActivity, x.get(pos) + 10, y.get(pos) + 30, purpleDoor, purpleDoorOpened, true);
 
 
         gameItems.add(passingDoor);

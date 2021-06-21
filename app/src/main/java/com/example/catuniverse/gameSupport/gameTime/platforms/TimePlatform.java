@@ -1,11 +1,13 @@
 package com.example.catuniverse.gameSupport.gameTime.platforms;
 
 import android.graphics.Bitmap;
+
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.EasyTimer;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatformSkeleton;
 import static com.example.catuniverse.gameSupport.Collisions.collisionDetectLengthViaHeight;
@@ -16,7 +18,7 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 public class TimePlatform extends GameItem {
     private boolean visibility;
     private EasyTimer easyTimer;
-    private boolean playerOn;
+    public boolean playerOn;
 
     //По умолчанию цвет платформ - синий
     public TimePlatform(int x, int y) {
@@ -62,7 +64,7 @@ public class TimePlatform extends GameItem {
     @Override
     public void run(GamePaint gamePaint) {
         repaint(timePlayer.getMainPlayerSpeed(), timePlayer.getJumpSpeed());
-        if(isOnScreen()) {
+        if (isOnScreen()) {
             if (isVisibile()) { //Отображать платформу, если она видима
                 if (bitmap == null)
                     gamePaint.setVisibleBitmap(bluePlatform, x, y);
@@ -77,10 +79,11 @@ public class TimePlatform extends GameItem {
         y = BasicGameSupport.updateMovesY(this, jumSpeed, y);
         collisionRect = createCollisionsRect(x, y, bluePlatformSkeleton);
 
-        if(isOnScreen()) {
+        if (isOnScreen()) {
             if (isVisibile()) CollisionDetectors.checkObsCollision(this);
             //Стоит ли игрок на данной платформе
             playerOn = timePlayer.getX() > x - 30 && timePlayer.getX() < x + 120 && timePlayer.getY() < y - 31;
+
         }
     }
 

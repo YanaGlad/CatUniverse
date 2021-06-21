@@ -132,6 +132,8 @@ public class BasicGameSupport {
                 x -= speedPlayer;
             }
 
+       // if()
+
         if (timePlayer.isRocketMode()) {
             x -= 2000;
         }
