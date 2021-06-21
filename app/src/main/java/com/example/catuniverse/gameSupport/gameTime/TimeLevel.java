@@ -16,6 +16,8 @@ import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.Media;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.helpp.Checkable;
+import com.example.catuniverse.gameSupport.helpp.Notify;
 import com.example.catuniverse.gameViews.general.ChooseView;
 
 import java.io.IOException;
@@ -36,6 +38,7 @@ public abstract class TimeLevel implements Loopable {
     protected ArrayList<GameItem> gameItems; //Список любых игровых объектов
     private Media.Music music;
     protected ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
+    protected Notify notify;
 
     protected TimeLevel(int twoStars, int threeStars, double totalTime, Bitmap background, Bitmap ground, int lives, Media.Music music) {
         this.twoStars = twoStars;

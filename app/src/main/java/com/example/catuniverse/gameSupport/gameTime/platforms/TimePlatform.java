@@ -7,6 +7,7 @@ import com.example.catuniverse.gameSupport.CollisionDetectors;
 import com.example.catuniverse.gameSupport.EasyTimer;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.helpp.Checkable;
 import com.example.catuniverse.gameSupport.helpp.Owner;
 
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
@@ -16,7 +17,7 @@ import static com.example.catuniverse.gameSupport.Collisions.createCollisionsRec
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Платформы, на которые игрок может забираться
-public class TimePlatform extends GameItem {
+public class TimePlatform extends GameItem implements Checkable {
     private boolean visibility;
     private EasyTimer easyTimer;
     public boolean playerOn;

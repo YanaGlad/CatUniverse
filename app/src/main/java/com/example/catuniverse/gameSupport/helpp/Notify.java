@@ -2,14 +2,16 @@ package com.example.catuniverse.gameSupport.helpp;
 
 import androidx.annotation.NonNull;
 
+import com.example.catuniverse.gameSupport.GameItem;
+
 import java.util.ArrayList;
 
-public abstract class Notify {
+public class Notify {
 
-    private ArrayList<ArrayList<Checkable>> list;
+    private ArrayList<ArrayList<GameItem>> list;
 
 
-    public Notify(@NonNull ArrayList<ArrayList<Checkable>> list) {
+    public Notify(@NonNull ArrayList<ArrayList<GameItem>> list) {
         this.list = list;
     }
 
