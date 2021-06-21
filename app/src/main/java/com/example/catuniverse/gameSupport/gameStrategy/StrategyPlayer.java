@@ -15,6 +15,7 @@ import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameSupport.graphics.ImageSet;
 import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
+import com.example.catuniverse.gameSupport.helpp.Owner;
 
 import java.util.ArrayList;
 
@@ -173,5 +174,15 @@ public class StrategyPlayer extends GameItem {
 
     void setAvailableForChoice(boolean availableForChoice) {
         this.availableForChoice = availableForChoice;
+    }
+
+    @Override
+    public boolean checkAcceptParam() {
+        return false;
+    }
+
+    @Override
+    public Owner getOwner() {
+        return BasicGameSupport.strategyLevelOwner;
     }
 }

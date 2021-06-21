@@ -9,6 +9,7 @@ import com.example.catuniverse.gameSupport.Collisions;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
+import com.example.catuniverse.gameSupport.helpp.Owner;
 
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
@@ -149,5 +150,15 @@ public class TimeInventoryItem extends GameItem {
     @Override
     public void setY(int y) {
         super.setY(y);
+    }
+
+    @Override
+    public boolean checkAcceptParam() {
+        return false;
+    }
+
+    @Override
+    public Owner getOwner() {
+        return BasicGameSupport.timeLevelOwner;
     }
 }

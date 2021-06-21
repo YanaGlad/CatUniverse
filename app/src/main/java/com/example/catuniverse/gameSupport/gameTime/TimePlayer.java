@@ -9,6 +9,7 @@ import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.CollisionSupportElement;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.helpp.Owner;
 
 import static com.example.catuniverse.gameSupport.BitmapLoader.walkRightGray;
 import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
@@ -366,5 +367,15 @@ public class TimePlayer extends GameItem {
     @Override
     public void setSpeed(double speed) {
         super.setSpeed(speed);
+    }
+
+    @Override
+    public boolean checkAcceptParam() {
+        return false;
+    }
+
+    @Override
+    public Owner getOwner() {
+        return BasicGameSupport.timeLevelOwner;
     }
 }

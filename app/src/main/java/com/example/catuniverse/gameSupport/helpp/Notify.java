@@ -16,9 +16,14 @@ public abstract class Notify {
     public void checkParam() {
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < list.get(i).size(); j++) {
-                if (list.get(i).get(j).checkParam()) {
-                    list.get(i).get(i).getOwner().notifyTrue(true);
+                if (list.get(i).get(j).checkAcceptParam()) {
+                    list.get(i).get(i).getOwner().notifyTrue();
                 }
+
+                if (list.get(i).get(j).checkDeclineParam()) {
+                    list.get(i).get(i).getOwner().notifyFalse();
+                }
+
             }
         }
     }

@@ -8,6 +8,7 @@ import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.GameView;
 import com.example.catuniverse.gameSupport.graphics.PlayerManager;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.helpp.Owner;
 
 //Высокая платформа, на которую игрок может забираться
 public class TimeTallPlatform extends GameItem {
@@ -64,6 +65,16 @@ public class TimeTallPlatform extends GameItem {
     @Override
     public void setBitmap(Bitmap bitmap) {
         super.setBitmap(bitmap);
+    }
+
+    @Override
+    public boolean checkAcceptParam() {
+        return false;
+    }
+
+    @Override
+    public Owner getOwner() {
+        return BasicGameSupport.timeLevelOwner;
     }
 }
 

@@ -1,9 +1,13 @@
 package com.example.catuniverse.gameSupport.gameStrategy;
 
 import android.graphics.Bitmap;
+
+import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.helpp.Owner;
+
 import static com.example.catuniverse.gameSupport.Collisions.collisionDetectLengthViaWidth;
 import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
 
@@ -55,5 +59,15 @@ public class StrategyBullet extends GameItem {
     @Override
     public void setBitmap(Bitmap bitmap) {
         super.setBitmap(bitmap);
+    }
+
+    @Override
+    public boolean checkAcceptParam() {
+        return false;
+    }
+
+    @Override
+    public Owner getOwner() {
+        return BasicGameSupport.strategyLevelOwner;
     }
 }
