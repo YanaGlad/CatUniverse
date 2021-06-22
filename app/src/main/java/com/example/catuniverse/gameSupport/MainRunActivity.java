@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.catuniverse.MainActivity;
+import com.example.catuniverse.gameSupport.aboutGame.AboutAchievementActivity;
 import com.example.catuniverse.gameSupport.aboutGame.GameDescriptionActivity;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 
@@ -72,8 +74,16 @@ public class MainRunActivity extends AppCompatActivity {
         gameLoop.stopGame();
     }
 
-    public void aboutAchievement(int id) {
-        Intent intent = new Intent(this, GameDescriptionActivity.class);
+    private String[] descriptions =  {
+        "This is cool achievement", "This is amazing achievement"
+    };
+
+    public void aboutAchievement(int id, Bitmap bitmap) {
+        Intent intent = new Intent(this, AboutAchievementActivity.class);
+        intent.putExtra("name", MainActivity.listOfAchievements.get(id).getName());
+        intent.putExtra("description", descriptions[id]);
+        intent.putExtra("bitmap", bitmap);
+
         startActivity(intent);
         gameLoop.stopGame();
     }

@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gameSupport.aboutGame.AboutAchievementActivity">
+    tools:context=".gameSupport.aboutGame.AboutAchievementActivity"
+    android:id="@+id/ach_activity">
 
     <fragment
+        android:id="@+id/ach_fragm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.example.catuniverse.gameSupport.aboutGame.AboutAchievementFragment"/>

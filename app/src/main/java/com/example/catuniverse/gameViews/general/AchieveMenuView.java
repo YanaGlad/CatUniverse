@@ -17,12 +17,13 @@ public class AchieveMenuView extends GameView {
 
     private ArrayList<BasicButton> basicButtons;
     private BasicButton exit;
+    private ArrayList<Bitmap> achievementIcons;
 
     public AchieveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
 
         basicButtons = new ArrayList<>();
-        ArrayList<Bitmap> achievementIcons = new ArrayList<>();
+        achievementIcons = new ArrayList<>();
         achievementIcons.add(BitmapLoader.dexterityAch);
         achievementIcons.add(BitmapLoader.starCollectorAch);
 
@@ -60,8 +61,10 @@ public class AchieveMenuView extends GameView {
             exit.notClicked();
         }
         for (int i = 0; i < basicButtons.size(); i++) {
-            if(basicButtons.get(i).isClicked())
-                System.out.println("Clicked " + i);
+            if(basicButtons.get(i).isClicked()){
+                getMainRunActivity().aboutAchievement(i, achievementIcons.get(i));
+            }
+              //  System.out.println("Clicked " + i);
         }
     }
 }
