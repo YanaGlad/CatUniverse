@@ -37,12 +37,12 @@ public class CatAdapter extends RecyclerView.Adapter {
 
         icons = new ArrayList<>();
 
-        icons.add(new CatIcon("gray", BitmapLoader.grayIcon));
-        icons.add(new CatIcon("orange", BitmapLoader.orangeIcon));
-        icons.add(new CatIcon("greenAlien", BitmapLoader.greenAlienCatIcon));
-        icons.add(new CatIcon("shadow", BitmapLoader.shadowCatIcon));
-        icons.add(new CatIcon("mainCoon", BitmapLoader.mainCoonCatIcon));
-        icons.add(new CatIcon("bobtail", BitmapLoader.bobtailCatIcon));
+        icons.add(new CatIcon(context.getString(R.string.cat_gray), BitmapLoader.grayIcon));
+        icons.add(new CatIcon(context.getString(R.string.cat_orange), BitmapLoader.orangeIcon));
+        icons.add(new CatIcon(context.getString(R.string.cat_green_alien), BitmapLoader.greenAlienCatIcon));
+        icons.add(new CatIcon(context.getString(R.string.cat_shadow), BitmapLoader.shadowCatIcon));
+        icons.add(new CatIcon(context.getString(R.string.main_coon), BitmapLoader.mainCoonCatIcon));
+        icons.add(new CatIcon(context.getString(R.string.bob_tail), BitmapLoader.bobtailCatIcon));
 
         this.context = context;
     }
