@@ -13,6 +13,7 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
+import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 
@@ -26,6 +27,14 @@ public class Level8 extends TimeLevel {
         gameOver = false;
 
 
+        int yY = 550;
+        int xX = 700;
+        for (int i = 0; i < 20; i++) {
+            gameItems.add(new TimePlatform(xX, yY, bluePlatform));
+            xX += 100;
+            yY -= 70;
+        }
+
         passingDoor = new BasicButton(mainRunActivity, 110, 430, blueDoor, blueDoorOpened, true);
 
     }
@@ -35,6 +44,7 @@ public class Level8 extends TimeLevel {
         super.run(gamePaint);
         repaint();
         passingDoor.repaint();
+        for (GameItem b : gameItems) b.run(gamePaint);
         super.endingRun(gamePaint, mainRunActivity);
     }
 
