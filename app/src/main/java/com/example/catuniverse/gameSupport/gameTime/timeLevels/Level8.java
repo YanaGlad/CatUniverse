@@ -16,24 +16,37 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
+import static com.example.catuniverse.gameSupport.BitmapLoader.rocketDecor;
 
 //В РАЗРАБОТКЕ
 public class Level8 extends TimeLevel {
     private MainRunActivity mainRunActivity;
 
     public Level8(MainRunActivity mainRunActivity) {
-        super(10, 15, 20, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
+        super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
 
         int yY = 550;
         int xX = 700;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
             xX += 100;
             yY -= 70;
         }
+
+        xX+=40;
+        yY+=70;
+        for (int i = 0; i < 10; i++) {
+            gameItems.add(new TimePlatform(xX, yY, bluePlatform));
+            xX += 100;
+            yY += 70;
+        }
+        gameItems.add(new TimeDecoration(500, -600, rocketDecor, true));
+
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1655, 520));
+        timeTallPlatformArrayList.add(new TimeTallPlatform(1655, 685));
 
         passingDoor = new BasicButton(mainRunActivity, 110, 430, blueDoor, blueDoorOpened, true);
 
@@ -45,6 +58,7 @@ public class Level8 extends TimeLevel {
         repaint();
         passingDoor.repaint();
         for (GameItem b : gameItems) b.run(gamePaint);
+        for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         super.endingRun(gamePaint, mainRunActivity);
     }
 
@@ -52,7 +66,9 @@ public class Level8 extends TimeLevel {
     public void repaint() {
         super.repaint();
         passingDoor.repaint();
-     }
+        super.tallPlatformRepaint();
+
+    }
 
     @Override
     public void repaint(double speed, double jumSpeed) {

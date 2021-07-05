@@ -21,7 +21,7 @@ public class Level9 extends TimeLevel {
     private MainRunActivity mainRunActivity;
 
     public Level9(MainRunActivity mainRunActivity) {
-        super(10, 15, 20, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
+        super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 

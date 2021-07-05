@@ -60,7 +60,8 @@ public class BitmapLoader {
     //Объекты
     public static Bitmap asteroid, mathsPlayerSkeleton, bluePlatformSkeleton, star, redStar, mathsAnswerBig, closedLevel, pricePanel, bullet,
             bluePlatform, purplePlatform, tallWallSkeleton, tallWall, mathAnswerSkeleton, mathsAnswer, mathPlayer, heart, keyBlue, collTallRect,
-            yellowKey, rocketStation, blueDecorStation, purpleDecorStation, longBlueRect, shortBlueRect, longRedRect, darkerDot, sharps, longPurpleRect;
+            yellowKey, rocketStation, blueDecorStation, purpleDecorStation, longBlueRect, shortBlueRect, longRedRect, darkerDot,
+            sharps, longPurpleRect, rocketDecor;
 
     public BitmapLoader(MainRunActivity mainRunActivity, GamePaint gamePaint) throws IOException {
 
@@ -285,6 +286,7 @@ public class BitmapLoader {
         longPurpleRect = gamePaint.createNewGraphicsBitmap("longPurpleRect.png");
         darkerDot = gamePaint.createNewGraphicsBitmap("darkerDot.png");
         sharps = gamePaint.createNewGraphicsBitmap("shipi.png");
+        rocketDecor = gamePaint.createNewGraphicsBitmap("rocket.png");
 
     }
 
