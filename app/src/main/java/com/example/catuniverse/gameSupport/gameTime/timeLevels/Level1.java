@@ -57,8 +57,6 @@ public class Level1 extends TimeLevel {
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
-        Log.d("Level1", "create");
-
         timeInventoryItem = new TimeInventoryItem(700, 240, keyBlue);
 
         appearButton = new BasicButton(mainRunActivity, 2700, 490, BitmapLoader.appearButton, BitmapLoader.appearButton, true);

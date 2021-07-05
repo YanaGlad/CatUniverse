@@ -1,25 +1,34 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
+import android.graphics.Color;
+
+import com.example.catuniverse.R;
+import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.gameTime.TimeDecoration;
+import com.example.catuniverse.gameSupport.gameTime.TimeInventoryItem;
 import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
 
 import java.util.ArrayList;
 
+import static com.example.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
+import static com.example.catuniverse.gameSupport.BitmapLoader.keyBlue;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketDecor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketStation;
+import static com.example.catuniverse.gameSupport.BitmapLoader.yellowKey;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //В РАЗРАБОТКЕ
@@ -29,11 +38,27 @@ public class Level8 extends TimeLevel {
     private int[] requestedCount = {20, 10};
     private int[] collectedCount = {0, 0};
     private boolean oneTime = false;
+    private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
+    private ArrayList<TimeInventoryItem> goodItems, badItems;
+    private String[] keyRequested = {"yellowkey", "bluekey"};
+    private boolean oneTime2 = false;
 
     public Level8(MainRunActivity mainRunActivity) {
         super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
+
+        timeInventoryItemsG = new ArrayList<>();
+        timeInventoryItemsB = new ArrayList<>();
+        goodItems = new ArrayList<>();
+        badItems = new ArrayList<>();
+
+        goodItems.add(new TimeInventoryItem(1000, -919, yellowKey, true, true, mainRunActivity.getString(R.string.YellowKey)));
+        goodItems.add(new TimeInventoryItem(1000, -919, keyBlue, true, true, mainRunActivity.getString(R.string.BlueKey)));
+
+        SpriteAnimation asteroid = new SpriteAnimation(asteroidSprite);
+        badItems.add(new TimeInventoryItem(1000, -919, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), false));
+
 
         int yY = 550;
         int xX = 700;
@@ -45,7 +70,7 @@ public class Level8 extends TimeLevel {
 
         xX += 40;
         yY += 70;
-        station = new TimePlatform(xX, yY-50, rocketStation);
+        station = new TimePlatform(xX, yY - 50, rocketStation);
 
         for (int i = 0; i < 10; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
@@ -65,11 +90,15 @@ public class Level8 extends TimeLevel {
     public void run(GamePaint gamePaint) {
         super.run(gamePaint);
         repaint();
-        passingDoor.repaint();
-        for (GameItem b : gameItems) b.run(gamePaint);
-        station.run(gamePaint);
-        for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
-
+        if (!timePlayer.isRocketMode()) {
+            passingDoor.repaint();
+            for (GameItem b : gameItems) b.run(gamePaint);
+            station.run(gamePaint);
+            for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
+        } else {
+            for (TimeInventoryItem tm : timeInventoryItemsG) tm.run(gamePaint);
+            for (TimeInventoryItem tm : timeInventoryItemsB) tm.run(gamePaint);
+        }
         if (station.isPlayerOn() && !isRequirementsCollected()) {
             timePlayer.setRocketMode(true);
             super.drawThreeRoadLines(gamePaint);
@@ -78,7 +107,19 @@ public class Level8 extends TimeLevel {
                 timePlayer.setY(620);
                 oneTime = true;
             }
+        }else {
+            if (isRequirementsCollected() && !oneTime2) {
+                for (GameItem b : gameItems) b.run(gamePaint);
+                for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
+                station.run(gamePaint);
+                oneTime2 = true;
+            }
+            timePlayer.setRocketMode(false);
         }
+        gamePaint.write(collectedCount[0] + "/" + requestedCount[0], 580, 50, Color.WHITE, 35);
+        gamePaint.setVisibleBitmap(yellowKey, 675, 15);
+        gamePaint.write(collectedCount[1] + "/" + requestedCount[1], 490, 50, Color.WHITE, 35);
+        gamePaint.setVisibleBitmap(keyBlue, 585, 15);
 
         super.endingRun(gamePaint, mainRunActivity);
     }
@@ -86,8 +127,13 @@ public class Level8 extends TimeLevel {
     @Override
     public void repaint() {
         super.repaint();
-        passingDoor.repaint();
-        super.tallPlatformRepaint();
+        if (!timePlayer.isRocketMode()) {
+            passingDoor.repaint();
+            super.tallPlatformRepaint();
+        } else {
+            super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
+
+        }
 
     }
 

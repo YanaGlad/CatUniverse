@@ -16,6 +16,7 @@ import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level7;
 import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level8;
 import com.example.catuniverse.gameSupport.gameTime.timeLevels.Level9;
 import com.example.catuniverse.gameViews.general.ChooseView;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -27,11 +28,12 @@ public class TimeLevelsView extends GameView {
     private BasicButton exit;
     private TimeLevel level;
     public static boolean levelRunning = false;
+    private ArrayList<TimeLevel> timeLevels;
 
     public TimeLevelsView(MainRunActivity mainRunActivity, int id) {
         super(mainRunActivity);
         this.id = id;
-        ArrayList<TimeLevel> timeLevels = new ArrayList<>();
+        timeLevels = new ArrayList<>();
         exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
 
         timeLevels.add(new Level1(mainRunActivity));
@@ -71,7 +73,8 @@ public class TimeLevelsView extends GameView {
             }
             exit.notClicked();
         }
-        timeLevelFinish(level, this, id, level.getRewardId(), this, level.getMusic());
+
+        timeLevelFinish(level, this, id, level.getRewardId(), new TimeLevelsView(super.getMainRunActivity(), id), level.getMusic());
         exit.repaint();
     }
 }

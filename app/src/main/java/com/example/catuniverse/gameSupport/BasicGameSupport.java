@@ -2,6 +2,7 @@ package com.example.catuniverse.gameSupport;
 
 import android.content.ContentValues;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -101,7 +102,6 @@ public class BasicGameSupport {
     public static int updateMovesY(GameItem gameItem, double jumSpeed, int y) {
         if (!timePlayer.isRocketMode()) {
             if (timePlayer.isJumpingLimit()) {
-                System.out.println("LIMIT");
                 if (timePlayer.isJumping()) y += jumSpeed;
                 if (timePlayer.isFalling() && !timePlayer.isJumping()) y -= jumSpeed;
             } else {
@@ -320,8 +320,9 @@ public class BasicGameSupport {
     public static void timeLevelFinish(TimeLevel timeLevel, GameView gameView,
                                        int levelNum, @Nullable String rewardId, GameView restart, Media.Music music) {
 
-        if (timeLevel.getPassingDoor().isClicked() && timeLevel.isRequirementsCollected()) {
 
+        if (timeLevel.getPassingDoor().isClicked() && timeLevel.isRequirementsCollected()) {
+            Log.d("TimeLevelFinish", "in 1st");
             if (timeLevel.unlockAchievement() && timeLevel.getAchievementId() != -1)
                 unlockAchievement(timeLevel.getAchievementId());
 
@@ -337,6 +338,7 @@ public class BasicGameSupport {
         }
 
         if (timeLevel.isGameOver()) {
+            Log.d("TimeLevelFinish", "in 2nd");
             TimeLevelsView.levelRunning = false;
             music.stop();
             try {
@@ -345,6 +347,7 @@ public class BasicGameSupport {
                 e.printStackTrace();
             }
             timePlayer.setRocketMode(false);
+
             gameView.getMainRunActivity().setView(new GameOverView(gameView.getMainRunActivity(), restart, gameView.getMainRunActivity().getString(R.string.time)));
 
         }
