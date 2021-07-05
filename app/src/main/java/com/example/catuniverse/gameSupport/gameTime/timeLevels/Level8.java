@@ -9,6 +9,8 @@ import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 
+import java.util.ArrayList;
+
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
@@ -17,16 +19,21 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.rocketDecor;
+import static com.example.catuniverse.gameSupport.BitmapLoader.rocketStation;
+import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //В РАЗРАБОТКЕ
 public class Level8 extends TimeLevel {
     private MainRunActivity mainRunActivity;
+    private TimePlatform station;
+    private int[] requestedCount = {20, 10};
+    private int[] collectedCount = {0, 0};
+    private boolean oneTime = false;
 
     public Level8(MainRunActivity mainRunActivity) {
         super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
-
 
         int yY = 550;
         int xX = 700;
@@ -36,8 +43,10 @@ public class Level8 extends TimeLevel {
             yY -= 70;
         }
 
-        xX+=40;
-        yY+=70;
+        xX += 40;
+        yY += 70;
+        station = new TimePlatform(xX, yY-50, rocketStation);
+
         for (int i = 0; i < 10; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
             xX += 100;
@@ -58,7 +67,19 @@ public class Level8 extends TimeLevel {
         repaint();
         passingDoor.repaint();
         for (GameItem b : gameItems) b.run(gamePaint);
+        station.run(gamePaint);
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
+
+        if (station.isPlayerOn() && !isRequirementsCollected()) {
+            timePlayer.setRocketMode(true);
+            super.drawThreeRoadLines(gamePaint);
+            if (!oneTime) {
+                timePlayer.setX(30);
+                timePlayer.setY(620);
+                oneTime = true;
+            }
+        }
+
         super.endingRun(gamePaint, mainRunActivity);
     }
 
@@ -91,7 +112,7 @@ public class Level8 extends TimeLevel {
 
     @Override
     public boolean isRequirementsCollected() {
-        return true;
+        return (requestedCount[0] == collectedCount[0]) && (requestedCount[1] == collectedCount[1]);
     }
 
     @Override
