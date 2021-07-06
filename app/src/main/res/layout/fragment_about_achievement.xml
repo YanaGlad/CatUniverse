@@ -1,51 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gameSupport.aboutGame.AboutAchievementFragment"
+    android:orientation="vertical"
 
-    android:orientation="vertical">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/achieve_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        tools:text="Achievement"
-        android:textAlignment="center"
-        android:textSize="40sp" />
-
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/acheve_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Achievement description"
-            android:textAlignment="center"
-            android:textSize="25sp" />
-
-</androidx.core.widget.NestedScrollView>
-
+    tools:context=".gameSupport.aboutGame.AboutAchievementFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_achieve"
+        android:id="@+id/background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        />
+        android:scaleType="centerCrop"
+        android:src="@drawable/achieve_background"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
 
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:context=".gameSupport.aboutGame.AboutAchievementFragment">
 
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/achieve_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp"
+            tools:text="Achievement" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="329dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/acheve_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                tools:text="Achievement description" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_achieve"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/achieve_title" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#AE9A6FE8"
+            android:onClick="onGoBackClick"
+            android:text="Go Back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

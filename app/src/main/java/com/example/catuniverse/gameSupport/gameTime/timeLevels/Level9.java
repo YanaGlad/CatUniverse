@@ -14,6 +14,7 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
+import static com.example.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBackground;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 
 //В РАЗРАБОТКЕ
@@ -21,7 +22,7 @@ public class Level9 extends TimeLevel {
     private MainRunActivity mainRunActivity;
 
     public Level9(MainRunActivity mainRunActivity) {
-        super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
+        super(10, 15, 220, movingBlueSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
