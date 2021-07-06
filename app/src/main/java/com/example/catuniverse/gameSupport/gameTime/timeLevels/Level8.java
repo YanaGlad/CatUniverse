@@ -1,6 +1,7 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BitmapLoader;
@@ -35,16 +36,14 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 public class Level8 extends TimeLevel {
     private MainRunActivity mainRunActivity;
     private TimePlatform station;
-    private int[] requestedCount = {20, 10};
+    private int[] requestedCount = {20, 20};
     private int[] collectedCount = {0, 0};
-    private boolean oneTime = false;
     private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
     private ArrayList<TimeInventoryItem> goodItems, badItems;
     private String[] keyRequested = {"yellowkey", "bluekey"};
-    private boolean oneTime2 = false;
 
     public Level8(MainRunActivity mainRunActivity) {
-        super(10, 15, 220, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
+        super(100, 60, 150, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
@@ -70,7 +69,7 @@ public class Level8 extends TimeLevel {
 
         xX += 40;
         yY += 70;
-        station = new TimePlatform(xX, yY - 50, rocketStation);
+        station = new TimePlatform(xX, yY - 100, rocketStation);
 
         for (int i = 0; i < 10; i++) {
             gameItems.add(new TimePlatform(xX, yY, bluePlatform));
@@ -96,30 +95,20 @@ public class Level8 extends TimeLevel {
             station.run(gamePaint);
             for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         } else {
+            super.drawThreeRoadLines(gamePaint);
             for (TimeInventoryItem tm : timeInventoryItemsG) tm.run(gamePaint);
             for (TimeInventoryItem tm : timeInventoryItemsB) tm.run(gamePaint);
         }
         if (station.isPlayerOn() && !isRequirementsCollected()) {
             timePlayer.setRocketMode(true);
             super.drawThreeRoadLines(gamePaint);
-            if (!oneTime) {
-                timePlayer.setX(30);
-                timePlayer.setY(620);
-                oneTime = true;
-            }
-        }else {
-            if (isRequirementsCollected() && !oneTime2) {
-                for (GameItem b : gameItems) b.run(gamePaint);
-                for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
-                station.run(gamePaint);
-                oneTime2 = true;
-            }
-            timePlayer.setRocketMode(false);
+        } else if (isRequirementsCollected()) {
+            passingDoor.setClicked(true);
         }
-        gamePaint.write(collectedCount[0] + "/" + requestedCount[0], 580, 50, Color.WHITE, 35);
+        gamePaint.write(collectedCount[0] + "/" + requestedCount[0], 590, 50, Color.WHITE, 35);
         gamePaint.setVisibleBitmap(yellowKey, 675, 15);
-        gamePaint.write(collectedCount[1] + "/" + requestedCount[1], 490, 50, Color.WHITE, 35);
-        gamePaint.setVisibleBitmap(keyBlue, 585, 15);
+        gamePaint.write(collectedCount[1] + "/" + requestedCount[1], 470, 50, Color.WHITE, 35);
+        gamePaint.setVisibleBitmap(keyBlue, 550, 23);
 
         super.endingRun(gamePaint, mainRunActivity);
     }

@@ -88,6 +88,10 @@ public class BasicButton extends GameItem {
         this.clicked = false;
     }
 
+    public void setClicked(boolean clicked) {
+        this.clicked = clicked;
+    }
+
     public void setText(String text) {
         this.text = text;
     }

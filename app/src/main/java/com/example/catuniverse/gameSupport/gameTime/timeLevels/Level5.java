@@ -87,6 +87,7 @@ public class Level5 extends TimeLevel {
             for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
             passingDoor.repaint();
         } else {
+            super.drawThreeRoadLines(gamePaint);
             for (TimeInventoryItem tm : timeInventoryItemsG) tm.run(gamePaint);
             for (TimeInventoryItem tm : timeInventoryItemsB) tm.run(gamePaint);
         }
@@ -99,8 +100,8 @@ public class Level5 extends TimeLevel {
                 timePlayer.setY(620);
                 oneTime = true;
             }
-        } else {
-            if (isRequirementsCollected() && !oneTime2) {
+        } else if (isRequirementsCollected()) {
+             if (!oneTime2) {
                 for (GameItem b : gameItems) b.run(gamePaint);
                 for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
                 for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
