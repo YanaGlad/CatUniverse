@@ -1,13 +1,17 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
+import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
 import com.example.catuniverse.gameSupport.gameTime.TimeDecoration;
+import com.example.catuniverse.gameSupport.gameTime.TimeInventoryItem;
 import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
+
+import java.util.ArrayList;
 
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
@@ -20,9 +24,20 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackgr
 //В РАЗРАБОТКЕ
 public class Level9 extends TimeLevel {
     private MainRunActivity mainRunActivity;
+    private ArrayList<TimeInventoryItem> timeInventoryItems;
 
     public Level9(MainRunActivity mainRunActivity) {
         super(10, 15, 220, movingBlueSpaceBackground, blueGround, 1, electrodynamixMusic);
+
+        timeInventoryItems = new ArrayList<>();
+
+        int xX = 400;
+
+        for (int i = 0; i < 10; i++) {
+            timeInventoryItems.add(new TimeInventoryItem(xX, 550, BitmapLoader.keyBlue));
+            xX+=100;
+        }
+
         this.mainRunActivity = mainRunActivity;
         gameOver = false;
 
@@ -36,6 +51,8 @@ public class Level9 extends TimeLevel {
     public void run(GamePaint gamePaint) {
         super.run(gamePaint);
         repaint();
+        for (TimeInventoryItem timeInventoryItems : timeInventoryItems)
+            timeInventoryItems.run(gamePaint);
         passingDoor.repaint();
         super.endingRun(gamePaint, mainRunActivity);
     }
@@ -69,6 +86,10 @@ public class Level9 extends TimeLevel {
 
     @Override
     public boolean isRequirementsCollected() {
+        for (int i = 0; i < timeInventoryItems.size(); i++) {
+            if(!timeInventoryItems.get(i).isPicked())
+                return false;
+        }
         return true;
     }
 
