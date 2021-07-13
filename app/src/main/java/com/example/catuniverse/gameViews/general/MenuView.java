@@ -28,8 +28,9 @@ public class MenuView extends GameView {
         catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_orange), BitmapLoader.orangeIcon));
         catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_green_alien), BitmapLoader.greenAlienCatIcon));
         catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_shadow), BitmapLoader.shadowCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.main_coon), BitmapLoader.mainCoonCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.bob_tail), BitmapLoader.bobtailCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_main_coon), BitmapLoader.mainCoonCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_bob_tail), BitmapLoader.bobtailCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_red_alien), BitmapLoader.redAlienCatIcon));
 
         room = new BasicButton(mainRunActivity, 200, 120, mainRunActivity.getString(R.string.go_to_the_room), Color.BLACK, 40, BitmapLoader.mainMenuButton, BitmapLoader.mainMenuButtonClicked, 50, 50);
         time = new BasicButton(mainRunActivity, 200, 220, mainRunActivity.getString(R.string.play_time_game), Color.BLACK, 40, BitmapLoader.mainMenuButton, BitmapLoader.mainMenuButtonClicked, 50, 50);

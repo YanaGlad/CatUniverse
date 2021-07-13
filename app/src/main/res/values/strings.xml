@@ -6,8 +6,9 @@
     <string name="cat_orange">orange</string>
     <string name="cat_green_alien">greenAlien</string>
     <string name="cat_shadow">shadow</string>
-    <string name="main_coon">mainCoon</string>
-    <string name="bob_tail">bobtail</string>
+    <string name="cat_main_coon">mainCoon</string>
+    <string name="cat_bob_tail">bobtail</string>
+    <string name="cat_red_alien">redAlien</string>
 
     //InventoryItems
     <string name="Asteroid">asteroid</string>

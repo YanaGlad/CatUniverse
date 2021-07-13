@@ -91,7 +91,7 @@ public class BasicGameSupport {
     //Количество уровней
     public static int levelsCount = 9;
     //Количество котов
-    public static int catsCount = 6;
+    public static int catsCount = 7;
     //Количесвто достижений
     public static int achievementCount = 2;
 

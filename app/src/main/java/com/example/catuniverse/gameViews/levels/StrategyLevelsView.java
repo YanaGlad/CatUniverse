@@ -26,13 +26,13 @@ public class StrategyLevelsView extends GameView {
         super(mainRunActivity);
         this.id = id;
         ArrayList<StrategyField> strategyLevels = new ArrayList<>();
-        int[] enemyIds = {3}; //индексы котов-врагов. В данном случае только кот зеленый пришелец
-        int[] enemyIds2 = {5, 4, 3, 2, 1}; //индексы котов-врагов. В данном случае это все персонажи с индексами от 1 до 5.
 
-        strategyLevels.add(new StrategyField(mainRunActivity, 20, 70, 0.5, 10, 5, 3, 7, enemyIds, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 4, 7, enemyIds, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 70, 0.5, 7, 7, 4, 10, enemyIds, 1, "3", theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 3, 8, enemyIds2, 1, null, theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 20, 70, 0.5, 10, 5, 3, 7, new int[]{3}, 1, null, theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 4, 7, new int[]{3}, 1, null, theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 70, 0.5, 7, 7, 4, 10, new int[]{3}, 1, "3", theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 3, 8, new int[]{5, 4, 3, 2, 1}, 1, null, theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 5, 15, 4, 12, new int[]{7}, 1, null, theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 15, 3, 12, new int[]{7, 3}, 1, "7", theoryMusic));
 
         level = strategyLevels.get(id - 1);
         exit = new BasicButton(mainRunActivity, 730, 10, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);

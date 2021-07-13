@@ -22,9 +22,9 @@ public class BitmapLoader {
     //коты
     private static Bitmap grayCat, grayCatReversed, orangeCat, orangeCatReversed, shadowCat,
             shadowCatReversed, greenAlienCat, greenAlienCatReversed, mainCoonCat, mainCoonCatReversed,
-            bobtailCat, bobtailCatReversed;
+            bobtailCat, bobtailCatReversed, redAlienCat, redAlienCatReversed;
     //Иконки котов
-    public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon, bobtailCatIcon;
+    public static Bitmap questionCat, grayIcon, orangeIcon, greenAlienCatIcon, shadowCatIcon, mainCoonCatIcon, bobtailCatIcon, redAlienCatIcon;
 
     //Иконки достижений
     public static Bitmap dexterityAch, starCollectorAch;
@@ -44,6 +44,8 @@ public class BitmapLoader {
     public static ArrayList<Bitmap> jumpRightMainCoon, walkRightMainCoon, jumpLeftMainCoon;
     public static ArrayList<Bitmap> walkLeftBobtail, standRightBobtail, standLeftBobtail, rocketBobtail;
     public static ArrayList<Bitmap> jumpRightBobtail, walkRightBobtail, jumpLeftBobtail;
+    public static ArrayList<Bitmap> walkLeftRedAlien, standRightRedAlien, standLeftRedAlien, rocketRedAlien;
+    public static ArrayList<Bitmap> jumpRightRedAlien, walkRightRedAlien, jumpLeftRedAlien;
 
     //Кнопки
     public static Bitmap blueLevelButtonClicked, blueLevelButton, baseBlueButton, baseBlueButtonClicked, baseRedButton, baseRedButtonClicked, attackButton, nextButton, nextButtonReversed, redLevelButton, redLevelButtonClicked;
@@ -83,8 +85,8 @@ public class BitmapLoader {
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_orange), BasicGameSupport.orangeStandRight, BasicGameSupport.orangeStandLeft, BasicGameSupport.orangeWalkRight, BasicGameSupport.orangeWalkLeft, BasicGameSupport.orangeJumpRight, BasicGameSupport.orangeJumpLeft, BasicGameSupport.orangeRocket));
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_green_alien), BasicGameSupport.greenAlienStandRight, BasicGameSupport.greenAlienStandLeft, BasicGameSupport.greenAlienWalkRight, BasicGameSupport.greenAlienWalkLeft, BasicGameSupport.greenAlienJumpRight, BasicGameSupport.greenAlienJumpLeft, BasicGameSupport.greenAlienRocket));
         imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_shadow), BasicGameSupport.shadowStandRight, BasicGameSupport.shadowStandLeft, BasicGameSupport.shadowWalkRight, BasicGameSupport.shadowWalkLeft, BasicGameSupport.shadowJumpRight, BasicGameSupport.shadowJumpLeft, BasicGameSupport.shadowCatRocket));
-        imageSets.add(new ImageSet(mainRunActivity.getString(R.string.main_coon), BasicGameSupport.mainCoonStandRight, BasicGameSupport.mainCoonStandLeft, BasicGameSupport.mainCoonWalkRight, BasicGameSupport.mainCoonWalkLeft, BasicGameSupport.mainCoonJumpRight, BasicGameSupport.mainCoonJumpLeft, BasicGameSupport.mainCoonRocket));
-        imageSets.add(new ImageSet(mainRunActivity.getString(R.string.bob_tail), BasicGameSupport.bobtailStandRight, BasicGameSupport.bobtailStandLeft, BasicGameSupport.bobtailWalkRight, BasicGameSupport.bobtailWalkLeft, BasicGameSupport.bobtailJumpRight, BasicGameSupport.bobtailJumpLeft, BasicGameSupport.bobtailRocket));
+        imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_main_coon), BasicGameSupport.mainCoonStandRight, BasicGameSupport.mainCoonStandLeft, BasicGameSupport.mainCoonWalkRight, BasicGameSupport.mainCoonWalkLeft, BasicGameSupport.mainCoonJumpRight, BasicGameSupport.mainCoonJumpLeft, BasicGameSupport.mainCoonRocket));
+        imageSets.add(new ImageSet(mainRunActivity.getString(R.string.cat_bob_tail), BasicGameSupport.bobtailStandRight, BasicGameSupport.bobtailStandLeft, BasicGameSupport.bobtailWalkRight, BasicGameSupport.bobtailWalkLeft, BasicGameSupport.bobtailJumpRight, BasicGameSupport.bobtailJumpLeft, BasicGameSupport.bobtailRocket));
 
     }
 
@@ -122,6 +124,11 @@ public class BitmapLoader {
         createSpiteStandList(standLeftBobtail, standRightBobtail, bobtailCatReversed, bobtailCat);
         createSpriteWalkList(walkLeftBobtail, walkRightBobtail, bobtailCatReversed, bobtailCat);
         createRocketList(rocketBobtail, bobtailCat);
+
+        createSpriteJumpingList(jumpLeftRedAlien, jumpRightRedAlien, redAlienCatReversed, redAlienCat);
+        createSpiteStandList(standLeftRedAlien, standRightRedAlien, redAlienCatReversed, redAlienCat);
+        createSpriteWalkList(walkLeftRedAlien, walkRightRedAlien, redAlienCatReversed, redAlienCat);
+        createRocketList(rocketRedAlien, redAlienCat);
         ///
     }
 
@@ -178,6 +185,14 @@ public class BitmapLoader {
         standLeftBobtail = new ArrayList<>();
         rocketBobtail = new ArrayList<>();
 
+        walkLeftRedAlien= new ArrayList<>();
+        walkRightRedAlien = new ArrayList<>();
+        jumpLeftRedAlien = new ArrayList<>();
+        jumpRightRedAlien = new ArrayList<>();
+        standRightRedAlien = new ArrayList<>();
+        standLeftRedAlien = new ArrayList<>();
+        rocketRedAlien = new ArrayList<>();
+
         //Загрузка спрайтов котов
         grayCatReversed = gamePaint.createNewGraphicsBitmap("grayCatReversed.png");
         grayCat = gamePaint.createNewGraphicsBitmap("grayCat.png");
@@ -191,6 +206,8 @@ public class BitmapLoader {
         mainCoonCatReversed = gamePaint.createNewGraphicsBitmap("mainCoonCatReversed.png");
         bobtailCat = gamePaint.createNewGraphicsBitmap("bobtailCat.png");
         bobtailCatReversed = gamePaint.createNewGraphicsBitmap("bobtailCatReversed.png");
+        redAlienCat = gamePaint.createNewGraphicsBitmap("redAlien.png");
+        redAlienCatReversed = gamePaint.createNewGraphicsBitmap("redAlienReversed.png");
 
         //Загрузка иконок котов
         questionCat = gamePaint.createNewGraphicsBitmap("questionCat.png");
@@ -200,6 +217,7 @@ public class BitmapLoader {
         shadowCatIcon = gamePaint.createNewGraphicsBitmap("shadowIcon.png");
         mainCoonCatIcon = gamePaint.createNewGraphicsBitmap("mainCoonIcon.png");
         bobtailCatIcon = gamePaint.createNewGraphicsBitmap("bobtailIcon.png");
+        redAlienCatIcon = gamePaint.createNewGraphicsBitmap("redAlienIcon.png");
 
         //Загрузка иконок достижений
         dexterityAch = gamePaint.createNewGraphicsBitmap("strengthAch.png");
