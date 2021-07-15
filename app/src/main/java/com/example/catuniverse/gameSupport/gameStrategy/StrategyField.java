@@ -36,7 +36,7 @@ public class StrategyField implements Loopable {
     private StrategyCatChoice strategyCatChoice;
     private boolean oneTime;
     private int[] enemyIds;
-    private int speed, enemyReward, enemiesCount;
+    private int speed, enemyReward, enemiesCount, achieveId;
     private String rewardId;
 
 
@@ -45,7 +45,7 @@ public class StrategyField implements Loopable {
     public StrategyField(MainRunActivity mainRunActivity, int enemiesCount,
                          int money, double lowerDelay, double powerIncrease,
                          int leftToDefeat, int lives, int enemyReward, int[] enemyIds,
-                         int speed, @Nullable String rewardId, Media.Music music) {
+                         int speed, @Nullable String rewardId, Media.Music music , int achieveId) {
         this.mainRunActivity = mainRunActivity;
         this.money = money;
         this.lowerDelay = lowerDelay;
@@ -59,6 +59,7 @@ public class StrategyField implements Loopable {
         this.enemiesCount = enemiesCount;
         this.rewardId = rewardId;
         this.music = music;
+        this.achieveId = achieveId;
 
         strategyCatChoice = new StrategyCatChoice(mainRunActivity);
         oneTime = false;
@@ -327,6 +328,10 @@ public class StrategyField implements Loopable {
 
     public Media.Music getMusic() {
         return music;
+    }
+
+    public int getAchieveId() {
+        return achieveId;
     }
 }
 

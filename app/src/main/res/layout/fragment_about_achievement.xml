@@ -37,19 +37,22 @@
             android:id="@+id/achieve_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="40sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/image_achieve"
+            app:layout_constraintStart_toStartOf="@+id/image_achieve"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Achievement" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="329dp">
+            app:layout_constraintEnd_toStartOf="@+id/image_achieve"
+            app:layout_constraintStart_toStartOf="@+id/image_achieve"
+            app:layout_constraintTop_toBottomOf="@+id/image_achieve">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/acheve_description"
@@ -63,23 +66,26 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_achieve"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/achieve_title" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="#AE9A6FE8"
             android:onClick="onGoBackClick"
             android:text="Go Back"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="-16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nestedScrollView"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

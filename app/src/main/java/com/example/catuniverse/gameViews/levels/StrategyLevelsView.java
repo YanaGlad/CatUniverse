@@ -27,12 +27,12 @@ public class StrategyLevelsView extends GameView {
         this.id = id;
         ArrayList<StrategyField> strategyLevels = new ArrayList<>();
 
-        strategyLevels.add(new StrategyField(mainRunActivity, 20, 70, 0.5, 10, 5, 3, 7, new int[]{3}, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 4, 7, new int[]{3}, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 70, 0.5, 7, 7, 4, 10, new int[]{3}, 1, "3", theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 3, 8, new int[]{5, 4, 3, 2, 1}, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 5, 15, 4, 12, new int[]{7}, 1, null, theoryMusic));
-        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 15, 3, 12, new int[]{7, 3}, 1, "7", theoryMusic));
+        strategyLevels.add(new StrategyField(mainRunActivity, 20, 70, 0.5, 10, 5, 3, 7, new int[]{3}, 1, null, theoryMusic, 3));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 4, 7, new int[]{3}, 1, null, theoryMusic, -1));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 70, 0.5, 7, 7, 4, 10, new int[]{3}, 1, "3", theoryMusic, -1));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 10, 3, 8, new int[]{5, 4, 3, 2, 1}, 1, null, theoryMusic, -1));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 5, 15, 4, 12, new int[]{7}, 1, null, theoryMusic, -1));
+        strategyLevels.add(new StrategyField(mainRunActivity, 30, 100, 0.5, 7, 15, 3, 12, new int[]{7, 3}, 1, "7", theoryMusic, -1));
 
         level = strategyLevels.get(id - 1);
         exit = new BasicButton(mainRunActivity, 730, 10, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
@@ -57,7 +57,7 @@ public class StrategyLevelsView extends GameView {
 
         if (level.isWon()) {
             returnToMenu();
-            BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.strategy));
+            BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.strategy), level.getAchieveId());
         }
 
         if (level.isGameOver()) {

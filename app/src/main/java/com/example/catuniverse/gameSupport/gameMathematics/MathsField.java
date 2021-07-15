@@ -38,13 +38,14 @@ public class MathsField implements Loopable {
     private int a, sizeAnswer;
     private String key, rewardId;
     private Media.Music music;
+    private int achieveId;
 
     //Конструктор принимает MainRau, кол-во ответов, которые необходимо поймать,
     //кол-во жизней, базовый вопрос, промежуток вопросов, ключ темы уровня, размер шрифта в вопросе,
     //промежуток ответов
     public MathsField(MainRunActivity mainRunActivity, int total, int lives, int base,
                       int theoryStart, int theoryEnd, String key, int sizeAnswer,
-                      int sizePlayer, int answerStart, int answerEnd, @Nullable String rewardId, Media.Music music) {
+                      int sizePlayer, int answerStart, int answerEnd, @Nullable String rewardId, Media.Music music, int achieveId) {
         theory = new Theory();
         a = base;
         this.mainRunActivity = mainRunActivity;
@@ -59,6 +60,7 @@ public class MathsField implements Loopable {
         this.answerEnd = answerEnd;
         this.rewardId = rewardId;
         this.music = music;
+        this.achieveId = achieveId;
 
        // exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
         movingBackground = new MovingBackground(BitmapLoader.movingMathsBackground, 1);
@@ -179,5 +181,9 @@ public class MathsField implements Loopable {
 
     public Media.Music getMusic() {
         return music;
+    }
+
+    public int getAchieveId() {
+        return achieveId;
     }
 }

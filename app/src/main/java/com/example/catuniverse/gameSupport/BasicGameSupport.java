@@ -93,7 +93,7 @@ public class BasicGameSupport {
     //Количество котов
     public static int catsCount = 7;
     //Количесвто достижений
-    public static int achievementCount = 2;
+    public static int achievementCount = 3;
 
 
     public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
@@ -108,7 +108,7 @@ public class BasicGameSupport {
                 if (y < gameItem.getControlY()) y += jumSpeed;
                 if (y > gameItem.getControlY()) y -= jumSpeed;
             }
-         }
+        }
         return y;
     }
 
@@ -132,7 +132,7 @@ public class BasicGameSupport {
                 x -= speedPlayer;
             }
 
-       // if()
+        // if()
 
         if (timePlayer.isRocketMode()) {
             x -= 2000;
@@ -161,12 +161,16 @@ public class BasicGameSupport {
     }
 
     //Обнавляет базу данных с информацией о стратегических или математических уровнях (в зависимости от переданного ключа)
-    public static void updateStrategyMathsStars(int lives, int requestedLives, int stars, int whereClause, @Nullable String catId, MainRunActivity mainRunActivity, String key) {
+    public static void updateStrategyMathsStars(int lives, int requestedLives, int stars, int whereClause,
+                                                @Nullable String catId, MainRunActivity mainRunActivity, String key, int achieveId) {
         ContentValues cv = new ContentValues();
         if (lives == requestedLives) stars = 3;
         if (lives < requestedLives && lives > 1) stars = 2;
         if (lives == 1) stars = 1;
         cv.put("stars", stars);
+
+        Log.d("UPDATESTARS", "Ach id " + achieveId);
+        if (achieveId != -1) unlockAchievement(achieveId);
 
         switch (key) {
             case "strategy":
@@ -189,7 +193,6 @@ public class BasicGameSupport {
                     mainRunActivity.setView(new CongratsView(mainRunActivity, mathsLevels.get(whereClause - 1).getNumber(), stars, null, "maths"));
                 break;
         }
-
     }
 
     //Делает кота доступным (обновляет поле unlocked в бд cats)
