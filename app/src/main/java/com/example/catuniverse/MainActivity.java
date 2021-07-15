@@ -30,6 +30,7 @@ public class MainActivity extends MainRunActivity {
 
     public MenuView getNewView() {
         context = this;
+        
         try {
             BitmapLoader bitmapLoader = new BitmapLoader(this, this.getGamePaint());
         } catch (IOException e) {
