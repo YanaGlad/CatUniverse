@@ -5,18 +5,18 @@ import androidx.annotation.Nullable;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
-import com.example.catuniverse.gameSupport.gameTime.Clickable;
 import com.example.catuniverse.gameSupport.graphics.GamePaint;
 import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Кнопка, а также игровые предметы, поддерживающие обработку касаний (Например, двери)
 public class BasicButton extends GameItem {
-    private MainRunActivity mainRunActivity;
+
+    private final MainRunActivity mainRunActivity;
     private boolean clicked;
     private String text = null;
     private int size = 0;
     private int stepX = 0, stepY = 0;
-    private boolean item;
+    private final boolean item;
     private int color;
 
     //Конструктор кнопки с текстом
@@ -67,7 +67,6 @@ public class BasicButton extends GameItem {
         //Проверка нажатия кнопки
         if (mainRunActivity.getTouchListener().up(x, y + bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()))
             clicked = !clicked;
-
     }
 
     @Override

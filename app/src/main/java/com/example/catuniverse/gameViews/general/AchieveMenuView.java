@@ -34,7 +34,7 @@ public class AchieveMenuView extends GameView {
         }
 
         exit = new BasicButton(mainRunActivity, 730, 17, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
-      //  BasicGameSupport.updateAchieveDBHelpers();
+        //  BasicGameSupport.updateAchieveDBHelpers();
     }
 
     @Override
@@ -61,10 +61,9 @@ public class AchieveMenuView extends GameView {
             exit.notClicked();
         }
         for (int i = 0; i < basicButtons.size(); i++) {
-            if(basicButtons.get(i).isClicked()){
+            if (basicButtons.get(i).isClicked())
                 getMainRunActivity().aboutAchievement(i, achievementIcons.get(i));
-            }
-              //  System.out.println("Clicked " + i);
+            //  System.out.println("Clicked " + i);
         }
     }
 }

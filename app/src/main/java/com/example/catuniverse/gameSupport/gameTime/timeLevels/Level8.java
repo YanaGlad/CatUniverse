@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.util.Log;
 
 import com.example.catuniverse.R;
-import com.example.catuniverse.gameSupport.BitmapLoader;
 import com.example.catuniverse.gameSupport.Buttons.BasicButton;
 import com.example.catuniverse.gameSupport.GameItem;
 import com.example.catuniverse.gameSupport.MainRunActivity;
@@ -19,7 +18,6 @@ import com.example.catuniverse.gameSupport.graphics.SpriteAnimation;
 import java.util.ArrayList;
 
 import static com.example.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
-import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
@@ -34,13 +32,15 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //В РАЗРАБОТКЕ
 public class Level8 extends TimeLevel {
-    private MainRunActivity mainRunActivity;
-    private TimePlatform station;
-    private int[] requestedCount = {20, 20};
-    private int[] collectedCount = {0, 0};
-    private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
-    private ArrayList<TimeInventoryItem> goodItems, badItems;
-    private String[] keyRequested = {"yellowkey", "bluekey"};
+    private final MainRunActivity mainRunActivity;
+    private final TimePlatform station;
+    private final int[] requestedCount = {20, 20};
+    private final int[] collectedCount = {0, 0};
+    private final ArrayList<TimeInventoryItem> timeInventoryItemsG;
+    private final ArrayList<TimeInventoryItem> timeInventoryItemsB;
+    private final ArrayList<TimeInventoryItem> goodItems;
+    private final ArrayList<TimeInventoryItem> badItems;
+    private final String[] keyRequested = {"yellowkey", "bluekey"};
 
     public Level8(MainRunActivity mainRunActivity) {
         super(100, 60, 150, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
@@ -82,7 +82,6 @@ public class Level8 extends TimeLevel {
         timeTallPlatformArrayList.add(new TimeTallPlatform(1655, 685));
 
         passingDoor = new BasicButton(mainRunActivity, 110, 430, blueDoor, blueDoorOpened, true);
-
     }
 
     @Override
@@ -121,9 +120,7 @@ public class Level8 extends TimeLevel {
             super.tallPlatformRepaint();
         } else {
             super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
-
         }
-
     }
 
     @Override
@@ -164,5 +161,4 @@ public class Level8 extends TimeLevel {
     public String getRewardId() {
         return null;
     }
-
 }

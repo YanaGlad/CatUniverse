@@ -17,7 +17,9 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.addCatButtonClick
 
 //Меню игры, которое предоставляет возможность перейти в комнаты или выбрать тип уровней для игры
 public class MenuView extends GameView {
+
     public static ArrayList<CatIcon> catIcons = new ArrayList<>();
+
     private BasicButton time, room, maths, strategy, about, achiveBtn;
 
     public MenuView(MainRunActivity mainRunActivity) {
@@ -39,9 +41,7 @@ public class MenuView extends GameView {
 
         about = new BasicButton(mainRunActivity, 200, 520, mainRunActivity.getString(R.string.about), Color.BLACK, 30, BitmapLoader.baseBlueButton, BitmapLoader.baseBlueButtonClicked, 40, 35);
         achiveBtn = new BasicButton(mainRunActivity, 20, 20, addCatButton, addCatButtonClicked, false);
-
     }
-
 
     @Override
     public void run() {

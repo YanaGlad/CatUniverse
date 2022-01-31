@@ -24,9 +24,10 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.technoBackground;
 
 //Выдается при поражении, дает возможность попытаться пройти уровень снова или выйти в главное меню
 public class GameOverView extends GameView {
-    private BasicButton tryAgaing, goBack;
-    private GameView level;
-    private String key;
+    private final BasicButton tryAgaing;
+    private final BasicButton goBack;
+    private final GameView level;
+    private final String key;
 
     public GameOverView(MainRunActivity mainRunActivity, GameView level, String key) {
         super(mainRunActivity);
@@ -40,9 +41,6 @@ public class GameOverView extends GameView {
                 tryAgaingBmpClicked = baseBlueButtonClicked;
                 break;
             case "strategy":
-                tryAgainBmp = baseRedButton;
-                tryAgaingBmpClicked = baseRedButtonClicked;
-                break;
             case "maths":
                 tryAgainBmp = baseRedButton;
                 tryAgaingBmpClicked = baseRedButtonClicked;
@@ -74,7 +72,6 @@ public class GameOverView extends GameView {
                 super.getGamePaint().write(super.getMainRunActivity().getString(R.string.you_lost), 200, 100, Color.RED, 100);
                 break;
         }
-
         tryAgaing.run(super.getGamePaint());
         goBack.run(super.getGamePaint());
     }

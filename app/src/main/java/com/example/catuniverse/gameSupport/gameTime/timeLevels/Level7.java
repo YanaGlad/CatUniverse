@@ -55,7 +55,6 @@ public class Level7 extends TimeLevel {
         asteroid = new SpriteAnimation(asteroidSprite);
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-
         int n;
         for (int i = -20; i < 7; i++) {
             if (i % 2 != 0) {
@@ -74,14 +73,11 @@ public class Level7 extends TimeLevel {
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
 
-
         int pos = new Random().nextInt(x.size());
         passingDoor = new BasicButton(mainRunActivity, x.get(pos) + 10, y.get(pos) + 30, purpleDoor, purpleDoorOpened, true);
 
-
         gameItems.add(passingDoor);
         gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
-
     }
 
     @Override
@@ -164,5 +160,4 @@ public class Level7 extends TimeLevel {
     public String getRewardId() {
         return null;
     }
-
 }

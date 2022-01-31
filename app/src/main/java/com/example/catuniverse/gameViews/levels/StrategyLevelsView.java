@@ -17,9 +17,11 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.menuMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.theoryMusic;
 
 public class StrategyLevelsView extends GameView {
+
+    public static boolean levelRunning = false;
+
     private int id;
     private StrategyField level;
-    public static boolean levelRunning = false;
     private BasicButton exit;
 
     public StrategyLevelsView(MainRunActivity mainRunActivity, int id) {
