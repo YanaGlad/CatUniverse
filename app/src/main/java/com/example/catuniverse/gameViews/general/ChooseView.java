@@ -29,9 +29,10 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.technoBackground;
 // и StrategyChooseView (их можно посотреть, если зайти в историю проекта), которые работали по-разному.
 //Данный класс же просто принимает ключ, говорящий какого типа данный уровень и определяет ему соответствующую логику и дизайн.
 public class ChooseView extends GameView {
+
     public static PlayerManager playerManager;
-    private LevelChoice levelChoice;
-    private BasicButton goBack;
+    private final LevelChoice levelChoice;
+    private final BasicButton goBack;
     private String key;
     private Bitmap background;
 

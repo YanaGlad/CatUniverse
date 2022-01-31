@@ -187,5 +187,4 @@ public class Level6 extends TimeLevel {
     public String getRewardId() {
         return null;
     }
-
 }

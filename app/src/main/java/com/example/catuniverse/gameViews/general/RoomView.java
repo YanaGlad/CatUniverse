@@ -19,9 +19,10 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.spaceBase;
 //Данный класс отображает выбранную комнату
 public class RoomView extends GameView {
 
-    private BasicButton goBack, changeRoom;
-    private ArrayList<Room> rooms; //Список комнат
-    private ArrayList<BasicButton> roomsChoice; //Кнопки для выбора комнаты
+    private final BasicButton goBack;
+    private final BasicButton changeRoom;
+    private final ArrayList<Room> rooms; //Список комнат
+    private final ArrayList<BasicButton> roomsChoice; //Кнопки для выбора комнаты
     private Room currentRoom; //текущая комната
 
     RoomView(MainRunActivity mainRunActivity) {

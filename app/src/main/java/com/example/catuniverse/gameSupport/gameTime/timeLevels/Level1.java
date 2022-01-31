@@ -29,10 +29,11 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 //Первый уровень на время.
 public class Level1 extends TimeLevel {
     private boolean ladder2Disappear;
-    private TimeInventoryItem timeInventoryItem;
-    private ArrayList<TimePlatform> ladderDisapearLvl0, bigObstaclesDisappearLvl0;
-    private BasicButton appearButton;
-    private MainRunActivity mainRunActivity;
+    private final TimeInventoryItem timeInventoryItem;
+    private final ArrayList<TimePlatform> ladderDisapearLvl0;
+    private final ArrayList<TimePlatform> bigObstaclesDisappearLvl0;
+    private final BasicButton appearButton;
+    private final MainRunActivity mainRunActivity;
     private int collectedCount = 0;
 
     private static Level1 level1 = null;
@@ -50,7 +51,6 @@ public class Level1 extends TimeLevel {
         }
         return level1;
     }
-
 
     public Level1(MainRunActivity mainRunActivity) {
         super(20, 25, 30, movingSpaceBackground, blueGround, 1, electrodynamixMusic);
@@ -84,6 +84,7 @@ public class Level1 extends TimeLevel {
         gameItems.add(new TimePlatform(3400, 260));
         gameItems.add(new TimePlatform(3550, 380));
         gameItems.add(new TimePlatform(3700, 470));
+
         bigObstaclesDisappearLvl0.add(new TimePlatform(2680, 220));
         bigObstaclesDisappearLvl0.add(new TimePlatform(2820, 120));
         bigObstaclesDisappearLvl0.add(new TimePlatform(2950, 50));

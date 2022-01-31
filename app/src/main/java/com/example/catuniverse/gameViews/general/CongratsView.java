@@ -19,11 +19,12 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.longBlueRect;
 
 //Выдается при прохождении уровня, обновляет информацию бд о звездах в уровне и доступных персонажах, если необходимо
 public class CongratsView extends GameView {
-    private int level;
-    private BasicButton returnBack;
-    private int stars;
-    private Cat reward;
-    private String key;
+
+    private final int level;
+    private final BasicButton returnBack;
+    private final int stars;
+    private final Cat reward;
+    private final String key;
     private Bitmap starBitmap, backgBitmap, longBackg;
     private int color;
 

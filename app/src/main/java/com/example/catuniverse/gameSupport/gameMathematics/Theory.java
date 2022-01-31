@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 //Теория для метметических уровней - список с целыми формулами и список с вопросами
 public class Theory {
-    private ArrayList<String> expressions; //Формулы
-    private ArrayList<String> questions; //Вопросы
+    private final ArrayList<String> expressions; //Формулы
+    private final ArrayList<String> questions; //Вопросы
 
     Theory() {
         expressions = new ArrayList<>();

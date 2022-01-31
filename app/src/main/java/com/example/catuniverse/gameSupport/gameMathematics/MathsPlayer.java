@@ -12,10 +12,10 @@ import static com.example.catuniverse.gameSupport.Collisions.createCollisionsRec
 
 //"Игрок" в математических уровнях, который ловит выпадающие ответы
 public class MathsPlayer extends GameItem {
-    private MainRunActivity mainRunActivity;
+    private final MainRunActivity mainRunActivity;
     private boolean movingRight, movingLeft;
     private String expr;
-    private int size;
+    private final int size;
 
     //Конструктор принимает MainRun,  текст вопроса и размер шрифта
     MathsPlayer(MainRunActivity mainRunActivity, String expr, int size) {

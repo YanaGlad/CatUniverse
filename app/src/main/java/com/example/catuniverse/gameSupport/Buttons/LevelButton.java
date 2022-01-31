@@ -11,13 +11,16 @@ import com.example.catuniverse.gameSupport.graphics.GamePaint;
 
 //Кнопки с информацией об уровнях (кол-во звезд, номер уровня)
 public class LevelButton implements Loopable {
-    private int x, y;
-    private MainRunActivity mainRunActivity;
+
+    private final int x;
+    private final int y;
+    private final MainRunActivity mainRunActivity;
     private boolean clicked;
     private String text;
     private int stars = -1;
-    private Bitmap btnClicked, notClicked;
-    private String key; //Ключ для определения типа уровня
+    private final Bitmap btnClicked;
+    private final Bitmap notClicked;
+    private final String key; //Ключ для определения типа уровня
 
     public LevelButton(MainRunActivity mainRunActivity, int x, int y, Bitmap notClicked, Bitmap btnClicked, String key) {
         this.x = x;
@@ -45,11 +48,6 @@ public class LevelButton implements Loopable {
                 }
                 break;
             case "strategy":
-                for (int i = 0; i < stars; i++) {
-                    gamePaint.setVisibleBitmap(BitmapLoader.redStar, x + step, y + 70);
-                    step += 60;
-                }
-                break;
 
             case "maths":
                 for (int i = 0; i < stars; i++) {
