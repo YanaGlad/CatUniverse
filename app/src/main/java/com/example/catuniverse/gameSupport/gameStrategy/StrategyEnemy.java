@@ -44,7 +44,6 @@ public class StrategyEnemy extends GameItem {
             gamePaint.createLine(x, y - 10, x, y, Color.RED);
             gamePaint.createLine(x + 50, y - 10, x + 50, y, Color.RED);
         } else defeated = true;
-
     }
 
     // отображает остаток жизней
@@ -52,7 +51,6 @@ public class StrategyEnemy extends GameItem {
         double healthCompare = k * 100 / health; //Найти сколько от k составляет количество жизней игрока
         this.k = (health - power) * healthCompare / 100; //Задать новый размер зеленого прямоугольника жизней
         this.health = health - power; //уменьшить жизни
-
     }
 
     @Override
@@ -103,6 +101,3 @@ public class StrategyEnemy extends GameItem {
         super.setSpeed(speed);
     }
 }
-
-
-// double percent = power * 100 / health; //Найти сколько процентов составляет урон от количества жизней

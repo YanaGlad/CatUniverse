@@ -22,15 +22,17 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Пятый уровень на время.
 public class Level5 extends TimeLevel {
-    private ArrayList<TimePlatform> smartObstacles;
-    private ArrayList<TimeInventoryItem> timeInventoryItemsG, timeInventoryItemsB;
-    private ArrayList<TimeInventoryItem> goodItems, badItems;
-    private MainRunActivity mainRunActivity;
+    private final ArrayList<TimePlatform> smartObstacles;
+    private final ArrayList<TimeInventoryItem> timeInventoryItemsG;
+    private final ArrayList<TimeInventoryItem> timeInventoryItemsB;
+    private final ArrayList<TimeInventoryItem> goodItems;
+    private final ArrayList<TimeInventoryItem> badItems;
+    private final MainRunActivity mainRunActivity;
 
     //в массивах т.к. дальше будут уровни, где требуется собрать несколько видов предметов
-    private int[] requestedCount = {20};
-    private int[] collectedCount = {0};
-    private String[] keyRequested = {"yellowkey"};
+    private final int[] requestedCount = {20};
+    private final int[] collectedCount = {0};
+    private final String[] keyRequested = {"yellowkey"};
 
     private boolean oneTime = false, oneTime2 = false;
 
@@ -100,8 +102,9 @@ public class Level5 extends TimeLevel {
                 timePlayer.setY(620);
                 oneTime = true;
             }
+
         } else if (isRequirementsCollected()) {
-             if (!oneTime2) {
+            if (!oneTime2) {
                 for (GameItem b : gameItems) b.run(gamePaint);
                 for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
                 for (TimePlatform sm : smartObstacles) sm.run(gamePaint);
@@ -109,7 +112,6 @@ public class Level5 extends TimeLevel {
             }
             timePlayer.setRocketMode(false);
         }
-
 
         gamePaint.write(collectedCount[0] + "/" + requestedCount[0], 550, 50, Color.WHITE, 35);
         gamePaint.setVisibleBitmap(yellowKey, 645, 15);
@@ -123,9 +125,9 @@ public class Level5 extends TimeLevel {
         if (!timePlayer.isRocketMode()) {
             passingDoor.repaint();
             super.tallPlatformRepaint();
-        } else
+        } else {
             super.generateRocketItems(timeInventoryItemsG, timeInventoryItemsB, goodItems, badItems, requestedCount, keyRequested, collectedCount);
-
+        }
 
         passingDoor.repaint();
     }

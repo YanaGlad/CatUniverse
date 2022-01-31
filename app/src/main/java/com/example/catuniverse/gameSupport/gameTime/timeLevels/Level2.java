@@ -26,7 +26,8 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Второй уровень на время.
 public class Level2 extends TimeLevel {
-    private MainRunActivity mainRunActivity;
+
+    private final MainRunActivity mainRunActivity;
 
     public Level2(MainRunActivity mainRunActivity) {
         super(10, 15, 20, movingSpaceBackground, blueGround, 1, electrodynamixMusic);

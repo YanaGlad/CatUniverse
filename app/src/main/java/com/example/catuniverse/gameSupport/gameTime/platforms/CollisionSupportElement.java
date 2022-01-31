@@ -54,4 +54,3 @@ public class CollisionSupportElement extends GameItem {
         super.setY(y);
     }
 }
-

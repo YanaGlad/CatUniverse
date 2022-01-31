@@ -1,30 +1,25 @@
 package com.example.catuniverse.gameSupport.gameTime.timeLevels;
 
-import com.example.catuniverse.gameSupport.BitmapLoader;
-import com.example.catuniverse.gameSupport.Buttons.BasicButton;
-import com.example.catuniverse.gameSupport.GameItem;
-import com.example.catuniverse.gameSupport.MainRunActivity;
-import com.example.catuniverse.gameSupport.gameTime.TimeDecoration;
-import com.example.catuniverse.gameSupport.gameTime.TimeInventoryItem;
-import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
-import com.example.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
-import com.example.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
-import com.example.catuniverse.gameSupport.graphics.GamePaint;
-
-import java.util.ArrayList;
-
-import static com.example.catuniverse.gameSupport.BitmapLoader.blueDecorStation;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.example.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.example.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBackground;
-import static com.example.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
+
+import com.example.catuniverse.gameSupport.BitmapLoader;
+import com.example.catuniverse.gameSupport.Buttons.BasicButton;
+import com.example.catuniverse.gameSupport.MainRunActivity;
+import com.example.catuniverse.gameSupport.gameTime.TimeInventoryItem;
+import com.example.catuniverse.gameSupport.gameTime.TimeLevel;
+import com.example.catuniverse.gameSupport.graphics.GamePaint;
+
+import java.util.ArrayList;
 
 //В РАЗРАБОТКЕ
 public class Level9 extends TimeLevel {
-    private MainRunActivity mainRunActivity;
-    private ArrayList<TimeInventoryItem> timeInventoryItems;
+
+    private final MainRunActivity mainRunActivity;
+    private final ArrayList<TimeInventoryItem> timeInventoryItems;
 
     public Level9(MainRunActivity mainRunActivity) {
         super(10, 15, 220, movingBlueSpaceBackground, blueGround, 1, electrodynamixMusic);
@@ -35,7 +30,7 @@ public class Level9 extends TimeLevel {
 
         for (int i = 0; i < 10; i++) {
             timeInventoryItems.add(new TimeInventoryItem(xX, 550, BitmapLoader.keyBlue));
-            xX+=100;
+            xX += 100;
         }
 
         this.mainRunActivity = mainRunActivity;
@@ -44,7 +39,6 @@ public class Level9 extends TimeLevel {
         passingDoor = new BasicButton(mainRunActivity, 110, 430, blueDoor, blueDoorOpened, true);
 
         gameItems.add(passingDoor);
-
     }
 
     @Override
@@ -87,7 +81,7 @@ public class Level9 extends TimeLevel {
     @Override
     public boolean isRequirementsCollected() {
         for (int i = 0; i < timeInventoryItems.size(); i++) {
-            if(!timeInventoryItems.get(i).isPicked())
+            if (!timeInventoryItems.get(i).isPicked())
                 return false;
         }
         return true;

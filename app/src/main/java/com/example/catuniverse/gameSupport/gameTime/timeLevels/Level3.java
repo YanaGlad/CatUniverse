@@ -46,7 +46,6 @@ public class Level3 extends TimeLevel {
         timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2300, 520));
 
-
         int oY = 490;
         int oX = 300;
         for (int i = 0; i < 5; i++) {
@@ -75,7 +74,6 @@ public class Level3 extends TimeLevel {
                 oY += 100;
                 oX += 100;
             }
-
         }
         gameItems.add(new TimePlatform(1870, -5));
         gameItems.add(new TimePlatform(2170, -5));
@@ -121,7 +119,6 @@ public class Level3 extends TimeLevel {
             collectedCount++;
             secondCount = true;
         }
-
     }
 
     @Override

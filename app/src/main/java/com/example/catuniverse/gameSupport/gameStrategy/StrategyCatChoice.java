@@ -48,7 +48,6 @@ public class StrategyCatChoice implements Loopable {
         finish = new BasicButton(mainRunActivity, 20, 540, mainRunActivity.getString(R.string.finish), Color.BLACK, 30, BitmapLoader.baseRedButton, BitmapLoader.baseRedButtonClicked, 10, 40);
     }
 
-
     @Override
     public void run(GamePaint gamePaint) {
         repaint();
@@ -86,7 +85,7 @@ public class StrategyCatChoice implements Loopable {
                     boolean check = false;
                     if (chosenStrategyCats.size() > 0)
                         for (int j = 0; j < chosenStrategyCats.size(); j++) {
-                                if (chosenStrategyCats.get(j) == listOfCats.get(i)) check = true;
+                            if (chosenStrategyCats.get(j) == listOfCats.get(i)) check = true;
                         }
 
                     if (!check) {
@@ -96,7 +95,6 @@ public class StrategyCatChoice implements Loopable {
                     }
                     catStorage.get(i).notClicked();
                 }
-
             }
         }
         finish.run(gamePaint); //Завершить выбор персонажей
@@ -107,12 +105,10 @@ public class StrategyCatChoice implements Loopable {
 
     @Override
     public void repaint() {
-
     }
 
     @Override
     public void repaint(double speed, double jumSpeed) {
-
     }
 
     boolean isRunning() {
