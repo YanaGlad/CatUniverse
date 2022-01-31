@@ -12,7 +12,7 @@ import com.example.catuniverse.gameSupport.graphics.GamePaint;
 //Высокая платформа, на которую игрок может забираться
 public class TimeTallPlatform extends GameItem {
 
-    private CollisionSupportElement collisionSupportElement; //элемент для помощи в обработке коллизий. Чтобы можно было как упираться сбоку, так и стоять на платформе.
+    private final CollisionSupportElement collisionSupportElement; //элемент для помощи в обработке коллизий. Чтобы можно было как упираться сбоку, так и стоять на платформе.
 
     public TimeTallPlatform(int x, int y) {
         this.bitmap = BitmapLoader.tallWall; //временно. Позже будет возможность добавлять универсальное изображение.
@@ -33,7 +33,6 @@ public class TimeTallPlatform extends GameItem {
         x = BasicGameSupport.updateMovesX(speed, x);
         y = BasicGameSupport.updateMovesY(this, jumSpeed, y);
         collisionSupportElement.repaint(PlayerManager.timePlayer.getMainPlayerSpeed(), PlayerManager.timePlayer.getJumpSpeed());
-
     }
 
     @Override
@@ -66,5 +65,3 @@ public class TimeTallPlatform extends GameItem {
         super.setBitmap(bitmap);
     }
 }
-
-

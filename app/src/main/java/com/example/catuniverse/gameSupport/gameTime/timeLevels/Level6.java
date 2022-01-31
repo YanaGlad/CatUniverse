@@ -35,13 +35,12 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Шестой уровень на время.
 public class Level6 extends TimeLevel {
-    private ArrayList<TimeInventoryItem> asteroids;
-    private SpriteAnimation asteroid;
-    private EasyTimer easyTimer;
-    private ArrayList<TimePlatform> changingPurplePlatforms;
-    private MainRunActivity mainRunActivity;
-    private ArrayList<TimeInventoryItem> timeInventoryItems;
-
+    private final ArrayList<TimeInventoryItem> asteroids;
+    private final SpriteAnimation asteroid;
+    private final EasyTimer easyTimer;
+    private final ArrayList<TimePlatform> changingPurplePlatforms;
+    private final MainRunActivity mainRunActivity;
+    private final ArrayList<TimeInventoryItem> timeInventoryItems;
 
     public Level6(MainRunActivity mainRunActivity) {
         super(35, 45, 60, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
@@ -62,7 +61,6 @@ public class Level6 extends TimeLevel {
 
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));
 
-
         int yY = 550;
         int xX = 700;
         for (int i = 0; i < 20; i++) {
@@ -79,17 +77,14 @@ public class Level6 extends TimeLevel {
 
             if (i % 2 == 0)
                 timeInventoryItems.add(new TimeInventoryItem(xX + 70, yY - 20, BitmapLoader.keyBlue));
-
         }
 
         passingDoor = new BasicButton(mainRunActivity, 4070, yY - 200, blueDoor, blueDoorOpened, true);
-
 
         easyTimer = new EasyTimer();
         easyTimer.startTimer();
         gameItems.add(passingDoor);
         gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
-
     }
 
     @Override

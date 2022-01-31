@@ -20,8 +20,8 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.xStepMusic;
 
 //Четвертый уровень на время.
 public class Level4 extends TimeLevel {
-    private ArrayList<TimePlatform> changingObstacles;
-    private MainRunActivity mainRunActivity;
+    private final ArrayList<TimePlatform> changingObstacles;
+    private final MainRunActivity mainRunActivity;
     private boolean done;
 
     public Level4(MainRunActivity mainRunActivity) {

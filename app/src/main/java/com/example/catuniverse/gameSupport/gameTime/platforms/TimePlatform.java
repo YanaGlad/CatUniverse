@@ -15,7 +15,7 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 //Платформы, на которые игрок может забираться
 public class TimePlatform extends GameItem {
     private boolean visibility;
-    private EasyTimer easyTimer;
+    private final EasyTimer easyTimer;
     public static boolean playerOn;
 
     //По умолчанию цвет платформ - синий
@@ -88,8 +88,7 @@ public class TimePlatform extends GameItem {
     //Исчезать на delay секунд
     public void changing(double delay) {
         if (easyTimer.timerDelay(delay)) {
-            if (isVisibile()) setVisibility(false);
-            else setVisibility(true);
+            setVisibility(!isVisibile());
             easyTimer.startTimer();
         }
     }
@@ -107,7 +106,7 @@ public class TimePlatform extends GameItem {
     }
 
     public void setPlayerOn(boolean playerOn) {
-        this.playerOn = playerOn;
+        TimePlatform.playerOn = playerOn;
     }
 
     @Override

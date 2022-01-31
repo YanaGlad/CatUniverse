@@ -36,12 +36,11 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 //В РАЗРАБОТКЕ
 public class Level7 extends TimeLevel {
 
-    private ArrayList<TimeInventoryItem> asteroids;
-    private SpriteAnimation asteroid;
-    private EasyTimer easyTimer;
-    private MainRunActivity mainRunActivity;
-    private ArrayList<TimeInventoryItem> timeInventoryItems;
-    private ArrayList<Integer> x, y;
+    private final ArrayList<TimeInventoryItem> asteroids;
+    private final SpriteAnimation asteroid;
+    private final EasyTimer easyTimer;
+    private final MainRunActivity mainRunActivity;
+    private final ArrayList<TimeInventoryItem> timeInventoryItems;
 
     public Level7(MainRunActivity mainRunActivity) {
         super(35, 45, 260, movingBlueSpaceBackground, blueGround, 5, electrodynamixMusic);
@@ -49,8 +48,8 @@ public class Level7 extends TimeLevel {
         gameOver = false;
         asteroids = new ArrayList<>();
         timeInventoryItems = new ArrayList<>();
-        x = new ArrayList<>();
-        y = new ArrayList<>();
+        ArrayList<Integer> x = new ArrayList<>();
+        ArrayList<Integer> y = new ArrayList<>();
 
         asteroid = new SpriteAnimation(asteroidSprite);
         asteroids.add(new TimeInventoryItem(900, 500, asteroid, true, false, mainRunActivity.getString(R.string.Asteroid), true));

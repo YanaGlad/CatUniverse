@@ -21,31 +21,37 @@ import java.util.Random;
 
 import static com.example.catuniverse.MainActivity.listOfCats;
 
-//Игровое поле стратегических уровней. Собирает все компоненты в одну сущность
+//Игровое поле стратегических уровней. Собирает вс
+// е компоненты в одну сущность
 public class StrategyField implements Loopable {
-    private Media.Music music;
-    private ArrayList<StrategyEnemy> strategyEnemies;
-    private ArrayList<BasicButton> playerButtons;
-    private ArrayList<StrategyPlayer> players;
+    private final Media.Music music;
+    private final ArrayList<StrategyEnemy> strategyEnemies;
+    private final ArrayList<BasicButton> playerButtons;
+    private final ArrayList<StrategyPlayer> players;
     private boolean showPrice = false;
     private int money;
-    private double lowerDelay, powerIncrease;
-    private int leftToDefeat, lives, requestedLives;
+    private final double lowerDelay;
+    private final double powerIncrease;
+    private int leftToDefeat;
+    private int lives;
+    private final int requestedLives;
     private boolean gameOver, won;
-    private MainRunActivity mainRunActivity;
-    private StrategyCatChoice strategyCatChoice;
+    private final MainRunActivity mainRunActivity;
+    private final StrategyCatChoice strategyCatChoice;
     private boolean oneTime;
-    private int[] enemyIds;
-    private int speed, enemyReward, enemiesCount, achieveId;
-    private String rewardId;
-
+    private final int[] enemyIds;
+    private final int speed;
+    private final int enemyReward;
+    private final int enemiesCount;
+    private final int achieveId;
+    private final String rewardId;
 
     //Конструктор принимает MainRun, кол-во врагов, кол-во денег, на сколько можно увелить урон и уменьшить задержку,
     //сколько врагов необзоходимо победить, кол-во жизней, награда(деньги за побежденного врага, id врагов, которые могут встретиться в уровне, их скорость
     public StrategyField(MainRunActivity mainRunActivity, int enemiesCount,
                          int money, double lowerDelay, double powerIncrease,
                          int leftToDefeat, int lives, int enemyReward, int[] enemyIds,
-                         int speed, @Nullable String rewardId, Media.Music music , int achieveId) {
+                         int speed, @Nullable String rewardId, Media.Music music, int achieveId) {
         this.mainRunActivity = mainRunActivity;
         this.money = money;
         this.lowerDelay = lowerDelay;
@@ -81,7 +87,6 @@ public class StrategyField implements Loopable {
             x = 0;
             y += 100;
         }
-
     }
 
     @Override
@@ -163,11 +168,9 @@ public class StrategyField implements Loopable {
                             }
                             players.get(i).getChangePower().notClicked();
                         }
-
                     }
             }
         }
-
     }
 
     @Override
@@ -201,7 +204,10 @@ public class StrategyField implements Loopable {
 
         boolean darker = false;
         for (BasicButton btn : playerButtons)
-            if (btn.isClicked()) darker = true;
+            if (btn.isClicked()) {
+                darker = true;
+                break;
+            }
 
         if (darker) {
             for (int i = 0; i < players.size(); i++)
@@ -211,7 +217,6 @@ public class StrategyField implements Loopable {
             for (int i = 0; i < players.size(); i++)
                 players.get(i).setAvailableForChoice(false);
         }
-
 
         //Цикл по кнопкам для покупки игрока
         for (int i = 0; i < playerButtons.size(); i++)
@@ -234,7 +239,6 @@ public class StrategyField implements Loopable {
                 } else
                     playerButtons.get(i).notClicked();//Если денег не хватает, кнопка не может быть нажата
 
-
         int count = 0;
         for (int i = 0; i < players.size(); i++)
             if (players.get(i).isClicked() && players.get(i).getImage() != null) count++;
@@ -255,13 +259,10 @@ public class StrategyField implements Loopable {
                 checkClicks = false;
             }
         }
-
-
     }
 
     @Override
     public void repaint(double speed, double jumSpeed) {
-
     }
 
     //Генерация рандомных врагов. Принимает ArrayList, в который нужно добавить врага,
@@ -334,4 +335,3 @@ public class StrategyField implements Loopable {
         return achieveId;
     }
 }
-
