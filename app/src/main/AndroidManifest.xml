@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.catuniverse">
+    package="com.glad.catuniverse">
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".gameSupport.aboutGame.AboutAchievementActivity" />
-        <activity android:name=".gameSupport.MainRunActivity"
+        <activity android:name="com.glad.catuniverse.gameSupport.aboutGame.AboutAchievementActivity" />
+        <activity android:name="com.glad.catuniverse.gameSupport.MainRunActivity"
             android:exported="true"
              >
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".gameSupport.aboutGame.GameDescriptionActivity"
+            android:name="com.glad.catuniverse.gameSupport.aboutGame.GameDescriptionActivity"
             android:screenOrientation="landscape"
             android:exported="true"
              >
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.glad.catuniverse.MainActivity"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>

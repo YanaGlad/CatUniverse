@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".gameSupport.aboutGame.AboutAchievementFragment">
+    tools:context="com.glad.catuniverse.gameSupport.aboutGame.AboutAchievementFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/background"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        tools:context=".gameSupport.aboutGame.AboutAchievementFragment">
+        tools:context="com.glad.catuniverse.gameSupport.aboutGame.AboutAchievementFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/achieve_title"
