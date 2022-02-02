@@ -19,8 +19,6 @@ import java.util.Objects;
 
 public class AboutAchievementFragment extends Fragment {
 
-    private AppCompatImageView imageView;
-    private AppCompatTextView title, description;
     private String name, descriptionStr;
     private Bitmap bitmap;
 
@@ -43,10 +41,9 @@ public class AboutAchievementFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_about_achievement, container, false);
 
-
-        imageView = view.findViewById(R.id.image_achieve);
-        title = view.findViewById(R.id.achieve_title);
-        description = view.findViewById(R.id.acheve_description);
+        AppCompatImageView imageView = view.findViewById(R.id.image_achieve);
+        AppCompatTextView title = view.findViewById(R.id.achieve_title);
+        AppCompatTextView description = view.findViewById(R.id.acheve_description);
 
         title.setText(name);
         description.setText(descriptionStr);

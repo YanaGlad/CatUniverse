@@ -17,7 +17,6 @@ public class AboutAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about_achievement);
     }
 
-
     public void onGoBackClick(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

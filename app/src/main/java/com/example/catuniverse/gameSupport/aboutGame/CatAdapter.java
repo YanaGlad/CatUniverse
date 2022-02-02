@@ -19,16 +19,15 @@ import java.util.List;
 
 public class CatAdapter extends RecyclerView.Adapter {
 
-    private List<Cat> catList;
-    private List<CatIcon> icons;
-    private Context context;
+    private final List<Cat> catList;
+    private final List<CatIcon> icons;
+    private final Context context;
 
     public CatIcon connect(Cat cat, List<CatIcon> icons) {
         for (int i = 0; i < icons.size(); i++)
             for (int j = 0; j < icons.size(); j++)
                 if (cat.getKey().equals(icons.get(j).getKey()))
                     return icons.get(j);
-
         return null;
     }
 

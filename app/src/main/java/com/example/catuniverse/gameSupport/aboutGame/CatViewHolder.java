@@ -1,5 +1,6 @@
 package com.example.catuniverse.gameSupport.aboutGame;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +15,11 @@ import com.example.catuniverse.R;
 
  class CatViewHolder extends RecyclerView.ViewHolder {
     AppCompatImageView catIcon;
-    private AppCompatTextView catName, power, delay, health, price;
+    private final AppCompatTextView catName;
+     private final AppCompatTextView power;
+     private final AppCompatTextView delay;
+     private final AppCompatTextView health;
+     private final AppCompatTextView price;
 
     CatViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,13 +29,13 @@ import com.example.catuniverse.R;
         delay = itemView.findViewById(R.id.delay);
         health = itemView.findViewById(R.id.health);
         price = itemView.findViewById(R.id.price);
-
     }
 
     void setCatNameText(String text) {
         this.catName.setText(text);
     }
 
+    @SuppressLint("SetTextI18n")
     void setCatDescription(Context context, String power, String delay, String health, String price) {
         this.power.setText(context.getString(R.string.power) + power);
         this.delay.setText(context.getString(R.string.delay) + delay);

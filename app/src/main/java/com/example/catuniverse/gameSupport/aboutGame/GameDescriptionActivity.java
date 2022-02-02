@@ -11,14 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.catuniverse.MainActivity;
 import com.example.catuniverse.R;
 
-public class GameDescriptionActivity extends AppCompatActivity { //FRAGMENT!
-
+public class GameDescriptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.description_layout);
-
     }
 
     public void goBack(View view) {

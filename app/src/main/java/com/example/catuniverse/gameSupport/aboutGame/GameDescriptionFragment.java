@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -19,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.catuniverse.R;
 import com.example.catuniverse.gameSupport.BasicGameSupport;
 import com.example.catuniverse.gameSupport.databaseHelpers.Cat;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -68,7 +65,7 @@ public class GameDescriptionFragment extends Fragment {
             sortDelay.setVisibility(View.GONE);
             sortPrice.setVisibility(View.GONE);
 
-            recyclerView.setAdapter(new CatAdapter(nothing, context));
+            recyclerView.setAdapter(new CatAdapter(nothing, requireContext()));
             title.setText(rooms.getText());
             description.setText(R.string.rooms_description);
             imageView.setImageResource(R.drawable.roommoon);
@@ -82,23 +79,22 @@ public class GameDescriptionFragment extends Fragment {
 
             title.setText(cats.getText());
             description.setText(R.string.cats_description); //"There you can see cats you already have." +
-            recyclerView.setAdapter(new CatAdapter(listOfCats, context));
+            recyclerView.setAdapter(new CatAdapter(listOfCats, requireContext()));
 
             imageView.setImageResource(R.drawable.room);
 
             sortPrice.setOnClickListener(view1 -> {
-                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(1), context));
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(1), requireContext()));
             });
 
             sortAttack.setOnClickListener(view1 -> {
-                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(2), context));
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(2), requireContext()));
             });
 
             sortDelay.setOnClickListener(view1 -> {
-                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(3), context));
+                recyclerView.setAdapter(new CatAdapter(sortCharacteristic(3), requireContext()));
             });
         });
-
 
         time.setOnClickListener((vie) -> {
 
@@ -106,7 +102,7 @@ public class GameDescriptionFragment extends Fragment {
             sortDelay.setVisibility(View.GONE);
             sortPrice.setVisibility(View.GONE);
 
-            recyclerView.setAdapter(new CatAdapter(nothing, context));
+            recyclerView.setAdapter(new CatAdapter(nothing, requireContext()));
             title.setText(time.getText());
             description.setText(R.string.time_description);
             imageView.setImageResource(R.drawable.time);
@@ -118,11 +114,10 @@ public class GameDescriptionFragment extends Fragment {
                     sortDelay.setVisibility(View.GONE);
                     sortPrice.setVisibility(View.GONE);
 
-                    recyclerView.setAdapter(new CatAdapter(nothing, context));
+                    recyclerView.setAdapter(new CatAdapter(nothing, requireContext()));
                     title.setText(strategy.getText());
                     description.setText(R.string.strategy_description);
                     imageView.setImageResource(R.drawable.strategy);
-
                 }
         );
 
@@ -132,7 +127,7 @@ public class GameDescriptionFragment extends Fragment {
                     sortDelay.setVisibility(View.GONE);
                     sortPrice.setVisibility(View.GONE);
 
-                    recyclerView.setAdapter(new CatAdapter(nothing, context));
+                    recyclerView.setAdapter(new CatAdapter(nothing, requireContext()));
                     title.setText(maths.getText());
                     description.setText(R.string.maths_description);
                     imageView.setImageResource(R.drawable.maths);
@@ -145,7 +140,7 @@ public class GameDescriptionFragment extends Fragment {
             sortDelay.setVisibility(View.GONE);
             sortPrice.setVisibility(View.GONE);
 
-            recyclerView.setAdapter(new CatAdapter(nothing, context));
+            recyclerView.setAdapter(new CatAdapter(nothing, requireContext()));
             title.setText(credits.getText());
             description.setText("Game Developer : Yana Gladkikh \n" + "Supported by Samsung IT School \n");
             imageView.setImageResource(R.drawable.samsungitschool);
@@ -179,4 +174,3 @@ public class GameDescriptionFragment extends Fragment {
         return cats;
     }
 }
-
