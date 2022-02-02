@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.glad.catuniverse.MainActivity;
+import com.glad.catuniverse.R;
 
 public class GameDescriptionActivity extends AppCompatActivity {
 
