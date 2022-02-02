@@ -16,19 +16,21 @@ import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
 //Игрок в уровнях на время
 public class TimePlayer extends GameItem {
 
-    private MainRunActivity mainRunActivity;
+    private final MainRunActivity mainRunActivity;
     private boolean rocketMode = false;
     private boolean oneTimeRocket = true;
-    private Cat cat;
+    private final Cat cat;
     private static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
     private static final int STANDARD_X = 50;
     private final int jumpHeight;
-    private int maxX, ground;
+    private final int maxX;
+    private int ground;
     private boolean collisionDetectedRight, collisionDetectedLeft;
     private boolean jumAnim, jumpingLimit, walkingLimit, readyToJum;
     private boolean standing, jumping, movingRight, movingLeft;
     private boolean falling, oneTimeJump;
-    private EasyTimer jumpingTimer, jumpingChecker;
+    private final EasyTimer jumpingTimer;
+    private final EasyTimer jumpingChecker;
     public static int start;
     private final int GROUND = GameView.screenHeight - walkRightGray.get(0).getHeight();
     private int fakeY; //y относительно игрового пространства, в то время как у - у относительно границ экрана телефона
@@ -61,7 +63,6 @@ public class TimePlayer extends GameItem {
         fakeY = y;
     }
 
-
     @Override //Задает анимацию движения при ходьбе, прыжках и т.д.
     public void run(GamePaint gamePaint) {
 
@@ -93,7 +94,6 @@ public class TimePlayer extends GameItem {
                         cat.getImageSet().getStandRight().run(gamePaint, x, y, 2.5);
                         oneTimeJump = false;
                     }
-
                 }
                 if (mainRunActivity.getTouchListener().getTouchX() < maxX / 2) {
                     if (jumping || readyToJum || (fakeY < ground && ground == GROUND) || y < ground) {
@@ -106,7 +106,6 @@ public class TimePlayer extends GameItem {
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite1(), x, y);
                             } else {
                                 gamePaint.setVisibleBitmap(cat.getImageSet().getJumpLeft().getSprite1(), x, y);
-
                             }
                         }
                     } else {
@@ -125,7 +124,6 @@ public class TimePlayer extends GameItem {
                         gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite2(), x, y);
                     else
                         gamePaint.setVisibleBitmap(cat.getImageSet().getJumpRight().getSprite3(), x, y);
-
                 }
             }
             if (movingLeft && y < ground) {
@@ -143,9 +141,7 @@ public class TimePlayer extends GameItem {
             if (y >= ground) jumAnim = false;
         } else  //В режиме минии-игры "Ракета" запускается анимация кота на ракете
             cat.getImageSet().getRocketRight().run(gamePaint, x, y, 3);
-
     }
-
 
     @Override // Изменяет состояние игрока.
     public void repaint() {
@@ -194,8 +190,6 @@ public class TimePlayer extends GameItem {
 
             if (y > ground) y = ground;
 
-
-
             if (y < ground && !jumping && !readyToJum) { //Падает, пока не коснется земли
                 y += jumpingSpeed;
                 fakeY += jumpingSpeed;
@@ -211,16 +205,14 @@ public class TimePlayer extends GameItem {
 
             if (falling || jumping || readyToJum) oneTimeJump = true;
 
-            if (fakeY < ground && ground == GROUND && !( y < ground) && !jumping && !readyToJum) {
+            if (fakeY < ground && ground == GROUND && !( y < ground) && !jumping && !readyToJum)
                 fakeY += jumpingSpeed;
-            }
 
             collisionRect = createBaseSizeRect(x, y);
         } else {
             rocketModeRepaint();
         }
     }
-
 
     //Режим мини-игры "Ракета"
     private void rocketModeRepaint() {
@@ -250,7 +242,6 @@ public class TimePlayer extends GameItem {
         movingRight = false;
         speed = 1;
     }
-
 
     public double getMainPlayerSpeed() {
         return speed;

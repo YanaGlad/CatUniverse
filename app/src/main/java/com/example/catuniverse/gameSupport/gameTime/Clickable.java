@@ -7,9 +7,10 @@ import com.example.catuniverse.gameSupport.MainRunActivity;
 
 public abstract class Clickable extends GameItem {
     private boolean clicked = false;
-    private MainRunActivity mainRunActivity;
-    private Bitmap bitmap;
-    private int objX, objY;
+    private final MainRunActivity mainRunActivity;
+    private final Bitmap bitmap;
+    private final int objX;
+    private final int objY;
 
     public Clickable(MainRunActivity mainRunActivity, Bitmap bitmap, int objX, int objY) {
         this.mainRunActivity = mainRunActivity;
@@ -33,5 +34,4 @@ public abstract class Clickable extends GameItem {
     }
 
     public abstract boolean requirements();
-
 }

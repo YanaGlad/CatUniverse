@@ -95,7 +95,6 @@ public class BasicGameSupport {
     //Количесвто достижений
     public static int achievementCount = 3;
 
-
     public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
 
     //Обновляет экран по оси ординат относительно текущего положения игрока
@@ -381,7 +380,6 @@ public class BasicGameSupport {
             quickSort(array, low, j);
         if (i < high)
             quickSort(array, i, high);
-
     }
 
     public static void drawGrid(GamePaint gamePaint, Bitmap background, int color) {

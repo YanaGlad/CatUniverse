@@ -11,7 +11,8 @@ public class CatPet implements Loopable {
     private Cat cat; //Вся информация о персонаже
     private boolean right, left;
     private int room;
-    private int id, x, y;
+    private final int id;
+    private int x, y;
 
     public CatPet(Cat cat, int id, int room) {
         this.cat = cat;
@@ -37,7 +38,6 @@ public class CatPet implements Loopable {
         //Запуск анимаций в зависимости от направления движения
         if (left) if (cat != null) cat.getImageSet().getMoveLeft().run(gamePaint, x, y, 3);
         if (right) if (cat != null) cat.getImageSet().getMoveRight().run(gamePaint, x, y, 3);
-
     }
 
     @Override

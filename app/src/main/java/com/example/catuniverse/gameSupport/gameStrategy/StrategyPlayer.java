@@ -21,14 +21,19 @@ import java.util.ArrayList;
 import static com.example.catuniverse.gameSupport.BitmapLoader.darkerDot;
 
 public class StrategyPlayer extends GameItem {
-    private ArrayList<ImageSet> imageSets;
+
+    private final ArrayList<ImageSet> imageSets;
     private ImageSet image;
-    private ArrayList<StrategyBullet> strategyBullets;
-    private BasicButton changeDelay, changePower;
+    private final ArrayList<StrategyBullet> strategyBullets;
+    private final BasicButton changeDelay;
+    private final BasicButton changePower;
     private boolean clicked = false;
-    private MainRunActivity mainRunActivity;
-    private double priceDelay, pricePower, power, delay;
-    private EasyTimer easyTimer;
+    private final MainRunActivity mainRunActivity;
+    private final double priceDelay;
+    private final double pricePower;
+    private double power;
+    private double delay;
+    private final EasyTimer easyTimer;
     private int id;
     private boolean availableForChoice;
 
@@ -66,7 +71,6 @@ public class StrategyPlayer extends GameItem {
         easyTimer.startTimer(); //
 
         availableForChoice = false;
-
     }
 
     @Override
@@ -91,7 +95,6 @@ public class StrategyPlayer extends GameItem {
             gamePaint.write(mainRunActivity.getString(R.string.price) + " " + (int) priceDelay, 445, 540, Color.BLACK, 25);
             gamePaint.write(mainRunActivity.getString(R.string.price) + " " + (int) pricePower, 700, 540, Color.BLACK, 25);
         }
-
     }
 
     @Override
@@ -104,7 +107,6 @@ public class StrategyPlayer extends GameItem {
 
         changeDelay.setText(mainRunActivity.getString(R.string.delay) + " " + delay);
         changePower.setText(mainRunActivity.getString(R.string.power) + " " + (int) power);
-
     }
 
     public boolean isClicked() {

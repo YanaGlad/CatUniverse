@@ -19,12 +19,12 @@ import static com.example.catuniverse.MainActivity.listOfCats;
 //Выбор персонажей в стратегических уровнях. Просит выбрать от 1 до 5 персонажей для игры
 public class StrategyCatChoice implements Loopable {
     private ArrayList<BasicButton> catStorage;
-    private BasicButton finish;
+    private final BasicButton finish;
     private int countPlaces;
-    private ArrayList<Cat> chosenStrategyCats; //Список выбранных персонажей
-    private MainRunActivity mainRunActivity;
+    private final ArrayList<Cat> chosenStrategyCats; //Список выбранных персонажей
+    private final MainRunActivity mainRunActivity;
     private boolean running;
-    private ArrayList<CatIcon> catIcons;
+    private final ArrayList<CatIcon> catIcons;
     private boolean oneTime;
 
     StrategyCatChoice(MainRunActivity mainRunActivity) {

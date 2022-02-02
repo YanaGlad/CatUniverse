@@ -9,7 +9,8 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Генерирует землю в уровнях
 public class TimeGround extends GameItem {
-    private ArrayList<Ground> ground;
+
+    private final ArrayList<Ground> ground;
 
      TimeGround(Bitmap appearance) {
         TimePlayer.start = 50;
@@ -37,7 +38,7 @@ public class TimeGround extends GameItem {
             TimePlayer.start += speed;
     }
 
-    class Ground extends GameItem {
+    static class Ground extends GameItem {
 
         private Ground(int x, Bitmap bitmap) {
             this.x = x;
@@ -89,4 +90,3 @@ public class TimeGround extends GameItem {
         super.setY(y);
     }
 }
-

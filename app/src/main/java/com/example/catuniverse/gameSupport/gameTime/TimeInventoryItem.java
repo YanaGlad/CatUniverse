@@ -15,7 +15,7 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 //Предметы, которые нужно собирать в ходе прохождения уровней. Они необходимы чтобы открывать двери, получать звезды и т.д.
 public class TimeInventoryItem extends GameItem {
     private boolean picked;
-    private int speed = 8;
+    private final int speed = 8;
     private boolean rocket = false, good = true;
     private String key;
     private SpriteAnimation spriteAnimation;

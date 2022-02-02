@@ -35,7 +35,6 @@ public class LevelChoice implements Loopable {
         int x = 70;
         int y = 50;
 
-
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             levelButtons.add(new LevelButton(mainRunActivity, x, y, notClicked, clicked, key));
             x += 220;
@@ -45,7 +44,6 @@ public class LevelChoice implements Loopable {
             }
         }
     }
-
 
     @Override
     public void run(GamePaint gamePaint) {

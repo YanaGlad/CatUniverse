@@ -22,7 +22,6 @@ public class Theory {
         expressions.add("18² = 324");
         expressions.add("19² = 361"); //8
 
-
         //тригонометрия
         expressions.add("cos²α + sin²α = 1"); //9
         expressions.add("tgα * ctgα = 1");
@@ -40,7 +39,6 @@ public class Theory {
         expressions.add("sinx' = cosx");
         expressions.add("cosx' = -sinx");
         expressions.add("e²' = e²"); //22
-
 
         questions.add("x² = 121");
         questions.add("x² = 144");

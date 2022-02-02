@@ -28,7 +28,6 @@ public class MathsPlayer extends GameItem {
         movingRight = false;
         collLength = collisionDetectLengthViaHeight(BitmapLoader.mathsPlayerSkeleton, 2.7);
         collisionRect = createCollisionsRect(x, y, BitmapLoader.mathsPlayerSkeleton);
-
     }
 
     @Override
@@ -60,9 +59,7 @@ public class MathsPlayer extends GameItem {
         if (movingLeft && x > -90) x -= 10;
 
         collisionRect = createCollisionsRect(x, y, BitmapLoader.mathsPlayerSkeleton);
-
     }
-
 
     @Override
     public int getX() {
@@ -92,4 +89,3 @@ public class MathsPlayer extends GameItem {
         this.expr = expr;
     }
 }
-

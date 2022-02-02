@@ -24,6 +24,7 @@ import static com.example.catuniverse.MainActivity.listOfCats;
 //Игровое поле стратегических уровней. Собирает вс
 // е компоненты в одну сущность
 public class StrategyField implements Loopable {
+
     private final Media.Music music;
     private final ArrayList<StrategyEnemy> strategyEnemies;
     private final ArrayList<BasicButton> playerButtons;
@@ -187,7 +188,6 @@ public class StrategyField implements Loopable {
                         players.get(i).getStrategyBullets().get(j).setX(900);
                     }
 
-
         for (int i = 0; i < strategyEnemies.size(); i++) {
             if (strategyEnemies.get(i).isDefeated()) { //Если враг повержен, получить деньги в награду и уменьшить число врагов оставшихся до победы
                 money += strategyEnemies.get(i).getReward();
@@ -201,7 +201,6 @@ public class StrategyField implements Loopable {
                 strategyEnemies.remove(i);
             }
         }
-
         boolean darker = false;
         for (BasicButton btn : playerButtons)
             if (btn.isClicked()) {

@@ -45,7 +45,6 @@ public class BasicButton extends GameItem {
         this.bitmapClicked = clickedButton;
         clicked = false;
         this.item = item;
-
     }
 
     @Override

@@ -6,9 +6,11 @@ import com.example.catuniverse.gameSupport.graphics.GamePaint;
 //Двигающийся фон
 //Поочередно перемещает 2 картинки, визуально переходящие друг в друга, создавая иллюзию движения
 public class MovingBackground implements Loopable  {
-    private int startX, end, secondStartX;
-    private int speed;
-    private Bitmap background;
+    private int startX;
+    private final int end;
+    private int secondStartX;
+    private final int speed;
+    private final Bitmap background;
 
     public MovingBackground(Bitmap background, int speed) {
         startX = 0;
@@ -29,7 +31,7 @@ public class MovingBackground implements Loopable  {
     public void repaint() {
         startX -= speed;
         secondStartX -= speed;
-        if (startX < (0 - end)) {
+        if (startX < (-end)) {
             startX = 0;
         }
         if (secondStartX < 0) {

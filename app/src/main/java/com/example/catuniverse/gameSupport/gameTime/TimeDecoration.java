@@ -10,8 +10,11 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 public class TimeDecoration extends GameItem {
     //Сделать bitmap у GameItem
-    private boolean levitate, down = false;
-    private EasyTimer easyTimer, easyTimer2, easyTimerLen;
+    private final boolean levitate;
+    private boolean down = false;
+    private final EasyTimer easyTimer;
+    private final EasyTimer easyTimer2;
+    private final EasyTimer easyTimerLen;
 
     public TimeDecoration(int x, int y, Bitmap bitmap, boolean levitate) {
         this.x = x;
@@ -25,7 +28,6 @@ public class TimeDecoration extends GameItem {
         easyTimerLen = new EasyTimer();
         easyTimer.startTimer();
         easyTimerLen.startTimer();
-
     }
 
     @Override
@@ -48,7 +50,6 @@ public class TimeDecoration extends GameItem {
                 easyTimer.startTimer();
                 easyTimer2.stopTimer();
             }
-
             if (down) {
                 if (easyTimerLen.timerDelay(0.08)) {
                     y--;
@@ -63,10 +64,8 @@ public class TimeDecoration extends GameItem {
                 }
             }
         }
-
         x = BasicGameSupport.updateMovesX(speed, x);
         y = BasicGameSupport.updateMovesY(this, jumSpeed, y);
-
     }
 
     @Override

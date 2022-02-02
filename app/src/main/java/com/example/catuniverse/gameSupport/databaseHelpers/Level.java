@@ -1,7 +1,9 @@
 package com.example.catuniverse.gameSupport.databaseHelpers;
 
 public class Level {  // помогает получить уровень из базы данных и преобразовать его в объект Level
-    private int number, stars, achievement;
+    private final int number;
+    private final int stars;
+    private final int achievement;
 
     public Level(int number, int stars, int achievement) {
         this.number = number;

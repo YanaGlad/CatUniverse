@@ -10,7 +10,6 @@ public class PlayerManager implements Loopable {
     public static TimePlayer timePlayer;
     private static Cat chosenCat; // - Характеристики выбранного кота
 
-
     public PlayerManager(MainRunActivity mainRunActivity) {
         timePlayer = new TimePlayer(mainRunActivity, chosenCat);
     }

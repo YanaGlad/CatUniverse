@@ -11,8 +11,7 @@ public class ImageSet {
                     SpriteAnimation moveLeft,
                     SpriteAnimation jumpRight,
                     SpriteAnimation jumpLeft,
-                    SpriteAnimation rocketRight)
-    {
+                    SpriteAnimation rocketRight) {
         this.key = key;
         this.standRight = standRight;
         this.standLeft = standLeft;

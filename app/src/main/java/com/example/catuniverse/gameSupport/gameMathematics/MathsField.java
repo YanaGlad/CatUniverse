@@ -24,21 +24,27 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.menuMusic;
 //Игровое поле математических уровней. Собирает все компоненты в одну сущность
 public class MathsField implements Loopable {
 
-    private MathsPlayer mathsPlayer;
-    private MovingBackground movingBackground;
-    private MainRunActivity mainRunActivity;
-    private ArrayList<MathsAnswer> mathsAnswers;
-    private Theory theory;
-    private Random random;
+    private final MathsPlayer mathsPlayer;
+    private final MovingBackground movingBackground;
+    private final MainRunActivity mainRunActivity;
+    private final ArrayList<MathsAnswer> mathsAnswers;
+    private final Theory theory;
+    private final Random random;
     private int step;
     private int total;
-    private int lives, requestedLives;
+    private int lives;
+    private final int requestedLives;
     private boolean gameOver, won;
-    private int theoryStart, theoryEnd, answerStart, answerEnd;
-    private int a, sizeAnswer;
-    private String key, rewardId;
-    private Media.Music music;
-    private int achieveId;
+    private final int theoryStart;
+    private final int theoryEnd;
+    private final int answerStart;
+    private final int answerEnd;
+    private int a;
+    private final int sizeAnswer;
+    private final String key;
+    private final String rewardId;
+    private final Media.Music music;
+    private final int achieveId;
 
     //Конструктор принимает MainRau, кол-во ответов, которые необходимо поймать,
     //кол-во жизней, базовый вопрос, промежуток вопросов, ключ темы уровня, размер шрифта в вопросе,

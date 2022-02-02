@@ -15,9 +15,10 @@ public class Cat { // помогает получить кота из базы �
     private String name, key; //имя кота, ключ
     private ImageSet imageSet; //Набор спрайтовых анимаций персонажа
     private int room, price, health; // комната, цена и здоровье(для стратегии)
-    private double power, delay; //сила и задержка ( для стратегии )
+    private final double power;
+    private final double delay; //сила и задержка ( для стратегии )
 
-    private double[] characteristics = new double[3];
+    private final double[] characteristics = new double[3];
 
     public Cat(int id, String name, String key, double power, int speed, double delay, int chosen, int unlocked, int room, int price, int health) {
         this.imageSet = BasicGameSupport.checkKey(key);

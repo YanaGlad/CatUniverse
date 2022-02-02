@@ -33,7 +33,7 @@ public class LevelButton implements Loopable {
 
     @Override
     public void run(GamePaint gamePaint) {
-         repaint();
+        repaint();
 
         if (clicked) gamePaint.setVisibleBitmap(btnClicked, x, y);
         else gamePaint.setVisibleBitmap(notClicked, x, y);
@@ -48,7 +48,7 @@ public class LevelButton implements Loopable {
                 }
                 break;
             case "strategy":
-
+                break;
             case "maths":
                 for (int i = 0; i < stars; i++) {
                     gamePaint.setVisibleBitmap(BitmapLoader.redStar, x + step, y + 70);
@@ -94,5 +94,3 @@ public class LevelButton implements Loopable {
         return y;
     }
 }
-
-

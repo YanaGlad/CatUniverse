@@ -12,7 +12,10 @@ import com.example.catuniverse.gameSupport.graphics.GamePaint;
 public class MathsAnswer extends GameItem {
 
     private String expression;
-    private int plus, size, step, stepHeight;
+    private final int plus;
+    private final int size;
+    private int step;
+    private final int stepHeight;
 
     // Конструктор принимает координаты х, отступ по y, ключ для проверки типа уровны,
     // промежуток выпадения ответов (т.к. одна большая тема может делиться на несколько уровней)

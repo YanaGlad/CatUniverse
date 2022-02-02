@@ -12,12 +12,12 @@ import static com.example.catuniverse.gameSupport.Collisions.createBaseSizeRect;
 //Враг в стратегических уровнях. Беэит из правого конца в левый. Если он проходит мимо обороны - игрок теряет жизнь.
 
 public class StrategyEnemy extends GameItem {
-    private int reward; //Награда за победу
-    private SpriteAnimation walk; //Анимация ходьбы
+    private final int reward; //Награда за победу
+    private final SpriteAnimation walk; //Анимация ходьбы
     private double health; //здоровье
     private double k; //Размер прямоугольника с жизнями без учёта процентного соотношения к количеству жизней
     private boolean defeated = false; //Побежден ли
-    private int speed; // скорость
+    private final int speed; // скорость
 
     StrategyEnemy(SpriteAnimation walk, int x, int y, double health, int reward, int speed) {
         this.x = x;

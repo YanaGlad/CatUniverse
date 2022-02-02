@@ -26,15 +26,16 @@ import static com.example.catuniverse.gameSupport.graphics.PlayerManager.timePla
 
 //Класс, от которого наследуются все уровни на время. Он задает базовые характеристики уровня
 public abstract class TimeLevel implements Loopable {
+
     private int twoStars, threeStars; //за сколько секунд можно пройти уровень на 2 или 3 звезды
     private double nowTime, endTime, totalTime; // Переменные для подсчёта прошедшего времени  и переменная с полным временем, данным на прохождение уровня
-    private MovingBackground movingBackground; //Фон
-    private TimeGround timeGround; //Земля
+    private final MovingBackground movingBackground; //Фон
+    private final TimeGround timeGround; //Земля
     protected int lives; //Число жизней
     protected boolean gameOver; //Проигран ли уровень
     protected BasicButton passingDoor; //Дверь, которую нужно открыть чтобы пройти уровень
     protected ArrayList<GameItem> gameItems; //Список любых игровых объектов
-    private Media.Music music;
+    private final Media.Music music;
     protected ArrayList<TimeTallPlatform> timeTallPlatformArrayList;
 
     protected TimeLevel(int twoStars, int threeStars, double totalTime, Bitmap background, Bitmap ground, int lives, Media.Music music) {
@@ -51,8 +52,8 @@ public abstract class TimeLevel implements Loopable {
         nowTime = System.nanoTime() / BasicGameSupport.SECOND;
     }
 
-    private int[] possesGood = {530, 410, 290};
-    private int[] possesBad = {510, 390, 270};
+    private final int[] possesGood = {530, 410, 290};
+    private final int[] possesBad = {510, 390, 270};
 
     @Override
     public void run(GamePaint gamePaint) {
@@ -60,8 +61,6 @@ public abstract class TimeLevel implements Loopable {
         movingBackground.run(gamePaint);
         timeGround.run(gamePaint);
         passingDoor.repaint();
-
-
     }
 
     protected void endingRun(GamePaint gamePaint, MainRunActivity mainRunActivity) {
@@ -103,7 +102,6 @@ public abstract class TimeLevel implements Loopable {
         if (totalTime - Math.ceil(endTime) <= 0) gameOver = true;
         endTime = System.nanoTime() / BasicGameSupport.SECOND - nowTime;
         ChooseView.playerManager.repaint();
-
     }
 
     public abstract boolean isRequirementsCollected();
@@ -116,9 +114,7 @@ public abstract class TimeLevel implements Loopable {
         gamePaint.createLine(-1, 490, 840, 490, Color.CYAN);
         gamePaint.createLine(-1, 370, 840, 370, Color.CYAN);
         gamePaint.createLine(-1, 250, 840, 250, Color.CYAN);
-
     }
-
     //Сгененрировать элементы в мини-игре "Ракета"
     //Добавляет в списки "плохие" и "хорошие" объекты. Хорошие - те, которые  необходимо собрать, усилители и т.д.
     //Плохие - препятствия, которые нужно обходить.
@@ -150,9 +146,6 @@ public abstract class TimeLevel implements Loopable {
                 badItems.get(rndA).getKey(),
                 false);
 
-
-        ///System.out.println("Bad Items size is... " + itemsB.size() + " Good Items = " + itemsG.size());
-
         if (itemsB.size() >= 1 && itemsB.size() < 20 && itemsB.get(itemsB.size() - 1).getX() <= 750)
             itemsB.add(bad);
         else if (itemsB.size() < 1)
@@ -162,7 +155,6 @@ public abstract class TimeLevel implements Loopable {
             itemsG.add(good);
         else if (itemsG.size() < 1)
             itemsG.add(good);
-
 
         for (int i = 0; i < itemsB.size(); i++)
             if (itemsB.get(i).isPicked() && itemsB.size() > 3) {
@@ -179,18 +171,14 @@ public abstract class TimeLevel implements Loopable {
                 itemsG.remove(i);
             }
 
-
         for (int i = 0; i < itemsG.size(); i++)
             if (itemsG.size() > 3)
                 if (itemsG.get(i).getX() < timePlayer.getX() - 100) itemsG.remove(i);
 
-
         for (int i = 0; i < itemsB.size(); i++)
             if (itemsB.size() > 3)
                 if (itemsB.get(i).getX() < timePlayer.getX() - 100) itemsB.remove(i);
-
     }
-
 
     private static void writeTimeReqired(GamePaint gamePaint, int twoStars, int threeStars) {
         gamePaint.write(twoStars + " seconds = 2 stars", 20, 40, Color.WHITE, 25);
