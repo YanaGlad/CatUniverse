@@ -10,7 +10,7 @@ import java.io.IOException;
 
 //Класс для подключения музыки в игру
 public class Media {
-    private AssetManager assetManager;
+    private final AssetManager assetManager;
 
     Media(Activity activity) {
         activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -19,7 +19,6 @@ public class Media {
 
     Music setMusic(String fileName) throws IOException {
         return new Music(assetManager.openFd(fileName));
-
     }
 
     public class Music implements MediaPlayer.OnCompletionListener {

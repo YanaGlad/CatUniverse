@@ -29,7 +29,6 @@ public class CollisionDetectors {
             timePlayer.obstacleCollision(obs);
         else
             timePlayer.notStanding();
-
     }
 
     //Коллизия для CollisionSupportElement ( часть высокой платформы)

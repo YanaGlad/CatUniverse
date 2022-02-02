@@ -18,10 +18,10 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.menuMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.stayInsideMusic;
 
 public class MathsLevelsView extends GameView {
-    private int id;
-    private MathsField level;
+    private final int id;
+    private final MathsField level;
     public static boolean levelRunning = false;
-    private BasicButton exit;
+    private final BasicButton exit;
 
     public MathsLevelsView(MainRunActivity mainRunActivity, int id) {
         super(mainRunActivity);
@@ -49,7 +49,6 @@ public class MathsLevelsView extends GameView {
 
         a = (int) (Math.random() * (29 - 23) + 23);
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, mainRunActivity.getString(R.string.trigonometry), 20, 20, 0, 16, null, stayInsideMusic, -1));
-
 
         level = mathsLevels.get(id - 1);
         exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);

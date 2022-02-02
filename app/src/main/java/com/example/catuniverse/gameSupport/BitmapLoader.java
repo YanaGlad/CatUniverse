@@ -90,10 +90,8 @@ public class BitmapLoader {
 
     }
 
-
     private void loadSprites(GamePaint gamePaint) {
         createSpiteStandList(asteroidSprite, null, asteroid, null);
-
 
         createSpriteJumpingList(jumpLeftGray, jumpRightGray, grayCatReversed, grayCat);
         createSpiteStandList(standLeftGray, standRightGray, grayCatReversed, grayCat);
@@ -305,7 +303,6 @@ public class BitmapLoader {
         darkerDot = gamePaint.createNewGraphicsBitmap("darkerDot.png");
         sharps = gamePaint.createNewGraphicsBitmap("shipi.png");
         rocketDecor = gamePaint.createNewGraphicsBitmap("rocket.png");
-
     }
 
     private void createSpiteStandList(ArrayList<Bitmap> catLeft, @Nullable ArrayList<Bitmap> catRight, Bitmap bmpReversed, @Nullable Bitmap bmpRegular) {
@@ -317,7 +314,6 @@ public class BitmapLoader {
             count += 80;
         }
     }
-
 
     private void createSpriteWalkList(ArrayList<Bitmap> walkLeft, ArrayList<Bitmap> walkRight, Bitmap bmpReversed, Bitmap bmpRegular) {
         int count = 0;

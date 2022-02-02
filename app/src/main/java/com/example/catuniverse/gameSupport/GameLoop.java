@@ -19,7 +19,6 @@ public class GameLoop extends SurfaceView implements Runnable {
     Canvas canvas; // "Холст", на котором будет отрисовываться игра
     Rect rect;
 
-
     public GameLoop(MainRunActivity mainRunActivity, Bitmap mainBitmap) {
         super(mainRunActivity);
         this.mainBitmap = mainBitmap;
@@ -65,8 +64,5 @@ public class GameLoop extends SurfaceView implements Runnable {
     public void stopGame() {
         if (!running) return;
         running = false;
-//        gameThread = new Thread(this);
-//        gameThread.start();
     }
-
 }

@@ -9,7 +9,7 @@ public class TouchListener implements View.OnTouchListener {
     private boolean touchDown, touchUp;
     private boolean swipe, swipeUp, swipeDown;
     private float downX, downY; //координаты касаний при удержании пальца
-    private int swipeDistance; // размер свайпа
+    private final int swipeDistance; // размер свайпа
     private float screenWidth = 1, screenHeight = 1, k = 1; // отношения ширины и длины, коэффициент подобия
 
     TouchListener(View view, float screenWidth, float screenHeight) { //Конструктор, который используется если экраны не подобны
@@ -63,7 +63,6 @@ public class TouchListener implements View.OnTouchListener {
                     if (Math.abs(deltaYUp) > swipeDistance) { //если свайп достигает заданное значение
                         if (deltaYUp > 0) swipe = true;
                     }
-
                     if (deltaYUp > swipeDistance){
                         swipeUp = true;
                         swipeDown = false;
@@ -72,7 +71,6 @@ public class TouchListener implements View.OnTouchListener {
                         swipeDown = true;
                         swipeUp = false;
                     }
-
                     break;
             }
         }

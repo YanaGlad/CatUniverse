@@ -20,9 +20,9 @@ public class StrategyLevelsView extends GameView {
 
     public static boolean levelRunning = false;
 
-    private int id;
-    private StrategyField level;
-    private BasicButton exit;
+    private final int id;
+    private final StrategyField level;
+    private final BasicButton exit;
 
     public StrategyLevelsView(MainRunActivity mainRunActivity, int id) {
         super(mainRunActivity);

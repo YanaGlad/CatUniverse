@@ -20,7 +20,7 @@ public class MenuView extends GameView {
 
     public static ArrayList<CatIcon> catIcons = new ArrayList<>();
 
-    private BasicButton time, room, maths, strategy, about, achiveBtn;
+    private final BasicButton time, room, maths, strategy, about, achiveBtn;
 
     public MenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);

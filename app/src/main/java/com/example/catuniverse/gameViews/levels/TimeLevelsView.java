@@ -24,16 +24,15 @@ import static com.example.catuniverse.gameSupport.BasicGameSupport.timeLevelFini
 import static com.example.catuniverse.gameSupport.BitmapLoader.menuMusic;
 
 public class TimeLevelsView extends GameView {
-    private int id;
-    private BasicButton exit;
-    private TimeLevel level;
+    private final int id;
+    private final BasicButton exit;
+    private final TimeLevel level;
     public static boolean levelRunning = false;
-    private ArrayList<TimeLevel> timeLevels;
 
     public TimeLevelsView(MainRunActivity mainRunActivity, int id) {
         super(mainRunActivity);
         this.id = id;
-        timeLevels = new ArrayList<>();
+        ArrayList<TimeLevel> timeLevels = new ArrayList<>();
         exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
 
         timeLevels.add(new Level1(mainRunActivity));
@@ -47,7 +46,6 @@ public class TimeLevelsView extends GameView {
         timeLevels.add(new Level9(mainRunActivity));
 
         level = timeLevels.get(id - 1);
-
     }
 
     @Override
@@ -56,7 +54,6 @@ public class TimeLevelsView extends GameView {
 
         if (levelRunning) level.run(super.getGamePaint());
         exit.run(super.getGamePaint());
-
     }
 
     @Override
@@ -73,7 +70,6 @@ public class TimeLevelsView extends GameView {
             }
             exit.notClicked();
         }
-
         timeLevelFinish(level, this, id, level.getRewardId(), new TimeLevelsView(super.getMainRunActivity(), id), level.getMusic());
         exit.repaint();
     }

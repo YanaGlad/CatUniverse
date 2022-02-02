@@ -18,6 +18,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends MainRunActivity {
+
     public static SQLiteDatabase timeDB, catsDB, strategyDB, mathsDB, achievementDB;
     public static Cursor cursor, catCursor, strategyCursor, mathsCursor, achievementCursor;
     public static String DB_PATH_TIME, DB_PATH_CATS, DB_PATH_STRATEGY, DB_PATH_MATHS, DB_PATH_ACHIVE;
@@ -76,7 +77,6 @@ public class MainActivity extends MainRunActivity {
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (6, 'Bobtail', 'bobtail', 70 , 5, 4, 0, 0, -1, 60, 50)");
         catsDB.execSQL("INSERT into cats (_id, name, imageSet, power, speed , delay , chosen, unlocked, room, price, health) VALUES (7, 'RedAlien', 'redAlien', 90 , 5, 5, 0, 0, -1, 70, 70)");
 
-
         listOfCats = new ArrayList<>();
         listOfPets = new ArrayList<>();
 
@@ -106,7 +106,6 @@ public class MainActivity extends MainRunActivity {
         strategyDB.execSQL("INSERT into strategy (_id, stars, ach) VALUES (7,0,-1)");
         strategyDB.execSQL("INSERT into strategy (_id, stars, ach) VALUES (8,0,-1)");
         strategyDB.execSQL("INSERT into strategy (_id, stars, ach) VALUES (9,0,-1)");
-
 
         for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
             strategyCursor = strategyDB.rawQuery("SELECT * from strategy WHERE _id = " + (i + 1), null);
@@ -159,5 +158,3 @@ public class MainActivity extends MainRunActivity {
         }
     }
 }
-
-

@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class AchieveMenuView extends GameView {
 
-    private ArrayList<BasicButton> basicButtons;
-    private BasicButton exit;
-    private ArrayList<Bitmap> achievementIcons;
+    private final ArrayList<BasicButton> basicButtons;
+    private final BasicButton exit;
+    private final ArrayList<Bitmap> achievementIcons;
 
     public AchieveMenuView(MainRunActivity mainRunActivity) {
         super(mainRunActivity);
@@ -32,9 +32,7 @@ public class AchieveMenuView extends GameView {
             basicButtons.add(new BasicButton(getMainRunActivity(), x, y, achievementIcons.get(i), achievementIcons.get(i), false));
             x += 100;
         }
-
         exit = new BasicButton(mainRunActivity, 730, 17, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
-        //  BasicGameSupport.updateAchieveDBHelpers();
     }
 
     @Override
@@ -48,10 +46,7 @@ public class AchieveMenuView extends GameView {
             if (MainActivity.listOfAchievements.get(i).isUnlocked() == 1)
                 basicButtons.get(i).run(getGamePaint());
         }
-
         exit.run(super.getGamePaint());
-
-
     }
 
     @Override
@@ -63,7 +58,6 @@ public class AchieveMenuView extends GameView {
         for (int i = 0; i < basicButtons.size(); i++) {
             if (basicButtons.get(i).isClicked())
                 getMainRunActivity().aboutAchievement(i, achievementIcons.get(i));
-            //  System.out.println("Clicked " + i);
         }
     }
 }

@@ -14,8 +14,8 @@ import static com.example.catuniverse.gameSupport.BitmapLoader.menuMusic;
 import static com.example.catuniverse.gameSupport.BitmapLoader.technoBackground;
 //Выдается, если уровень находится на стадии разработки
 public class InDevelopmentView extends GameView {
-    private BasicButton exit;
-    private String key;
+    private final BasicButton exit;
+    private final String key;
 
     public InDevelopmentView(MainRunActivity mainRunActivity, String key) {
         super(mainRunActivity);
