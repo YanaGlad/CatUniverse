@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.glad.catuniverse.MainActivity;

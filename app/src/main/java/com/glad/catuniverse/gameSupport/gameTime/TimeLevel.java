@@ -2,10 +2,8 @@ package com.glad.catuniverse.gameSupport.gameTime;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-
 import androidx.annotation.NonNull;
-
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
@@ -17,11 +15,9 @@ import com.glad.catuniverse.gameSupport.Media;
 import com.glad.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameViews.general.ChooseView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
 import static com.glad.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Класс, от которого наследуются все уровни на время. Он задает базовые характеристики уровня

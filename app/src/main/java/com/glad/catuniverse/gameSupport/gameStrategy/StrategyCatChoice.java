@@ -2,7 +2,7 @@ package com.glad.catuniverse.gameSupport.gameStrategy;
 
 import android.graphics.Color;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;

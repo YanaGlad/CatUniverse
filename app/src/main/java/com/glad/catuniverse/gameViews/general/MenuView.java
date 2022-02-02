@@ -2,13 +2,12 @@ package com.glad.catuniverse.gameViews.general;
 
 import android.graphics.Color;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameView;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.graphics.CatIcon;
-
 import java.io.IOException;
 import java.util.ArrayList;
 

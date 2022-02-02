@@ -1,10 +1,9 @@
 package com.glad.catuniverse.gameSupport.gameStrategy;
 
 import android.graphics.Color;
-
 import androidx.annotation.Nullable;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
@@ -14,7 +13,6 @@ import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.Media;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.MainActivity;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;

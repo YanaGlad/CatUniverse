@@ -3,12 +3,9 @@ package com.glad.catuniverse.gameSupport.aboutGame;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.glad.catuniverse.MainActivity;
-import com.example.catuniverse.R;
 
 public class GameDescriptionActivity extends AppCompatActivity {
 

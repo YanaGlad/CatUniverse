@@ -6,7 +6,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.databaseHelpers.Achievement;
 import com.glad.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.glad.catuniverse.gameSupport.databaseHelpers.CatPet;

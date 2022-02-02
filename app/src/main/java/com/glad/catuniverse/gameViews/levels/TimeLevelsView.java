@@ -1,6 +1,6 @@
 package com.glad.catuniverse.gameViews.levels;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameView;
@@ -16,10 +16,8 @@ import com.glad.catuniverse.gameSupport.gameTime.timeLevels.Level7;
 import com.glad.catuniverse.gameSupport.gameTime.timeLevels.Level8;
 import com.glad.catuniverse.gameSupport.gameTime.timeLevels.Level9;
 import com.glad.catuniverse.gameViews.general.ChooseView;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import static com.glad.catuniverse.gameSupport.BasicGameSupport.timeLevelFinish;
 
 public class TimeLevelsView extends GameView {

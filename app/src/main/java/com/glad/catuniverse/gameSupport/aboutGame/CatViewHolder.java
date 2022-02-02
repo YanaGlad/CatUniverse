@@ -3,17 +3,14 @@ package com.glad.catuniverse.gameSupport.aboutGame;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 
- class CatViewHolder extends RecyclerView.ViewHolder {
+class CatViewHolder extends RecyclerView.ViewHolder {
     AppCompatImageView catIcon;
     private final AppCompatTextView catName;
      private final AppCompatTextView power;

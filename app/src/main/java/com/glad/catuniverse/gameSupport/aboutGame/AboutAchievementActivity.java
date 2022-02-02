@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.glad.catuniverse.MainActivity;
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 
 public class AboutAchievementActivity extends AppCompatActivity {
 

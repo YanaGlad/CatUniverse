@@ -1,6 +1,6 @@
 package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.EasyTimer;
@@ -14,10 +14,8 @@ import com.glad.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import static com.glad.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
@@ -127,7 +125,6 @@ public class Level6 extends TimeLevel {
                 easyTimer.startTimer();
             }
         }
-
         if (timeTallPlatformArrayList.get(0).getX() <= 305 && PlayerManager.timePlayer.getFakeY() >= 310)
             super.setGameOver();
 

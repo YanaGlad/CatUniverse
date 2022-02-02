@@ -1,6 +1,6 @@
 package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.EasyTimer;
@@ -12,10 +12,8 @@ import com.glad.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.glad.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import static com.glad.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.bluePlatform;

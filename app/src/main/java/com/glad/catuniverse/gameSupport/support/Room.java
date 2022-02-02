@@ -3,7 +3,7 @@ package com.glad.catuniverse.gameSupport.support;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
@@ -13,9 +13,7 @@ import com.glad.catuniverse.gameSupport.databaseHelpers.CatPet;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameViews.general.MenuView;
-
 import java.util.ArrayList;
-
 import static com.glad.catuniverse.MainActivity.listOfCats;
 import static com.glad.catuniverse.MainActivity.listOfPets;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.addCatButton;
@@ -27,14 +25,14 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.storageUp;
 
 //Комната для котов
 public class Room implements Loopable {
-    private byte number; //номер комнаты
-    private String name; //Название
-    private Bitmap background; // Фон
+    private final byte number; //номер комнаты
+    private final String name; //Название
+    private final Bitmap background; // Фон
     private CatPet catPet1, catPet2, catPet3; //3 кота, которые могут быть размещены в комнате
     private BasicButton up, down; //Посмотреть доступных котов
     private static BasicButton storage;
-    private MainRunActivity mainRunActivity;
-    private ArrayList<BasicButton> catStorage; //Кнопки с доступными персонажами ( видны когда нажата кнопка storage)
+    private final MainRunActivity mainRunActivity;
+    private final ArrayList<BasicButton> catStorage; //Кнопки с доступными персонажами ( видны когда нажата кнопка storage)
     private byte places; //занятые места в комнате
 
     public Room(MainRunActivity mainRunActivity, byte number, String name, Bitmap background) {
@@ -74,7 +72,6 @@ public class Room implements Loopable {
 
         for (int i = 0; i < listOfPets.size(); i++)
             if (listOfCats.get(i).getUnlocked() == 1) checkCatPet(listOfPets.get(i));
-
 
         if (catPet1 != null) catPet1.run(gamePaint);
         if (catPet2 != null) catPet2.run(gamePaint);

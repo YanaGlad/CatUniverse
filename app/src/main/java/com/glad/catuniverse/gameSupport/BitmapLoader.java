@@ -1,10 +1,9 @@
 package com.glad.catuniverse.gameSupport;
 
 import android.graphics.Bitmap;
-
 import androidx.annotation.Nullable;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.ImageSet;
 

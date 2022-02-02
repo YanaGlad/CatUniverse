@@ -1,10 +1,9 @@
 package com.glad.catuniverse.gameSupport.gameMathematics;
 
 import android.graphics.Color;
-
 import androidx.annotation.Nullable;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.CollisionDetectors;
 import com.glad.catuniverse.gameSupport.Loopable;

@@ -3,7 +3,7 @@ package com.glad.catuniverse.gameViews.general;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameView;
 import com.glad.catuniverse.gameSupport.MainRunActivity;

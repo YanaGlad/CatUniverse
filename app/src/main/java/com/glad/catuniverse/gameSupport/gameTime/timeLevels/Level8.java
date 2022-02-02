@@ -2,7 +2,7 @@ package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
 import android.graphics.Color;
 
-import com.example.catuniverse.R;
+import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
@@ -14,9 +14,7 @@ import com.glad.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
-
 import java.util.ArrayList;
-
 import static com.glad.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
