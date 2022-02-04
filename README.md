@@ -24,3 +24,7 @@
 <img src = "https://sun9-67.userapi.com/impg/iGgdAWYEqWRD9RD7DxFGXDfl9v6lH9GBPSQenA/3KGwySVBcRY.jpg?size=678x453&quality=95&sign=e1d54cc424d7c05c711f3b5ba513d381&type=album"/>
 <img src = "https://sun9-60.userapi.com/impg/VSive5DiAhSSzf5YaKde2yGqdm47k4cf0efe0w/WBXtGooEJng.jpg?size=760x453&quality=95&sign=f6a4c41c30a72e441ffb35912656b5f7&type=album"/>
 <img src = "https://sun9-31.userapi.com/impg/E0cvz3psoCPFqNbQPpW_rhI_-rxoGZKjeleIuQ/zima7q_zf7o.jpg?size=764x456&quality=95&sign=7c67a812e2a68fb39917e1a81ed0ed88&type=album"/>
+
+- Rocket mini game is available during time levels. I think I'll make some special levels concentrated on it
+
+<img src = "https://sun9-46.userapi.com/impg/6MrXE-qtM99lYZVgjIFUM8A8vvIjPO7JJldxew/X1rJoN-sLL8.jpg?size=768x450&quality=95&sign=6b19c86a3da7c9ab01004b0880f6a399&type=album"/>
