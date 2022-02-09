@@ -50,8 +50,6 @@ public class MenuView extends GameView {
         strategy.run(super.getGamePaint());
         about.run(super.getGamePaint());
         achiveBtn.run(super.getGamePaint());
-
-        // gamePaint.write("(c)MonsterGlad ", 570, 590, Color.WHITE, 15);
     }
 
     @Override
@@ -64,7 +62,6 @@ public class MenuView extends GameView {
 
         if (room.isClicked())
             super.getMainRunActivity().setView(new RoomView(super.getMainRunActivity()));
-
 
         ChooseView chooseView;
         if (time.isClicked()) {

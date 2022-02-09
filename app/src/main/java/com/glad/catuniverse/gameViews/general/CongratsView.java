@@ -47,6 +47,7 @@ public class CongratsView extends GameView {
                 longBackg = longBlueRect;
                 color = Color.BLACK;
                 break;
+
             case "strategy":
                 starBitmap = redStar;
                 backgBitmap = redTechnoBackground;
@@ -55,6 +56,7 @@ public class CongratsView extends GameView {
                 returnBack.setBitmapClicked(baseRedButtonClicked);
                 color = Color.BLACK;
                 break;
+
             case "maths":
                 starBitmap = redStar;
                 backgBitmap = mathsGameFinishBackground;

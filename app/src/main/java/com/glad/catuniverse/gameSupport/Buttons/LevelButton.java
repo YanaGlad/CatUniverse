@@ -47,14 +47,21 @@ public class LevelButton implements Loopable {
                     step += 60;
                 }
                 break;
+
             case "strategy":
+                setRedStar(gamePaint, step);
                 break;
+
             case "maths":
-                for (int i = 0; i < stars; i++) {
-                    gamePaint.setVisibleBitmap(BitmapLoader.redStar, x + step, y + 70);
-                    step += 60;
-                }
+                setRedStar(gamePaint, step);
                 break;
+        }
+    }
+
+    private void setRedStar(GamePaint gamePaint, int step) {
+        for (int i = 0; i < stars; i++) {
+            gamePaint.setVisibleBitmap(BitmapLoader.redStar, x + step, y + 70);
+            step += 60;
         }
     }
 
