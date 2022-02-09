@@ -1,5 +1,9 @@
 package com.glad.catuniverse.gameSupport.support;
 
+import static com.glad.catuniverse.gameSupport.BasicGameSupport.levelsCount;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.closedLevel;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.menuMusic;
+
 import android.graphics.Bitmap;
 
 import com.glad.catuniverse.MainActivity;
@@ -34,7 +38,7 @@ public class LevelChoice implements Loopable {
         int x = 70;
         int y = 50;
 
-        for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
+        for (int i = 0; i < levelsCount; i++) {
             levelButtons.add(new LevelButton(mainRunActivity, x, y, notClicked, clicked, key));
             x += 220;
             if ((i + 1) % 3 == 0) {
@@ -55,7 +59,8 @@ public class LevelChoice implements Loopable {
     public void repaint() {
         BitmapLoader.electrodynamixMusic.stop();
         int starsCount = 0;
-        for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
+
+        for (int i = 0; i < levelsCount; i++) {
             switch (key) {
                 case "time":
                     levelButtons.get(i).repaint(MainActivity.timeLevels.get(i).getStars(), String.valueOf(MainActivity.timeLevels.get(i).getNumber()));
@@ -73,12 +78,12 @@ public class LevelChoice implements Loopable {
                     break;
             }
         }
-        for (int i = 0; i < BasicGameSupport.levelsCount; i++) {
+        for (int i = 0; i < levelsCount; i++) {
             if (levelButtons.get(i).isClicked()) {
                 boolean start = false;
                 if (i == 0 || levelButtons.get(i - 1).getStars() > 0) start = true;
                 if (start) {
-                    BitmapLoader.menuMusic.stop();
+                    menuMusic.stop();
                     switch (key) {
                         case "time":
                             gameView.getMainRunActivity().setView(new TimeLevelsView(gameView.getMainRunActivity(), i + 1));
@@ -106,7 +111,7 @@ public class LevelChoice implements Loopable {
     private void checkClosedLevel(GamePaint gamePaint) {
         for (int i = 1; i < levelButtons.size(); i++)
             if (levelButtons.get(i - 1).getStars() <= 0)
-                gamePaint.setVisibleBitmap(BitmapLoader.closedLevel, levelButtons.get(i).getX(), levelButtons.get(i).getY());
+                gamePaint.setVisibleBitmap(closedLevel, levelButtons.get(i).getX(), levelButtons.get(i).getY());
     }
 
     @Override

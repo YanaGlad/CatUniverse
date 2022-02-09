@@ -9,9 +9,18 @@ import com.glad.catuniverse.gameSupport.GameView;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
 import com.glad.catuniverse.gameSupport.support.LevelChoice;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
-
 import static com.glad.catuniverse.MainActivity.listOfCats;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseBlueButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseBlueButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueLevelButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueLevelButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mathsBackground;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redLevelButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redLevelButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redTechnoBackground;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.technoBackground;
 
 //ChooseView - отображение меню для выбора уровней определенного типа. Класс создан 19.05.20,
 //он является улучшением кода, т.к. до него его работу выполняло сразу 3 класса - MathsChooseView, TimeChooseView
@@ -35,26 +44,27 @@ public class ChooseView extends GameView {
         //Определение элементов дизайна по ключу
         switch (key) {
             case "time":
-                background = BitmapLoader.technoBackground;
-                button = BitmapLoader.blueLevelButton;
-                buttonClicked = BitmapLoader.blueLevelButtonClicked;
-                goBackButton = BitmapLoader.baseBlueButton;
-                goBackButtonClicked = BitmapLoader.baseBlueButtonClicked;
+                background = technoBackground;
+                button = blueLevelButton;
+                buttonClicked = blueLevelButtonClicked;
+                goBackButton = baseBlueButton;
+                goBackButtonClicked = baseBlueButtonClicked;
                 break;
-            case "strategy":
-                background = BitmapLoader.redTechnoBackground;
-                button = BitmapLoader.redLevelButton;
-                buttonClicked = BitmapLoader.redLevelButtonClicked;
-                goBackButton = BitmapLoader.baseRedButton;
-                goBackButtonClicked = BitmapLoader.baseRedButtonClicked;
-                break;
-            case "maths":
-                background = BitmapLoader.mathsBackground;
 
-                button = BitmapLoader.redLevelButton;
-                buttonClicked = BitmapLoader.redLevelButtonClicked;
-                goBackButton = BitmapLoader.baseRedButton;
-                goBackButtonClicked = BitmapLoader.baseRedButtonClicked;
+            case "strategy":
+                background = redTechnoBackground;
+                button = redLevelButton;
+                buttonClicked = redLevelButtonClicked;
+                goBackButton = baseRedButton;
+                goBackButtonClicked = baseRedButtonClicked;
+                break;
+
+            case "maths":
+                background = mathsBackground;
+                button = redLevelButton;
+                buttonClicked = redLevelButtonClicked;
+                goBackButton = baseRedButton;
+                goBackButtonClicked = baseRedButtonClicked;
                 break;
         }
         levelChoice = new LevelChoice(this, mainRunActivity, button, buttonClicked, key);

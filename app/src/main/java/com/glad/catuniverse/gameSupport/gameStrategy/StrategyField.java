@@ -287,7 +287,6 @@ public class StrategyField implements Loopable {
                     enemyY = 0;
                     break;
             }
-
             int a = random.nextInt(catId.length);
 
             strategyEnemies.add(new StrategyEnemy(MainActivity.listOfCats.get(catId[a] - 1).getImageSet().getMoveLeft(),
@@ -295,7 +294,6 @@ public class StrategyField implements Loopable {
             enemyX += 300;
         }
     }
-
     //Проверка игры на победу и поражение
     private void winOrLose(int leftToDefeat, int lives) {
         if (lives <= 0) gameOver = true;

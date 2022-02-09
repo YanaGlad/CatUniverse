@@ -1,12 +1,21 @@
 package com.glad.catuniverse.gameViews.general;
 
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseBlueButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseBlueButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.longBlueRect;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.longRedRect;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mathsGameFinishBackground;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redStar;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redTechnoBackground;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.star;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.technoBackground;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import androidx.annotation.Nullable;
-
 import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameView;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
@@ -29,26 +38,26 @@ public class CongratsView extends GameView {
         this.stars = stars;
         this.reward = reward;
         this.key = key;
-        returnBack = new BasicButton(mainRunActivity, 300, 150, mainRunActivity.getString(R.string.continue_game), Color.BLACK, 30, BitmapLoader.baseBlueButton, BitmapLoader.baseBlueButtonClicked, 40, 35);
+        returnBack = new BasicButton(mainRunActivity, 300, 150, mainRunActivity.getString(R.string.continue_game), Color.BLACK, 30, baseBlueButton, baseBlueButtonClicked, 40, 35);
 
         switch (key) {
             case "time":
-                starBitmap = BitmapLoader.star;
-                backgBitmap = BitmapLoader.technoBackground;
-                longBackg = BitmapLoader.longBlueRect;
+                starBitmap = star;
+                backgBitmap = technoBackground;
+                longBackg = longBlueRect;
                 color = Color.BLACK;
                 break;
             case "strategy":
-                starBitmap = BitmapLoader.redStar;
-                backgBitmap = BitmapLoader.redTechnoBackground;
-                longBackg = BitmapLoader.longRedRect;
-                returnBack.setBitmap(BitmapLoader.baseRedButton);
-                returnBack.setBitmapClicked(BitmapLoader.baseRedButtonClicked);
+                starBitmap = redStar;
+                backgBitmap = redTechnoBackground;
+                longBackg = longRedRect;
+                returnBack.setBitmap(baseRedButton);
+                returnBack.setBitmapClicked(baseRedButtonClicked);
                 color = Color.BLACK;
                 break;
             case "maths":
-                starBitmap = BitmapLoader.redStar;
-                backgBitmap = BitmapLoader.mathsGameFinishBackground;
+                starBitmap = redStar;
+                backgBitmap = mathsGameFinishBackground;
                 longBackg = null;
                 color = Color.WHITE;
                 break;
@@ -60,8 +69,10 @@ public class CongratsView extends GameView {
         repaint();
         int posX = 280;
         super.getGamePaint().setVisibleBitmap(backgBitmap, 0, 0);
+
         if (longBackg != null)
             super.getGamePaint().setVisibleBitmap(longBackg, -20, -165); // сделать разные цвета для уровне!!!!!
+
         for (int i = 0; i < stars; i++) {
             super.getGamePaint().setVisibleBitmap(starBitmap, posX, 300);
             posX += 80;
