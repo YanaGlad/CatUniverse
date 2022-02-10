@@ -2,7 +2,6 @@ package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
 import android.graphics.Color;
 
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
@@ -13,9 +12,8 @@ import com.glad.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.glad.catuniverse.gameSupport.gameTime.TimePlayer;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
-
 import java.util.ArrayList;
-
+import static com.glad.catuniverse.gameSupport.BitmapLoader.appearButton;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueGround;
@@ -29,7 +27,7 @@ public class Level1 extends TimeLevel {
     private final TimeInventoryItem timeInventoryItem;
     private final ArrayList<TimePlatform> ladderDisapearLvl0;
     private final ArrayList<TimePlatform> bigObstaclesDisappearLvl0;
-    private final BasicButton appearButton;
+    private final BasicButton appearButtonModel;
     private final MainRunActivity mainRunActivity;
     private int collectedCount = 0;
 
@@ -56,10 +54,10 @@ public class Level1 extends TimeLevel {
 
         timeInventoryItem = new TimeInventoryItem(700, 240, keyBlue);
 
-        appearButton = new BasicButton(mainRunActivity, 2700, 490, BitmapLoader.appearButton, BitmapLoader.appearButton, true);
+        appearButtonModel = new BasicButton(mainRunActivity, 2700, 490, appearButton, appearButton, true);
         passingDoor = new BasicButton(mainRunActivity, 4000, 430, blueDoor, blueDoorOpened, true);
 
-        gameItems.add(appearButton);
+        gameItems.add(appearButtonModel);
         gameItems.add(passingDoor);
 
         ladderDisapearLvl0 = new ArrayList<>();
@@ -126,10 +124,10 @@ public class Level1 extends TimeLevel {
 
         super.tallPlatformRepaint();
 
-        if (appearButton.isClicked()) ladder2Disappear = false;
-        if (timeTallPlatformArrayList.get(0).getX() < PlayerManager.timePlayer.getX() && PlayerManager.timePlayer.getY() >= TimePlayer.getMaximumY() && !appearButton.isClicked())
+        if (appearButtonModel.isClicked()) ladder2Disappear = false;
+        if (timeTallPlatformArrayList.get(0).getX() < PlayerManager.timePlayer.getX() && PlayerManager.timePlayer.getY() >= TimePlayer.getMaximumY() && !appearButtonModel.isClicked())
             ladder2Disappear = true;
-        if (appearButton.isClicked()) ladder2Disappear = false;
+        if (appearButtonModel.isClicked()) ladder2Disappear = false;
 
         if (timeInventoryItem.isPicked()) collectedCount = 1;
     }

@@ -4,9 +4,8 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.keyBlue;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBackground;
-
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.gameTime.TimeInventoryItem;
@@ -29,7 +28,7 @@ public class Level9 extends TimeLevel {
         int xX = 400;
 
         for (int i = 0; i < 10; i++) {
-            timeInventoryItems.add(new TimeInventoryItem(xX, 550, BitmapLoader.keyBlue));
+            timeInventoryItems.add(new TimeInventoryItem(xX, 550, keyBlue));
             xX += 100;
         }
 

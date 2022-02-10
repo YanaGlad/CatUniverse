@@ -22,7 +22,8 @@ import java.util.ArrayList;
 
 //Меню для выбора уровней. Определит к какому типу относятся уровни по полученному ключу.
 public class LevelChoice implements Loopable {
-    private ArrayList<LevelButton> levelButtons; //Кнопки для выбора уровней
+
+   private ArrayList<LevelButton> levelButtons; //Кнопки для выбора уровней
     private ArrayList<GameView> timeLevels, strategyLevels, mathsLevels; //Список уровняй того или иного типа
     private GameView gameView; //текущий кадр
     private String key;
@@ -101,7 +102,6 @@ public class LevelChoice implements Loopable {
                 }
                 levelButtons.get(i).notClicked();
             }
-
         }
         if (starsCount >= 18 && MainActivity.listOfAchievements.get(1).isUnlocked() != 1) {
             BasicGameSupport.unlockAchievement(2);

@@ -60,7 +60,6 @@ public class Media {
         public void onCompletion(MediaPlayer mediaPlayer) {
 
         }
-
         public boolean isRunning() {
             return running;
         }

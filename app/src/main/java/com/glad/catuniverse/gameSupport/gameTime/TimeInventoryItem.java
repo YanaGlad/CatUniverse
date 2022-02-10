@@ -14,6 +14,7 @@ import static com.glad.catuniverse.gameSupport.graphics.PlayerManager.timePlayer
 
 //Предметы, которые нужно собирать в ходе прохождения уровней. Они необходимы чтобы открывать двери, получать звезды и т.д.
 public class TimeInventoryItem extends GameItem {
+
     private boolean picked;
     private final int speed = 8;
     private boolean rocket = false, good = true;

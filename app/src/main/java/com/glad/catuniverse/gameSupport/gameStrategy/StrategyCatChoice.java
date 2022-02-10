@@ -1,5 +1,17 @@
 package com.glad.catuniverse.gameSupport.gameStrategy;
 
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.baseRedButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.bobtailCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.grayIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.greenAlienCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mainCoonCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.orangeIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redAlienCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.shadowCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.smallButtonRed;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.smallButtonRedClicked;
+
 import android.graphics.Color;
 
 import com.glad.catuniverse.R;
@@ -29,13 +41,13 @@ public class StrategyCatChoice implements Loopable {
     StrategyCatChoice(MainRunActivity mainRunActivity) {
         oneTime = false;
         catIcons = new ArrayList<>();
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_gray), BitmapLoader.grayIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_orange), BitmapLoader.orangeIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_green_alien), BitmapLoader.greenAlienCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_shadow), BitmapLoader.shadowCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_main_coon), BitmapLoader.mainCoonCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_bob_tail), BitmapLoader.bobtailCatIcon));
-        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_red_alien), BitmapLoader.redAlienCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_gray), grayIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_orange), orangeIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_green_alien), greenAlienCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_shadow), shadowCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_main_coon), mainCoonCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_bob_tail), bobtailCatIcon));
+        catIcons.add(new CatIcon(mainRunActivity.getString(R.string.cat_red_alien), redAlienCatIcon));
 
         chosenStrategyCats = new ArrayList<>();
 
@@ -44,7 +56,7 @@ public class StrategyCatChoice implements Loopable {
 
         this.mainRunActivity = mainRunActivity;
 
-        finish = new BasicButton(mainRunActivity, 20, 540, mainRunActivity.getString(R.string.finish), Color.BLACK, 30, BitmapLoader.baseRedButton, BitmapLoader.baseRedButtonClicked, 10, 40);
+        finish = new BasicButton(mainRunActivity, 20, 540, mainRunActivity.getString(R.string.finish), Color.BLACK, 30, baseRedButton, baseRedButtonClicked, 10, 40);
     }
 
     @Override
@@ -77,7 +89,7 @@ public class StrategyCatChoice implements Loopable {
             if (catStorage.get(i).isClicked()) { // Если нажат, то его можно выбрать
 
                 BasicButton choose = new BasicButton(mainRunActivity, catStorage.get(i).getX(), catStorage.get(i).getY() + 110,
-                        mainRunActivity.getString(R.string.choose_cat), Color.BLACK, 25, BitmapLoader.smallButtonRed, BitmapLoader.smallButtonRedClicked, 20, 20);
+                        mainRunActivity.getString(R.string.choose_cat), Color.BLACK, 25, smallButtonRed, smallButtonRedClicked, 20, 20);
                 choose.run(gamePaint);
 
                 if (choose.isClicked()) {
@@ -120,7 +132,6 @@ public class StrategyCatChoice implements Loopable {
             if (id == chosenStrategyCats.get(i).getId()) return i;
         return -1;
     }
-
     ArrayList<Cat> getChosenStrategyCats() {
         return chosenStrategyCats;
     }

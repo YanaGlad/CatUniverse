@@ -104,7 +104,6 @@ public class BasicButton extends GameItem {
         return super.getBitmapClicked();
     }
 
-
     @Override
     public void setX(int x) {
         super.setX(x);

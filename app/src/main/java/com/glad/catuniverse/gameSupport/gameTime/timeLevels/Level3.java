@@ -2,7 +2,6 @@ package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
 import android.graphics.Color;
 
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
@@ -11,9 +10,9 @@ import com.glad.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.glad.catuniverse.gameSupport.gameTime.TimeInventoryItem;
 import com.glad.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-
 import java.util.ArrayList;
-
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.bluePlatform;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.keyBlue;
@@ -22,6 +21,7 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.xStepMusic;
 
 //Третий уровень на время.
 public class Level3 extends TimeLevel {
+
     private ArrayList<TimePlatform> changingObstacles;
     private ArrayList<TimeInventoryItem> timeInventoryItems;
     private int collectedCount = 0;
@@ -35,8 +35,8 @@ public class Level3 extends TimeLevel {
         changingObstacles = new ArrayList<>();
         gameOver = false;
 
-        timeInventoryItems.add(new TimeInventoryItem(1120, -85, BitmapLoader.keyBlue));
-        timeInventoryItems.add(new TimeInventoryItem(1950, -35, BitmapLoader.keyBlue));
+        timeInventoryItems.add(new TimeInventoryItem(1120, -85, keyBlue));
+        timeInventoryItems.add(new TimeInventoryItem(1950, -35, keyBlue));
 
         timeTallPlatformArrayList.add(new TimeTallPlatform(1700, 520));
         timeTallPlatformArrayList.add(new TimeTallPlatform(2000, 520));
@@ -73,7 +73,7 @@ public class Level3 extends TimeLevel {
         }
         gameItems.add(new TimePlatform(1870, -5));
         gameItems.add(new TimePlatform(2170, -5));
-        passingDoor = new BasicButton(mainRunActivity, 3200, 430, BitmapLoader.blueDoor, BitmapLoader.blueDoorOpened, true);
+        passingDoor = new BasicButton(mainRunActivity, 3200, 430, blueDoor, blueDoorOpened, true);
     }
 
     @Override

@@ -25,6 +25,7 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.storageUp;
 
 //Комната для котов
 public class Room implements Loopable {
+
     private final byte number; //номер комнаты
     private final String name; //Название
     private final Bitmap background; // Фон
@@ -62,7 +63,6 @@ public class Room implements Loopable {
             // }
         }
     }
-
 
     @Override
     public void run(GamePaint gamePaint) {
@@ -136,7 +136,6 @@ public class Room implements Loopable {
             }
         }
     }
-
     @Override
     public void repaint() {
     }
@@ -165,7 +164,6 @@ public class Room implements Loopable {
             }
         }
     }
-
     public String getName() {
         return name;
     }

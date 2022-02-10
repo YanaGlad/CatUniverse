@@ -1,6 +1,5 @@
 package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.GameView;
@@ -10,9 +9,9 @@ import com.glad.catuniverse.gameSupport.gameTime.platforms.TimeTallPlatform;
 import com.glad.catuniverse.gameSupport.gameTime.TimeLevel;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-
 import java.util.ArrayList;
-
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoor;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.blueDoorOpened;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.blueGround;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.movingSpaceBackground;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.xStepMusic;
@@ -64,7 +63,7 @@ public class Level4 extends TimeLevel {
 
         gameItems.add(new TimePlatform(1150, GameView.screenHeight - 1240));
 
-        passingDoor = new BasicButton(mainRunActivity, 1170, GameView.screenHeight - 1390, BitmapLoader.blueDoor, BitmapLoader.blueDoorOpened, true);
+        passingDoor = new BasicButton(mainRunActivity, 1170, GameView.screenHeight - 1390, blueDoor, blueDoorOpened, true);
         gameItems.add(passingDoor);
 
     }
@@ -85,7 +84,6 @@ public class Level4 extends TimeLevel {
             if ((i + 1) % 2 == 0)
                 changingObstacles.get(i).changing(delay);
         }
-
         for (TimeTallPlatform tb : timeTallPlatformArrayList) tb.run(gamePaint);
         passingDoor.repaint();
         super.endingRun(gamePaint, mainRunActivity);
@@ -138,4 +136,3 @@ public class Level4 extends TimeLevel {
         return "4";
     }
 }
-

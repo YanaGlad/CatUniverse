@@ -1,7 +1,6 @@
 package com.glad.catuniverse.gameSupport.gameTime.timeLevels;
 
 import com.glad.catuniverse.R;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
 import com.glad.catuniverse.gameSupport.EasyTimer;
 import com.glad.catuniverse.gameSupport.GameItem;
@@ -21,6 +20,7 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.electrodynamixMusic;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.movingBlueSpaceBackground;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.purpleDoor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.purpleDoorOpened;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.sharps;
 
 //В РАЗРАБОТКЕ
 public class Level7 extends TimeLevel {
@@ -65,7 +65,7 @@ public class Level7 extends TimeLevel {
         passingDoor = new BasicButton(mainRunActivity, x.get(pos) + 10, y.get(pos) + 30, purpleDoor, purpleDoorOpened, true);
 
         gameItems.add(passingDoor);
-        gameItems.add(new TimeDecoration(2120, 500, BitmapLoader.sharps, false));
+        gameItems.add(new TimeDecoration(2120, 500, sharps, false));
     }
 
     @Override

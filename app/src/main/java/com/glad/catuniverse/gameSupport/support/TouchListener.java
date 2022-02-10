@@ -11,7 +11,6 @@ public class TouchListener implements View.OnTouchListener {
     private float downX, downY;
     private int swipeDistance;
 
-
     TouchListener(View view) {
         view.setOnTouchListener(this);
         swipeDistance = 50;
@@ -64,5 +63,4 @@ public class TouchListener implements View.OnTouchListener {
         }
         return true;
     }
-
 }

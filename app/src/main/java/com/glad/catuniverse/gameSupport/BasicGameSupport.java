@@ -3,9 +3,7 @@ package com.glad.catuniverse.gameSupport;
 import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.util.Log;
-
 import androidx.annotation.Nullable;
-
 import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.databaseHelpers.Achievement;
 import com.glad.catuniverse.gameSupport.databaseHelpers.Cat;
@@ -20,9 +18,7 @@ import com.glad.catuniverse.gameViews.general.CongratsView;
 import com.glad.catuniverse.gameViews.general.GameOverView;
 import com.glad.catuniverse.gameViews.levels.TimeLevelsView;
 import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
-
 import java.io.IOException;
-
 import static com.glad.catuniverse.MainActivity.achievementCursor;
 import static com.glad.catuniverse.MainActivity.achievementDB;
 import static com.glad.catuniverse.MainActivity.catCursor;
@@ -39,6 +35,51 @@ import static com.glad.catuniverse.MainActivity.strategyCursor;
 import static com.glad.catuniverse.MainActivity.strategyDB;
 import static com.glad.catuniverse.MainActivity.strategyLevels;
 import static com.glad.catuniverse.MainActivity.timeDB;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.asteroidSprite;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.imageSets;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpLeftShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.jumpRightShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.menuMusic;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standLeftShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkLeftShadow;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightBobtail;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightGray;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightGreenAlien;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightMainCoon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightOrange;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightShadow;
 
 //В данном классе хранятся статические функции и переменные для поддержки работы игры
 public class BasicGameSupport {
@@ -51,7 +92,7 @@ public class BasicGameSupport {
     //Количесвто достижений
     public static int achievementCount = 3;
 
-    public static final int maximumY = GameView.screenHeight - BitmapLoader.walkRightGray.get(0).getHeight();
+    public static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
 
     //Обновляет экран по оси ординат относительно текущего положения игрока
     public static int updateMovesY(GameItem gameItem, double jumSpeed, int y) {
@@ -169,7 +210,7 @@ public class BasicGameSupport {
 
     //Находит набор анимаций персонажа по полученному ключу
     public static ImageSet checkKey(String key) {
-        for (ImageSet im : BitmapLoader.imageSets) if (key.equals(im.getKey())) return im;
+        for (ImageSet im : imageSets) if (key.equals(im.getKey())) return im;
         return null;
     }
 
@@ -288,7 +329,7 @@ public class BasicGameSupport {
             TimeLevelsView.levelRunning = false;
             music.stop();
             try {
-                BitmapLoader.menuMusic.run();
+                menuMusic.run();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -300,7 +341,7 @@ public class BasicGameSupport {
             TimeLevelsView.levelRunning = false;
             music.stop();
             try {
-                BitmapLoader.menuMusic.run();
+                menuMusic.run();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -355,53 +396,53 @@ public class BasicGameSupport {
 
     //Инициализация анимаций всех котов в качестве статических переменных
     public static SpriteAnimation
-            asteroidItem = new SpriteAnimation(BitmapLoader.asteroidSprite),
+            asteroidItem = new SpriteAnimation(asteroidSprite),
 
-    grayWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftGray),
-            grayStandRight = new SpriteAnimation(BitmapLoader.standRightGray),
-            grayStandLeft = new SpriteAnimation(BitmapLoader.standLeftGray),
-            grayWalkRight = new SpriteAnimation(BitmapLoader.walkRightGray),
-            grayJumpRight = new SpriteAnimation(BitmapLoader.jumpRightGray),
-            grayJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftGray),
-            grayRocket = new SpriteAnimation(BitmapLoader.rocketGray),
+    grayWalkLeft = new SpriteAnimation(walkLeftGray),
+            grayStandRight = new SpriteAnimation(standRightGray),
+            grayStandLeft = new SpriteAnimation(standLeftGray),
+            grayWalkRight = new SpriteAnimation(walkRightGray),
+            grayJumpRight = new SpriteAnimation(jumpRightGray),
+            grayJumpLeft = new SpriteAnimation(jumpLeftGray),
+            grayRocket = new SpriteAnimation(rocketGray),
 
-    orangeStandRight = new SpriteAnimation(BitmapLoader.standRightOrange),
-            orangeStandLeft = new SpriteAnimation(BitmapLoader.standLeftOrange),
-            orangeWalkRight = new SpriteAnimation(BitmapLoader.walkRightOrange),
-            orangeWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftOrange),
-            orangeJumpRight = new SpriteAnimation(BitmapLoader.jumpRightOrange),
-            orangeJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftOrange),
-            orangeRocket = new SpriteAnimation(BitmapLoader.rocketOrange),
+    orangeStandRight = new SpriteAnimation(standRightOrange),
+            orangeStandLeft = new SpriteAnimation(standLeftOrange),
+            orangeWalkRight = new SpriteAnimation(walkRightOrange),
+            orangeWalkLeft = new SpriteAnimation(walkLeftOrange),
+            orangeJumpRight = new SpriteAnimation(jumpRightOrange),
+            orangeJumpLeft = new SpriteAnimation(jumpLeftOrange),
+            orangeRocket = new SpriteAnimation(rocketOrange),
 
-    greenAlienStandRight = new SpriteAnimation(BitmapLoader.standRightGreenAlien),
-            greenAlienStandLeft = new SpriteAnimation(BitmapLoader.standLeftGreenAlien),
-            greenAlienWalkRight = new SpriteAnimation(BitmapLoader.walkRightGreenAlien),
-            greenAlienWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftGreenAlien),
-            greenAlienJumpRight = new SpriteAnimation(BitmapLoader.jumpRightGreenAlien),
-            greenAlienJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftGreenAlien),
-            greenAlienRocket = new SpriteAnimation(BitmapLoader.rocketGreenAlien),
+    greenAlienStandRight = new SpriteAnimation(standRightGreenAlien),
+            greenAlienStandLeft = new SpriteAnimation(standLeftGreenAlien),
+            greenAlienWalkRight = new SpriteAnimation(walkRightGreenAlien),
+            greenAlienWalkLeft = new SpriteAnimation(walkLeftGreenAlien),
+            greenAlienJumpRight = new SpriteAnimation(jumpRightGreenAlien),
+            greenAlienJumpLeft = new SpriteAnimation(jumpLeftGreenAlien),
+            greenAlienRocket = new SpriteAnimation(rocketGreenAlien),
 
-    shadowStandRight = new SpriteAnimation(BitmapLoader.standRightShadow),
-            shadowStandLeft = new SpriteAnimation(BitmapLoader.standLeftShadow),
-            shadowWalkRight = new SpriteAnimation(BitmapLoader.walkRightShadow),
-            shadowWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftShadow),
-            shadowJumpRight = new SpriteAnimation(BitmapLoader.jumpRightShadow),
-            shadowJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftShadow),
-            shadowCatRocket = new SpriteAnimation(BitmapLoader.rocketShadow),
+    shadowStandRight = new SpriteAnimation(standRightShadow),
+            shadowStandLeft = new SpriteAnimation(standLeftShadow),
+            shadowWalkRight = new SpriteAnimation(walkRightShadow),
+            shadowWalkLeft = new SpriteAnimation(walkLeftShadow),
+            shadowJumpRight = new SpriteAnimation(jumpRightShadow),
+            shadowJumpLeft = new SpriteAnimation(jumpLeftShadow),
+            shadowCatRocket = new SpriteAnimation(rocketShadow),
 
-    mainCoonStandRight = new SpriteAnimation(BitmapLoader.standRightMainCoon),
-            mainCoonStandLeft = new SpriteAnimation(BitmapLoader.standLeftMainCoon),
-            mainCoonWalkRight = new SpriteAnimation(BitmapLoader.walkRightMainCoon),
-            mainCoonWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftMainCoon),
-            mainCoonJumpRight = new SpriteAnimation(BitmapLoader.jumpRightMainCoon),
-            mainCoonJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftMainCoon),
-            mainCoonRocket = new SpriteAnimation(BitmapLoader.rocketMainCoon),
+    mainCoonStandRight = new SpriteAnimation(standRightMainCoon),
+            mainCoonStandLeft = new SpriteAnimation(standLeftMainCoon),
+            mainCoonWalkRight = new SpriteAnimation(walkRightMainCoon),
+            mainCoonWalkLeft = new SpriteAnimation(walkLeftMainCoon),
+            mainCoonJumpRight = new SpriteAnimation(jumpRightMainCoon),
+            mainCoonJumpLeft = new SpriteAnimation(jumpLeftMainCoon),
+            mainCoonRocket = new SpriteAnimation(rocketMainCoon),
 
-    bobtailStandRight = new SpriteAnimation(BitmapLoader.standRightBobtail),
-            bobtailStandLeft = new SpriteAnimation(BitmapLoader.standLeftBobtail),
-            bobtailWalkRight = new SpriteAnimation(BitmapLoader.walkRightBobtail),
-            bobtailWalkLeft = new SpriteAnimation(BitmapLoader.walkLeftBobtail),
-            bobtailJumpRight = new SpriteAnimation(BitmapLoader.jumpRightBobtail),
-            bobtailJumpLeft = new SpriteAnimation(BitmapLoader.jumpLeftBobtail),
-            bobtailRocket = new SpriteAnimation(BitmapLoader.rocketBobtail);
+    bobtailStandRight = new SpriteAnimation(standRightBobtail),
+            bobtailStandLeft = new SpriteAnimation(standLeftBobtail),
+            bobtailWalkRight = new SpriteAnimation(walkRightBobtail),
+            bobtailWalkLeft = new SpriteAnimation(walkLeftBobtail),
+            bobtailJumpRight = new SpriteAnimation(jumpRightBobtail),
+            bobtailJumpLeft = new SpriteAnimation(jumpLeftBobtail),
+            bobtailRocket = new SpriteAnimation(rocketBobtail);
 }

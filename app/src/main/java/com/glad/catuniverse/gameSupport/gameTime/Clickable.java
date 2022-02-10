@@ -6,6 +6,7 @@ import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
 
 public abstract class Clickable extends GameItem {
+
     private boolean clicked = false;
     private final MainRunActivity mainRunActivity;
     private final Bitmap bitmap;

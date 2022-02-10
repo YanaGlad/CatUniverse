@@ -6,6 +6,7 @@ import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 //Двигающийся фон
 //Поочередно перемещает 2 картинки, визуально переходящие друг в друга, создавая иллюзию движения
 public class MovingBackground implements Loopable  {
+
     private int startX;
     private final int end;
     private int secondStartX;

@@ -27,8 +27,9 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketDecor;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.rocketStation;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.yellowKey;
 
-//В РАЗРАБОТКЕ
+
 public class Level8 extends TimeLevel {
+
     private final MainRunActivity mainRunActivity;
     private final TimePlatform station;
     private final int[] requestedCount = {20, 20};
