@@ -9,9 +9,9 @@ import com.glad.catuniverse.gameSupport.databaseHelpers.Cat;
 import com.glad.catuniverse.gameSupport.gameTime.platforms.TimePlatform;
 import com.glad.catuniverse.gameSupport.gameTime.platforms.CollisionSupportElement;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-
 import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightGray;
 import static com.glad.catuniverse.gameSupport.Collisions.createBaseSizeRect;
+import static com.glad.catuniverse.gameSupport.GameView.screenHeight;
 
 //Игрок в уровнях на время
 public class TimePlayer extends GameItem {
@@ -20,7 +20,7 @@ public class TimePlayer extends GameItem {
     private boolean rocketMode = false;
     private boolean oneTimeRocket = true;
     private final Cat cat;
-    private static final int maximumY = GameView.screenHeight - walkRightGray.get(0).getHeight();
+    private static final int maximumY = screenHeight - walkRightGray.get(0).getHeight();
     private static final int STANDARD_X = 50;
     private final int jumpHeight;
     private final int maxX;
@@ -32,7 +32,7 @@ public class TimePlayer extends GameItem {
     private final EasyTimer jumpingTimer;
     private final EasyTimer jumpingChecker;
     public static int start;
-    private final int GROUND = GameView.screenHeight - walkRightGray.get(0).getHeight();
+    private final int GROUND = screenHeight - walkRightGray.get(0).getHeight();
     private int fakeY; //y относительно игрового пространства, в то время как у - у относительно границ экрана телефона
 
     public TimePlayer(MainRunActivity mainRunActivity, Cat cat) {
@@ -57,7 +57,7 @@ public class TimePlayer extends GameItem {
 
         this.mainRunActivity = mainRunActivity;
         this.maxX = GameView.screenWidth;
-        ground = GameView.screenHeight - walkRightGray.get(0).getHeight();
+        ground = screenHeight - walkRightGray.get(0).getHeight();
         collLength = 32;
         this.y = ground;
         fakeY = y;
@@ -147,7 +147,7 @@ public class TimePlayer extends GameItem {
     public void repaint() {
         if (!rocketMode) {
             this.speed = 5;
-            if (mainRunActivity.getTouchListener().down(0, GameView.screenHeight, GameView.screenWidth, GameView.screenHeight)) { // При удержании , игрок идёт влево или вправо
+            if (mainRunActivity.getTouchListener().down(0, screenHeight, GameView.screenWidth, screenHeight)) { // При удержании , игрок идёт влево или вправо
                 movingRight = BasicGameSupport.movingRight(mainRunActivity);
                 movingLeft = BasicGameSupport.movingLeft(mainRunActivity);
             } else if (mainRunActivity.getTouchListener().up(0, maximumY, maxX, maximumY)) { //При отпускании игрок останавливается

@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-import com.glad.catuniverse.gameSupport.Collisions;
 
+import static com.glad.catuniverse.gameSupport.Collisions.collisionDetectLengthViaWidth;
 import static com.glad.catuniverse.gameSupport.Collisions.createBaseSizeRect;
 
 //"Пули", которыми стреляют игроки в стратегических уровнях.
@@ -17,8 +17,8 @@ public class StrategyBullet extends GameItem {
         this.x = x;
         this.y = (y + 20);
         this.bitmap = bitmap;
-        collLength = Collisions.collisionDetectLengthViaWidth(BitmapLoader.bullet, 3);
-        collisionRect = Collisions.createBaseSizeRect(x, y);
+        collLength = collisionDetectLengthViaWidth(BitmapLoader.bullet, 3);
+        collisionRect = createBaseSizeRect(x, y);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class StrategyBullet extends GameItem {
     @Override
     public void repaint() {
         x += 10;
-        collisionRect = Collisions.createBaseSizeRect(x, y);
+        collisionRect = createBaseSizeRect(x, y);
     }
 
     @Override

@@ -31,7 +31,7 @@ public class GameLoop extends SurfaceView implements Runnable {
         float beginTime = System.nanoTime(); // время на момент запуска run()
         float delta = 0; // эта переменная поможет отпредилить, сколько времени прошло после присваения beginTime значения
         while (running) { // пока поток запущен
-            int UPDATE_TIME = 1000000000 / 60;  //90 раз в секунду
+            int UPDATE_TIME = 1000000000 / 60;  //60 раз в секунду
             delta += (System.nanoTime() - beginTime) / UPDATE_TIME; // увеличиваем дельту на прошедшее время
             beginTime = System.nanoTime(); // Обновляем время в переменной beginTime
             if (delta > 1) { // если дельта больше 1, в будет запущен метод runGame(), который отобразить кадр игры

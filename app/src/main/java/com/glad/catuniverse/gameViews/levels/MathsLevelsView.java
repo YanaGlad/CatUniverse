@@ -1,5 +1,10 @@
 package com.glad.catuniverse.gameViews.levels;
 
+import static com.glad.catuniverse.gameSupport.BasicGameSupport.updateStrategyMathsStars;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.exitButton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.exitButtonClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.menuMusic;
+
 import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
@@ -48,7 +53,7 @@ public class MathsLevelsView extends GameView {
         mathsLevels.add(new MathsField(mainRunActivity, 5, 8, a, 23, 29, mainRunActivity.getString(R.string.trigonometry), 20, 20, 0, 16, null, BitmapLoader.stayInsideMusic, -1));
 
         level = mathsLevels.get(id - 1);
-        exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
+        exit = new BasicButton(mainRunActivity, 730, 30, exitButton, exitButtonClicked, false);
     }
 
     @Override
@@ -71,7 +76,7 @@ public class MathsLevelsView extends GameView {
 
         if (level.isWon()) {
             returnToMenu();
-            BasicGameSupport.updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths), level.getAchieveId());
+            updateStrategyMathsStars(level.getLives(), level.getRequestedLives(), stars, id, level.getRewardId(), super.getMainRunActivity(), super.getMainRunActivity().getString(R.string.maths), level.getAchieveId());
         }
 
         if (level.isGameOver()) {
@@ -85,7 +90,7 @@ public class MathsLevelsView extends GameView {
         levelRunning = false;
         level.getMusic().stop();
         try {
-            BitmapLoader.menuMusic.run();
+            menuMusic.run();
         } catch (IOException e) {
             e.printStackTrace();
         }

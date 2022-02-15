@@ -3,13 +3,12 @@ package com.glad.catuniverse.gameSupport.gameTime;
 import android.graphics.Bitmap;
 
 import com.glad.catuniverse.gameSupport.BasicGameSupport;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.CollisionDetectors;
 import com.glad.catuniverse.gameSupport.Collisions;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
-
+import static com.glad.catuniverse.gameSupport.BitmapLoader.keyBlue;
 import static com.glad.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Предметы, которые нужно собирать в ходе прохождения уровней. Они необходимы чтобы открывать двери, получать звезды и т.д.
@@ -30,7 +29,7 @@ public class TimeInventoryItem extends GameItem {
         this.bitmap = bitmap;
         picked = false;
         controlY = y;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.keyBlue, 5.4); //Т.к. размер подобных предметов примерно одинаков, для них задана общая длина соприкосновения
+        collLength = Collisions.collisionDetectLengthViaHeight(keyBlue, 5.4); //Т.к. размер подобных предметов примерно одинаков, для них задана общая длина соприкосновения
     }
 
     //Конструктор для объектов в мини-игре стратегических уровней "Ракета"
@@ -40,7 +39,7 @@ public class TimeInventoryItem extends GameItem {
         this.bitmap = bitmap;
         picked = false;
         controlY = y;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.keyBlue, 5.4);
+        collLength = Collisions.collisionDetectLengthViaHeight(keyBlue, 5.4);
         this.rocket = rocket;
         this.good = good;
         this.key = key;
@@ -53,7 +52,7 @@ public class TimeInventoryItem extends GameItem {
         this.spriteAnimation = spriteAnimation;
         picked = false;
         controlY = y;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.keyBlue, 5.4)/2;
+        collLength = Collisions.collisionDetectLengthViaHeight(keyBlue, 5.4)/2;
         this.rocket = rocket;
         this.good = good;
         this.key = key;
@@ -85,7 +84,7 @@ public class TimeInventoryItem extends GameItem {
         } else {
             x -= this.speed;
         }
-        collisionRect = Collisions.createCollisionsRect(x, y, BitmapLoader.keyBlue);
+        collisionRect = Collisions.createCollisionsRect(x, y, keyBlue);
         if (CollisionDetectors.checkPlayerItemCollision(this)) {
             picked = true;
         }

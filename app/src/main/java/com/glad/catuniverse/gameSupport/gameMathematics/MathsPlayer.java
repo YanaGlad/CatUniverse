@@ -8,8 +8,8 @@ import com.glad.catuniverse.gameSupport.GameView;
 import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
 import com.glad.catuniverse.gameSupport.Collisions;
-
-import static com.glad.catuniverse.gameSupport.Collisions.createCollisionsRect;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mathsPlayerSkeleton;
+import static com.glad.catuniverse.gameSupport.GameView.screenHeight;
 
 //"Игрок" в математических уровнях, который ловит выпадающие ответы
 public class MathsPlayer extends GameItem {
@@ -27,8 +27,8 @@ public class MathsPlayer extends GameItem {
         this.size = size;
         movingLeft = false;
         movingRight = false;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.mathsPlayerSkeleton, 2.7);
-        collisionRect = Collisions.createCollisionsRect(x, y, BitmapLoader.mathsPlayerSkeleton);
+        collLength = Collisions.collisionDetectLengthViaHeight(mathsPlayerSkeleton, 2.7);
+        collisionRect = Collisions.createCollisionsRect(x, y, mathsPlayerSkeleton);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MathsPlayer extends GameItem {
     @Override
     public void repaint() {
         //Если удержание пальцем слева/справа -  игрок движется в необходимую сторону, иначе - останавливается
-        if (mainRunActivity.getTouchListener().down(0, GameView.screenHeight, GameView.screenWidth, GameView.screenHeight)) {
+        if (mainRunActivity.getTouchListener().down(0, screenHeight, GameView.screenWidth, screenHeight)) {
             if (BasicGameSupport.movingRight(mainRunActivity)) {
                 movingRight = true;
                 movingLeft = false;
@@ -50,16 +50,16 @@ public class MathsPlayer extends GameItem {
                 movingLeft = true;
                 movingRight = false;
             }
-        } else if (mainRunActivity.getTouchListener().up(0, GameView.screenHeight, GameView.screenWidth, GameView.screenHeight)) {
+        } else if (mainRunActivity.getTouchListener().up(0, screenHeight, GameView.screenWidth, screenHeight)) {
             movingRight = false;
             movingLeft = false;
         }
 
         //Если игрок не выходит за пределы экрана - перемещаться влево/вправо
-        if (movingRight && x < 740 - BitmapLoader.mathsPlayerSkeleton.getWidth()) x += 10;
+        if (movingRight && x < 740 - mathsPlayerSkeleton.getWidth()) x += 10;
         if (movingLeft && x > -90) x -= 10;
 
-        collisionRect = Collisions.createCollisionsRect(x, y, BitmapLoader.mathsPlayerSkeleton);
+        collisionRect = Collisions.createCollisionsRect(x, y, mathsPlayerSkeleton);
     }
 
     @Override

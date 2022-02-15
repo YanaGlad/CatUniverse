@@ -1,5 +1,7 @@
 package com.glad.catuniverse.gameSupport.gameStrategy;
 
+import static com.glad.catuniverse.MainActivity.listOfCats;
+
 import android.graphics.Color;
 import androidx.annotation.Nullable;
 
@@ -289,8 +291,8 @@ public class StrategyField implements Loopable {
             }
             int a = random.nextInt(catId.length);
 
-            strategyEnemies.add(new StrategyEnemy(MainActivity.listOfCats.get(catId[a] - 1).getImageSet().getMoveLeft(),
-                    enemyX, enemyY, MainActivity.listOfCats.get(catId[a] - 1).getHealth(), reward, speed));
+            strategyEnemies.add(new StrategyEnemy(listOfCats.get(catId[a] - 1).getImageSet().getMoveLeft(),
+                    enemyX, enemyY, listOfCats.get(catId[a] - 1).getHealth(), reward, speed));
             enemyX += 300;
         }
     }

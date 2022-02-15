@@ -18,6 +18,8 @@ import com.glad.catuniverse.gameViews.general.ChooseView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+
+import static com.glad.catuniverse.gameSupport.BitmapLoader.heart;
 import static com.glad.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //Класс, от которого наследуются все уровни на время. Он задает базовые характеристики уровня
@@ -70,7 +72,7 @@ public abstract class TimeLevel implements Loopable {
 
         int hX = 430;
         for (int i = 0; i < lives; i++) {
-            gamePaint.setVisibleBitmap(BitmapLoader.heart, hX, 10);
+            gamePaint.setVisibleBitmap(heart, hX, 10);
             hX += 20;
         }
 

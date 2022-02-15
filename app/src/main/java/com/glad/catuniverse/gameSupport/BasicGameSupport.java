@@ -17,7 +17,6 @@ import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
 import com.glad.catuniverse.gameViews.general.CongratsView;
 import com.glad.catuniverse.gameViews.general.GameOverView;
 import com.glad.catuniverse.gameViews.levels.TimeLevelsView;
-import com.glad.catuniverse.gameSupport.graphics.PlayerManager;
 import java.io.IOException;
 import static com.glad.catuniverse.MainActivity.achievementCursor;
 import static com.glad.catuniverse.MainActivity.achievementDB;
@@ -80,6 +79,7 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightGreenAlien;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightMainCoon;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightOrange;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.walkRightShadow;
+import static com.glad.catuniverse.gameSupport.graphics.PlayerManager.timePlayer;
 
 //В данном классе хранятся статические функции и переменные для поддержки работы игры
 public class BasicGameSupport {
@@ -96,10 +96,10 @@ public class BasicGameSupport {
 
     //Обновляет экран по оси ординат относительно текущего положения игрока
     public static int updateMovesY(GameItem gameItem, double jumSpeed, int y) {
-        if (!PlayerManager.timePlayer.isRocketMode()) {
-            if (PlayerManager.timePlayer.isJumpingLimit()) {
-                if (PlayerManager.timePlayer.isJumping()) y += jumSpeed;
-                if (PlayerManager.timePlayer.isFalling() && !PlayerManager.timePlayer.isJumping()) y -= jumSpeed;
+        if (!timePlayer.isRocketMode()) {
+            if (timePlayer.isJumpingLimit()) {
+                if (timePlayer.isJumping()) y += jumSpeed;
+                if (timePlayer.isFalling() && !timePlayer.isJumping()) y -= jumSpeed;
             } else {
                 if (y < gameItem.getControlY()) y += jumSpeed;
                 if (y > gameItem.getControlY()) y -= jumSpeed;
@@ -118,19 +118,19 @@ public class BasicGameSupport {
 
     //Обновляет экран по оси абсцисс относительно текущего положения игрока
     public static int updateMovesX(double speedPlayer, int x) {
-        if (!PlayerManager.timePlayer.isCollisionDetectedRight())
-            if (PlayerManager.timePlayer.isMovingLeft() && TimePlayer.start >= -550) {
+        if (!timePlayer.isCollisionDetectedRight())
+            if (timePlayer.isMovingLeft() && TimePlayer.start >= -550) {
                 x += speedPlayer;
             }
 
-        if (!PlayerManager.timePlayer.isCollisionDetectedLeft() && TimePlayer.start >= -550)
-            if (PlayerManager.timePlayer.isMovingRight()) {
+        if (!timePlayer.isCollisionDetectedLeft() && TimePlayer.start >= -550)
+            if (timePlayer.isMovingRight()) {
                 x -= speedPlayer;
             }
 
         // if()
 
-        if (PlayerManager.timePlayer.isRocketMode()) {
+        if (timePlayer.isRocketMode()) {
             x -= 2000;
         }
         return x;
@@ -345,7 +345,7 @@ public class BasicGameSupport {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            PlayerManager.timePlayer.setRocketMode(false);
+            timePlayer.setRocketMode(false);
 
             gameView.getMainRunActivity().setView(new GameOverView(gameView.getMainRunActivity(), restart, gameView.getMainRunActivity().getString(R.string.time)));
 

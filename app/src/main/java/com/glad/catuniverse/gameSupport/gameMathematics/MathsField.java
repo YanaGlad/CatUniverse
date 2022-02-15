@@ -1,8 +1,9 @@
 package com.glad.catuniverse.gameSupport.gameMathematics;
 
+import static com.glad.catuniverse.gameSupport.BitmapLoader.menuMusic;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.movingMathsBackground;
 import android.graphics.Color;
 import androidx.annotation.Nullable;
-
 import com.glad.catuniverse.R;
 import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.CollisionDetectors;
@@ -11,7 +12,6 @@ import com.glad.catuniverse.gameSupport.MainRunActivity;
 import com.glad.catuniverse.gameSupport.Media;
 import com.glad.catuniverse.gameSupport.gameTime.MovingBackground;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -64,7 +64,7 @@ public class MathsField implements Loopable {
         this.achieveId = achieveId;
 
        // exit = new BasicButton(mainRunActivity, 730, 30, BitmapLoader.exitButton, BitmapLoader.exitButtonClicked, false);
-        movingBackground = new MovingBackground(BitmapLoader.movingMathsBackground, 1);
+        movingBackground = new MovingBackground(movingMathsBackground, 1);
         mathsPlayer = new MathsPlayer(mainRunActivity, theory.getQuestions().get(a), sizePlayer);
         mathsAnswers = new ArrayList<>();
 
@@ -83,7 +83,7 @@ public class MathsField implements Loopable {
     @Override
     public void run(GamePaint gamePaint) {
         repaint();
-       if(BitmapLoader.menuMusic.isRunning()) BitmapLoader.menuMusic.stop();
+       if(menuMusic.isRunning()) menuMusic.stop();
         try {
             music.run();
         } catch (IOException e) {

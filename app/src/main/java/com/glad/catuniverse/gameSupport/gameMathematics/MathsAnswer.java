@@ -1,7 +1,9 @@
 package com.glad.catuniverse.gameSupport.gameMathematics;
 
+import static com.glad.catuniverse.gameSupport.BitmapLoader.bullet;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mathAnswerSkeleton;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.mathsAnswer;
 import android.graphics.Color;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
 import com.glad.catuniverse.gameSupport.Collisions;
 import com.glad.catuniverse.gameSupport.GameItem;
 import com.glad.catuniverse.gameSupport.graphics.GamePaint;
@@ -23,8 +25,8 @@ public class MathsAnswer extends GameItem {
         this.x = x;
         this.y = -100 - stepY;
         this.size = size;
-        collLength = Collisions.collisionDetectLengthViaHeight(BitmapLoader.bullet, 2.5);
-        collisionRect = Collisions.createCollisionsRect(x, y, BitmapLoader.mathAnswerSkeleton);
+        collLength = Collisions.collisionDetectLengthViaHeight(bullet, 2.5);
+        collisionRect = Collisions.createCollisionsRect(x, y, mathAnswerSkeleton);
 
         //Массивы возможны ответов на различные темы.
         String[] square = {"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "121", "144", "169", "196", "194", "225", "256", "289", "324", "364", "361", "121"};
@@ -58,7 +60,7 @@ public class MathsAnswer extends GameItem {
     @Override
     public void run(GamePaint gamePaint) {
         repaint();
-        gamePaint.setVisibleBitmap(BitmapLoader.mathsAnswer, x, y); // Кружок для отображения ответа
+        gamePaint.setVisibleBitmap(mathsAnswer, x, y); // Кружок для отображения ответа
         int more = 1;
         int sizing = 1;
         if (expression.length() == 1 || expression.length() == 2) {
@@ -71,7 +73,7 @@ public class MathsAnswer extends GameItem {
     @Override
     public void repaint() {
         y += plus;
-        collisionRect = Collisions.createCollisionsRect(x, y, BitmapLoader.mathAnswerSkeleton);
+        collisionRect = Collisions.createCollisionsRect(x, y, mathAnswerSkeleton);
     }
 
     @Override

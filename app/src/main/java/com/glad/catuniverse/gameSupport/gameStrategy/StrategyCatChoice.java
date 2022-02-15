@@ -8,9 +8,11 @@ import static com.glad.catuniverse.gameSupport.BitmapLoader.greenAlienCatIcon;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.mainCoonCatIcon;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.orangeIcon;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.redAlienCatIcon;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.redTechnoBackground;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.shadowCatIcon;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.smallButtonRed;
 import static com.glad.catuniverse.gameSupport.BitmapLoader.smallButtonRedClicked;
+import static com.glad.catuniverse.gameSupport.BitmapLoader.strategyCatCount;
 
 import android.graphics.Color;
 
@@ -76,8 +78,8 @@ public class StrategyCatChoice implements Loopable {
             }
             oneTime = true;
         }
-        gamePaint.setVisibleBitmap(BitmapLoader.redTechnoBackground, 0, 0);
-        gamePaint.setVisibleBitmap(BitmapLoader.strategyCatCount, 590, 25);
+        gamePaint.setVisibleBitmap(redTechnoBackground, 0, 0);
+        gamePaint.setVisibleBitmap(strategyCatCount, 590, 25);
         gamePaint.write(countPlaces + "/5", 600, 115, Color.BLACK, 60);
 
         for (int i = 0; i < catStorage.size(); i++) {

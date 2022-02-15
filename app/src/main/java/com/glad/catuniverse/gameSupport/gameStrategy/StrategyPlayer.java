@@ -1,21 +1,27 @@
 package com.glad.catuniverse.gameSupport.gameStrategy;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import androidx.annotation.Nullable;
-
-import com.glad.catuniverse.R;
-import com.glad.catuniverse.gameSupport.BasicGameSupport;
-import com.glad.catuniverse.gameSupport.BitmapLoader;
-import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
-import com.glad.catuniverse.gameSupport.EasyTimer;
-import com.glad.catuniverse.gameSupport.GameItem;
-import com.glad.catuniverse.gameSupport.MainRunActivity;
-import com.glad.catuniverse.gameSupport.graphics.GamePaint;
-import com.glad.catuniverse.gameSupport.graphics.ImageSet;
-import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
-
-import java.util.ArrayList;
+import static com.glad.catuniverse.gameSupport.BasicGameSupport.grayStandRight;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.bullet;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.darkerDot;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightGray;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightGreenAlien;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightMainCoon;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightOrange;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.standRightShadow;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.strategyButton;
+        import static com.glad.catuniverse.gameSupport.BitmapLoader.strategyButtonClicked;
+        import android.graphics.Bitmap;
+        import android.graphics.Color;
+        import androidx.annotation.Nullable;
+        import com.glad.catuniverse.R;
+        import com.glad.catuniverse.gameSupport.Buttons.BasicButton;
+        import com.glad.catuniverse.gameSupport.EasyTimer;
+        import com.glad.catuniverse.gameSupport.GameItem;
+        import com.glad.catuniverse.gameSupport.MainRunActivity;
+        import com.glad.catuniverse.gameSupport.graphics.GamePaint;
+        import com.glad.catuniverse.gameSupport.graphics.ImageSet;
+        import com.glad.catuniverse.gameSupport.graphics.SpriteAnimation;
+        import java.util.ArrayList;
 
 public class StrategyPlayer extends GameItem {
 
@@ -49,11 +55,11 @@ public class StrategyPlayer extends GameItem {
 
         imageSets = new ArrayList<>();
 
-        SpriteAnimation grayStandRight = new SpriteAnimation(BitmapLoader.standRightGray),
-                orangeStandRight = new SpriteAnimation(BitmapLoader.standRightOrange),
-                greenAlienStandRight = new SpriteAnimation(BitmapLoader.standRightGreenAlien),
-                shadowStandRight = new SpriteAnimation(BitmapLoader.standRightShadow),
-                mainCoonStandRight = new SpriteAnimation(BitmapLoader.standRightMainCoon);
+        SpriteAnimation grayStandRight = new SpriteAnimation(standRightGray),
+                orangeStandRight = new SpriteAnimation(standRightOrange),
+                greenAlienStandRight = new SpriteAnimation(standRightGreenAlien),
+                shadowStandRight = new SpriteAnimation(standRightShadow),
+                mainCoonStandRight = new SpriteAnimation(standRightMainCoon);
 
         imageSets.add(new ImageSet(grayStandRight));
         imageSets.add(new ImageSet(orangeStandRight));
@@ -61,8 +67,8 @@ public class StrategyPlayer extends GameItem {
         imageSets.add(new ImageSet(shadowStandRight));
         imageSets.add(new ImageSet(mainCoonStandRight));
 
-        changeDelay = new BasicButton(mainRunActivity, 288, 525, mainRunActivity.getString(R.string.delay) + " " + delay, Color.WHITE, 25, BitmapLoader.strategyButton, BitmapLoader.strategyButtonClicked, 20, 45);
-        changePower = new BasicButton(mainRunActivity, 550, 525, mainRunActivity.getString(R.string.power) + " " + power, Color.WHITE, 25, BitmapLoader.strategyButton, BitmapLoader.strategyButtonClicked, 20, 45);
+        changeDelay = new BasicButton(mainRunActivity, 288, 525, mainRunActivity.getString(R.string.delay) + " " + delay, Color.WHITE, 25, strategyButton, strategyButtonClicked, 20, 45);
+        changePower = new BasicButton(mainRunActivity, 550, 525, mainRunActivity.getString(R.string.power) + " " + power, Color.WHITE, 25, strategyButton, strategyButtonClicked, 20, 45);
 
         easyTimer = new EasyTimer(); //Таймер для подсчёта времени задержек
         easyTimer.startTimer(); //
@@ -73,12 +79,12 @@ public class StrategyPlayer extends GameItem {
     @Override
     public void run(GamePaint gamePaint) {
         repaint();
-        if (availableForChoice) gamePaint.setVisibleBitmap(BitmapLoader.darkerDot, x, y);
+        if (availableForChoice) gamePaint.setVisibleBitmap(darkerDot, x, y);
         if (image != null) { //Игрок начинает работать только после покупки, до этого StrategyPlayer - просто пустая клетка, куда можно разместить персонажа
             image.getStandRight().run(gamePaint, x, y, 2); //Запуск анимации игрока
 
             if (easyTimer.timerDelay(delay)) { //Каждое delay секунд игрок стреляет
-                strategyBullets.add(new StrategyBullet(x, y, BitmapLoader.bullet));
+                strategyBullets.add(new StrategyBullet(x, y, bullet));
                 easyTimer.startTimer();
             }
 
@@ -97,9 +103,9 @@ public class StrategyPlayer extends GameItem {
     @Override
     public void repaint() {
         //Нажатие на клетку
-        if (mainRunActivity.getTouchListener().up(x, y + BasicGameSupport.grayStandRight.getSprite1().getHeight(),
-                BasicGameSupport.grayStandRight.getSprite1().getWidth(),
-                BasicGameSupport.grayStandRight.getSprite1().getHeight()))
+        if (mainRunActivity.getTouchListener().up(x, y + grayStandRight.getSprite1().getHeight(),
+                grayStandRight.getSprite1().getWidth(),
+                grayStandRight.getSprite1().getHeight()))
             clicked = !clicked;
 
         changeDelay.setText(mainRunActivity.getString(R.string.delay) + " " + delay);

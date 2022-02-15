@@ -1,6 +1,5 @@
 package com.glad.catuniverse.gameSupport.support;
 
-
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -57,7 +56,6 @@ public class TouchListener implements View.OnTouchListener {
                         swipeDown = true;
                         swipeUp = false;
                     }
-
                     break;
             }
         }
