@@ -3,7 +3,7 @@
 
 Download now:
 
-<img src = "https://myitschool.ru/wp-content/uploads/qr_code_cat_universe.png"/>
+<img src = "https://myitschool.ru/wp-content/uploads/qr_code_cat_universe.png?size=180x180&quality=96&sign=9b96f029c0bbc43631aac4a385a528b0&type=album"/>
 
 - You can add cats to rooms and try to collect them all! You may also get cat as a reward for some achivements
 
