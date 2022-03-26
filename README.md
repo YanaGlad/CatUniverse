@@ -1,6 +1,10 @@
 # CatUniverse
 🎮 Game for android users. Includes 3 types of levels : maths, strategy and time. Game Engine Lib: https://github.com/YanaGlad/GladGameEngineLib. You can use it for creating your own games. All arktwork for the game is created by me and is fully unique 
 
+Download now:
+
+<img src = "https://myitschool.ru/wp-content/uploads/qr_code_cat_universe.png"/>
+
 - You can add cats to rooms and try to collect them all! You may also get cat as a reward for some achivements
 
 <img src = "https://sun9-85.userapi.com/impg/C_UF5HnMqCcXy9tNkbe52UfYFWrr8bySs1eDcQ/QUE4FoiewEc.jpg?size=789x470&quality=96&sign=4f41dcc3928742e4802ba4b51dab65d1&type=album"/>
